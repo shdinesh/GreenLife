@@ -35,6 +35,7 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnExitLogin = new System.Windows.Forms.Button();
+            this.linkLabelRegister = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label1
@@ -99,11 +100,23 @@
             this.btnExitLogin.UseVisualStyleBackColor = true;
             this.btnExitLogin.Click += new System.EventHandler(this.btnExitLogin_Click);
             // 
+            // linkLabelRegister
+            // 
+            this.linkLabelRegister.AutoSize = true;
+            this.linkLabelRegister.Location = new System.Drawing.Point(154, 130);
+            this.linkLabelRegister.Name = "linkLabelRegister";
+            this.linkLabelRegister.Size = new System.Drawing.Size(46, 13);
+            this.linkLabelRegister.TabIndex = 7;
+            this.linkLabelRegister.TabStop = true;
+            this.linkLabelRegister.Text = "Register";
+            this.linkLabelRegister.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRegister_LinkClicked);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(590, 179);
+            this.Controls.Add(this.linkLabelRegister);
             this.Controls.Add(this.btnExitLogin);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnLogin);
@@ -129,5 +142,6 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnExitLogin;
+        private System.Windows.Forms.LinkLabel linkLabelRegister;
     }
 }

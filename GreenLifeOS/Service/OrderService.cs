@@ -73,6 +73,23 @@ namespace GreenLifeOS.Service
             }
         }
 
+        public List<OrderVo> GetAllOrdersByStatus(string status)
+        {
+            try
+            {
+                var orders = (orderRepository.GetAllOrders() ?? Enumerable.Empty<Order>())
+             .Where(o => o.Status == status)
+             .ToList();
+
+
+                return orders.Select(MapToOrderVo).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("An error occurred while retrieving orders. Please try again.", ex);
+            }
+        }
+
         public List<ProductVo> GetAllLineItems(int orderId)
         {
             try

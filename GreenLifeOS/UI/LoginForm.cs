@@ -1,4 +1,5 @@
 ﻿using GreenLifeOS.Service;
+using GreenLifeOS.Session;
 using System;
 using System.Windows.Forms;
 
@@ -49,6 +50,14 @@ namespace GreenLifeOS.UI
                 }
                 else if (userRole.Equals(UserRole.CUSTOMER.ToString()))
                 {
+                    AppSession.Start(new UserSessionData
+                    {
+                        UserId = user.Id,
+                        UserName = user.UserName,
+                        Role = user.UserRole,
+                        CustomerId = user.Customer?.Id,
+                        LoginTime = DateTime.Now
+                    });
                     CustomerMainForm frm = new CustomerMainForm();
                     frm.ShowDialog();
                 }
@@ -97,6 +106,11 @@ namespace GreenLifeOS.UI
                 buttons, MessageBoxIcon.Question);
         }
 
+        private void linkLabelRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CustomerRegistrationForm customerRegistration  = new CustomerRegistrationForm();
+            customerRegistration.ShowDialog();
+        }
     }
 
 

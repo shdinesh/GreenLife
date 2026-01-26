@@ -27,6 +27,7 @@ namespace GreenLifeOS.UI
         {
             try
             {
+                suppliersGV.AutoGenerateColumns = false;
                 suppliersGV.DataSource = null;
                 suppliersGV.DataSource = supplierService.GetAllSuppliers();
             }

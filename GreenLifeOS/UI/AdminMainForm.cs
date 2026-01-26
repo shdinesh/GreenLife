@@ -18,9 +18,9 @@ namespace GreenLifeOS
             activeControl = rightContent;
             rightContent.Dock = DockStyle.Fill;
 
-            panel1.Controls.Clear();
-            panel1.Controls.Add(rightContent);
-            panel1.Tag = rightContent;
+            panelRightControl.Controls.Clear();
+            panelRightControl.Controls.Add(rightContent);
+            panelRightControl.Tag = rightContent;
 
             rightContent.BringToFront();
             rightContent.Show();
@@ -37,13 +37,6 @@ namespace GreenLifeOS
             ProductCategoryForm productCategoryForm = new ProductCategoryForm();
             productCategoryForm.Show();
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            ProductsForm productsForm = new ProductsForm();
-            productsForm.Show();
-        }
-
       
         private void button3_Click(object sender, EventArgs e)
         {
@@ -72,6 +65,23 @@ namespace GreenLifeOS
                 Height = Parent.ClientSize.Height;
 
             }
+        }
+
+        private void btnAdminReports_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAdminOrders_Click(object sender, EventArgs e)
+        {
+            LoadChildForm(new AdminOrderControl());
+
+        }
+
+        private void btnAdminUsers_Click(object sender, EventArgs e)
+        {
+            LoadChildForm(new AdminUserControl());
+
         }
     }
 }

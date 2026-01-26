@@ -28,86 +28,103 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSupplier = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAdminDashboard = new System.Windows.Forms.Button();
+            this.btnAdminUsers = new System.Windows.Forms.Button();
+            this.panelRightControl = new System.Windows.Forms.Panel();
+            this.btnAdminInventory = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnAdminOrders = new System.Windows.Forms.Button();
+            this.btnAdminReports = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnSupplier
+            // btnAdminDashboard
             // 
-            this.btnSupplier.Location = new System.Drawing.Point(33, 17);
-            this.btnSupplier.Name = "btnSupplier";
-            this.btnSupplier.Size = new System.Drawing.Size(75, 23);
-            this.btnSupplier.TabIndex = 0;
-            this.btnSupplier.Text = "Supplier";
-            this.btnSupplier.UseVisualStyleBackColor = true;
-            this.btnSupplier.Click += new System.EventHandler(this.btnSupplier_Click);
+            this.btnAdminDashboard.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminDashboard.Location = new System.Drawing.Point(19, 28);
+            this.btnAdminDashboard.Name = "btnAdminDashboard";
+            this.btnAdminDashboard.Size = new System.Drawing.Size(133, 37);
+            this.btnAdminDashboard.TabIndex = 0;
+            this.btnAdminDashboard.Text = "Dashboard";
+            this.btnAdminDashboard.UseVisualStyleBackColor = true;
+            this.btnAdminDashboard.Click += new System.EventHandler(this.btnSupplier_Click);
             // 
-            // button1
+            // btnAdminUsers
             // 
-            this.button1.Location = new System.Drawing.Point(33, 64);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Category";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAdminUsers.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminUsers.Location = new System.Drawing.Point(19, 193);
+            this.btnAdminUsers.Name = "btnAdminUsers";
+            this.btnAdminUsers.Size = new System.Drawing.Size(133, 38);
+            this.btnAdminUsers.TabIndex = 2;
+            this.btnAdminUsers.Text = "Users";
+            this.btnAdminUsers.UseVisualStyleBackColor = true;
+            this.btnAdminUsers.Click += new System.EventHandler(this.btnAdminUsers_Click);
             // 
-            // button2
+            // panelRightControl
             // 
-            this.button2.Location = new System.Drawing.Point(33, 135);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Products";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.panelRightControl.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelRightControl.Location = new System.Drawing.Point(170, 0);
+            this.panelRightControl.Name = "panelRightControl";
+            this.panelRightControl.Size = new System.Drawing.Size(867, 510);
+            this.panelRightControl.TabIndex = 3;
+            this.panelRightControl.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panelRightControl.Resize += new System.EventHandler(this.panel1_Resize);
             // 
-            // panel1
+            // btnAdminInventory
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(187, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(850, 510);
-            this.panel1.TabIndex = 3;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            this.panel1.Resize += new System.EventHandler(this.panel1_Resize);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(33, 190);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "User Control";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnAdminInventory.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminInventory.Location = new System.Drawing.Point(19, 138);
+            this.btnAdminInventory.Name = "btnAdminInventory";
+            this.btnAdminInventory.Size = new System.Drawing.Size(133, 38);
+            this.btnAdminInventory.TabIndex = 4;
+            this.btnAdminInventory.Text = "Inventory";
+            this.btnAdminInventory.UseVisualStyleBackColor = true;
+            this.btnAdminInventory.Click += new System.EventHandler(this.button3_Click);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnSupplier);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.button1);
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.btnAdminOrders);
+            this.panel2.Controls.Add(this.btnAdminReports);
+            this.panel2.Controls.Add(this.btnAdminDashboard);
+            this.panel2.Controls.Add(this.btnAdminInventory);
+            this.panel2.Controls.Add(this.btnAdminUsers);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(190, 510);
+            this.panel2.Size = new System.Drawing.Size(172, 510);
             this.panel2.TabIndex = 4;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // DashboardForm
+            // btnAdminOrders
+            // 
+            this.btnAdminOrders.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminOrders.Location = new System.Drawing.Point(19, 81);
+            this.btnAdminOrders.Name = "btnAdminOrders";
+            this.btnAdminOrders.Size = new System.Drawing.Size(133, 38);
+            this.btnAdminOrders.TabIndex = 6;
+            this.btnAdminOrders.Text = "Orders";
+            this.btnAdminOrders.UseVisualStyleBackColor = true;
+            this.btnAdminOrders.Click += new System.EventHandler(this.btnAdminOrders_Click);
+            // 
+            // btnAdminReports
+            // 
+            this.btnAdminReports.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminReports.Location = new System.Drawing.Point(19, 248);
+            this.btnAdminReports.Name = "btnAdminReports";
+            this.btnAdminReports.Size = new System.Drawing.Size(133, 38);
+            this.btnAdminReports.TabIndex = 5;
+            this.btnAdminReports.Text = "Reports";
+            this.btnAdminReports.UseVisualStyleBackColor = true;
+            this.btnAdminReports.Click += new System.EventHandler(this.btnAdminReports_Click);
+            // 
+            // AdminMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1037, 510);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Name = "DashboardForm";
+            this.Controls.Add(this.panelRightControl);
+            this.Name = "AdminMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.panel2.ResumeLayout(false);
@@ -117,12 +134,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnSupplier;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAdminDashboard;
+        private System.Windows.Forms.Button btnAdminUsers;
+        private System.Windows.Forms.Panel panelRightControl;
+        private System.Windows.Forms.Button btnAdminInventory;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnAdminReports;
+        private System.Windows.Forms.Button btnAdminOrders;
     }
 }
 

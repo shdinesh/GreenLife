@@ -53,6 +53,12 @@
             this.btnDeleteStock = new System.Windows.Forms.Button();
             this.btnAddNewStock = new System.Windows.Forms.Button();
             this.stocksGV = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnUpdateProductCategory = new System.Windows.Forms.Button();
             this.btnDeleteProductCategory = new System.Windows.Forms.Button();
@@ -63,12 +69,11 @@
             this.btnDeleteSupplier = new System.Windows.Forms.Button();
             this.suppliersGV = new System.Windows.Forms.DataGridView();
             this.btnNewSupplier = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Supplier = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SupplierName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SupplierAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SupplierEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PhoneNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inventoryTabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsGV)).BeginInit();
@@ -186,6 +191,7 @@
             // 
             // productsGV
             // 
+            this.productsGV.AllowUserToAddRows = false;
             this.productsGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.productsGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productsGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -340,6 +346,49 @@
             this.stocksGV.Size = new System.Drawing.Size(836, 429);
             this.stocksGV.TabIndex = 32;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // Product
+            // 
+            this.Product.DataPropertyName = "Product";
+            this.Product.HeaderText = "Product";
+            this.Product.Name = "Product";
+            this.Product.ReadOnly = true;
+            // 
+            // Quantity
+            // 
+            this.Quantity.DataPropertyName = "Quantity";
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            // 
+            // Supplier
+            // 
+            this.Supplier.DataPropertyName = "Supplier";
+            this.Supplier.HeaderText = "Supplier";
+            this.Supplier.Name = "Supplier";
+            this.Supplier.ReadOnly = true;
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "Date";
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.btnUpdateProductCategory);
@@ -435,8 +484,15 @@
             // 
             // suppliersGV
             // 
+            this.suppliersGV.AllowUserToAddRows = false;
             this.suppliersGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.suppliersGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.suppliersGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SupplierId,
+            this.SupplierName,
+            this.SupplierAddress,
+            this.SupplierEmail,
+            this.PhoneNo});
             this.suppliersGV.Location = new System.Drawing.Point(3, 16);
             this.suppliersGV.MultiSelect = false;
             this.suppliersGV.Name = "suppliersGV";
@@ -456,48 +512,40 @@
             this.btnNewSupplier.UseVisualStyleBackColor = true;
             this.btnNewSupplier.Click += new System.EventHandler(this.btnNewSupplier_Click);
             // 
-            // dataGridViewTextBoxColumn1
+            // SupplierId
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
+            this.SupplierId.DataPropertyName = "Id";
+            this.SupplierId.HeaderText = "Supplier ID";
+            this.SupplierId.Name = "SupplierId";
+            this.SupplierId.ReadOnly = true;
             // 
-            // Product
+            // SupplierName
             // 
-            this.Product.DataPropertyName = "Product";
-            this.Product.HeaderText = "Product";
-            this.Product.Name = "Product";
-            this.Product.ReadOnly = true;
+            this.SupplierName.DataPropertyName = "Name";
+            this.SupplierName.HeaderText = "Name";
+            this.SupplierName.Name = "SupplierName";
+            this.SupplierName.ReadOnly = true;
             // 
-            // Quantity
+            // SupplierAddress
             // 
-            this.Quantity.DataPropertyName = "Quantity";
-            this.Quantity.HeaderText = "Quantity";
-            this.Quantity.Name = "Quantity";
-            this.Quantity.ReadOnly = true;
+            this.SupplierAddress.DataPropertyName = "Address";
+            this.SupplierAddress.HeaderText = "Address";
+            this.SupplierAddress.Name = "SupplierAddress";
+            this.SupplierAddress.ReadOnly = true;
             // 
-            // Supplier
+            // SupplierEmail
             // 
-            this.Supplier.DataPropertyName = "Supplier";
-            this.Supplier.HeaderText = "Supplier";
-            this.Supplier.Name = "Supplier";
-            this.Supplier.ReadOnly = true;
+            this.SupplierEmail.DataPropertyName = "Email";
+            this.SupplierEmail.HeaderText = "Email";
+            this.SupplierEmail.Name = "SupplierEmail";
+            this.SupplierEmail.ReadOnly = true;
             // 
-            // Date
+            // PhoneNo
             // 
-            this.Date.DataPropertyName = "Date";
-            this.Date.HeaderText = "Date";
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "Price";
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
+            this.PhoneNo.DataPropertyName = "Phone";
+            this.PhoneNo.HeaderText = "Phone Number";
+            this.PhoneNo.Name = "PhoneNo";
+            this.PhoneNo.ReadOnly = true;
             // 
             // InventoryControl
             // 
@@ -564,5 +612,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Supplier;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SupplierId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SupplierName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SupplierAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SupplierEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNo;
     }
 }

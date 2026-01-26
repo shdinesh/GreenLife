@@ -1,8 +1,6 @@
-﻿using GreenLifeOS.Model;
-using GreenLifeOS.Service;
+﻿using GreenLifeOS.Service;
 using GreenLifeOS.Session;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -10,15 +8,13 @@ using System.Windows.Forms;
 
 namespace GreenLifeOS.UI
 {
-    public partial class CustomerOrderControl : UserControl
+    public partial class AdminUserControl : UserControl
     {
-        private readonly IOrderService orderService;
         private BindingList<ProductVo> orderProducts;
         private IProductService productService;
 
-        public CustomerOrderControl()
+        public AdminUserControl()
         {
-            orderService = new OrderService();
             orderProducts = new BindingList<ProductVo>();
             productService = new ProductService();
             orderProducts.ListChanged += OrderItems_ListChanged;
@@ -48,29 +44,12 @@ namespace GreenLifeOS.UI
 
         private void loadOrderItems()
         {
-            orderItemsGV.AutoGenerateColumns = false;
-            orderItemsGV.DataSource = orderProducts;
+            //orderItemsGV.AutoGenerateColumns = false;
+            //orderItemsGV.DataSource = orderProducts;
 
         }
 
-        private void btnRemoveOrderItem_Click(object sender, EventArgs e)
-        {
-            if (orderItemsGV.CurrentRow?.DataBoundItem is ProductVo product)
-            {
-                string message = "Are you sure you want to remove this item?";
-                string caption = "Confirmation";
-                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-
-                DialogResult result = ShowConfirmationDialog(caption, message, buttons);
-
-                if (result == DialogResult.Yes)
-                {
-                    orderProducts.Remove(product);
-                    loadOrderItems();
-                }
-            }
-        }
-
+       
         private void ShowErrorMessage(string title, string message)
         {
             MessageBox.Show(this, message, title,
@@ -90,8 +69,8 @@ namespace GreenLifeOS.UI
 
         private void OrderItems_ListChanged(object sender, ListChangedEventArgs e)
         {
-            btnPlaceOrder.Enabled = orderProducts.Count > 0;
-            double discount = 0.00;
+            //btnPlaceOrder.Enabled = orderProducts.Count > 0;
+            /*double discount = 0.00;
             if (!double.TryParse(txtDiscount.Text.Trim(), out discount))
             {
                 MessageBox.Show("Please enter a valid discount percentage.",
@@ -101,8 +80,8 @@ namespace GreenLifeOS.UI
                 return;
             }
 
-            double finalAmount = CalculateFinalAmount(orderProducts, discount);
-            lblOrderTotalAmount.Text = finalAmount.ToString("N2");
+            double finalAmount = CalculateFinalAmount(orderProducts, discount);*/
+            //lblOrderTotalAmount.Text = finalAmount.ToString("N2");
         }
 
         private double CalculateFinalAmount(IEnumerable<ProductVo> products, double discountPercent)
@@ -114,40 +93,7 @@ namespace GreenLifeOS.UI
             return finalAmount;
         }
 
-        private void btnPlaceOrder_Click(object sender, EventArgs e)
-        {
-            double orderAmount = 0;
-            try
-            {
-                if (!double.TryParse(lblOrderTotalAmount.Text.Trim(), out orderAmount))
-                {
-                    MessageBox.Show("Please enter a valid number.",
-                                    "Invalid Input",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Warning);
-                    return;
-                }
-                var order = new Order()
-                {
-                    Date = DateTime.Now,
-                    Amount = orderAmount,
-                    Status = OrderStatus.PENDING.ToString(),
-                    CustomerId = AppSession.CurrentUser.UserId
-
-                };
-                AddNewOrder(order);
-
-            }
-            catch (Exception ex)
-            {
-                LogError($"Error saving product category", ex);
-                ShowErrorMessage("Error", "An error occurred while saving the product category. Please try again. " + ex.Message);
-            }
-            finally
-            {
-                resetOrderForm();
-            }
-        }
+        
 
         private void AddNewOrder(Order order)
         {
@@ -155,7 +101,7 @@ namespace GreenLifeOS.UI
             {
                 List<OrderItem> orderItems = mapOrderItems();
                 order.OrderItems = orderItems;
-                orderService.AddNewOrder(order);
+                //orderService.AddNewOrder(order);
                 productService.decreaseAvailableStock(orderItems);
 
                 ShowSuccessMessage("Success", "Order placed successfully");
@@ -169,23 +115,23 @@ namespace GreenLifeOS.UI
 
         private void customerOrderTabs_TabIndexChanged(object sender, EventArgs e)
         {
-            switch (customerOrderTabs.SelectedIndex)
-            {
-                case 0:
-                    break;
-                case 1:
-                    reloadOrders();
-                    break;
-            }
+            //switch (customerOrderTabs.SelectedIndex)
+            //{
+            //    case 0:
+            //        break;
+            //    case 1:
+            //        reloadOrders();
+            //        break;
+            //}
         }
 
         private void reloadOrders()
         {
             try
             {
-                ordersListGV.AutoGenerateColumns = false;
-                ordersListGV.DataSource = null;
-                ordersListGV.DataSource = orderService.GetAllOrders();
+                //ordersListGV.AutoGenerateColumns = false;
+                //ordersListGV.DataSource = null;
+                //ordersListGV.DataSource = orderService.GetAllOrders();
             }
             catch (Exception ex)
             {
@@ -198,9 +144,9 @@ namespace GreenLifeOS.UI
         {
             try
             {
-                orderLineItemsGV.AutoGenerateColumns = false;
-                orderLineItemsGV.DataSource = null;
-                orderLineItemsGV.DataSource = orderService.GetAllLineItems(OrderId);
+                //orderLineItemsGV.AutoGenerateColumns = false;
+                //orderLineItemsGV.DataSource = null;
+                //orderLineItemsGV.DataSource = orderService.GetAllLineItems(OrderId);
             }
             catch (Exception ex)
             {
@@ -220,7 +166,7 @@ namespace GreenLifeOS.UI
         {
             orderProducts.Clear();
             loadOrderItems();
-            lblOrderTotalAmount.Text = "0.00";
+            //lblOrderTotalAmount.Text = "0.00";
         }
 
         private List<OrderItem> mapOrderItems()
@@ -238,10 +184,10 @@ namespace GreenLifeOS.UI
 
         private void ordersListGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (ordersListGV.CurrentRow?.DataBoundItem is OrderVo orderVo)
-            {
-                reloadOrderItems(orderVo.OrderId);
-            }
+            //if (ordersListGV.CurrentRow?.DataBoundItem is OrderVo orderVo)
+            //{
+            //    reloadOrderItems(orderVo.OrderId);
+            //}
 
         }
     }

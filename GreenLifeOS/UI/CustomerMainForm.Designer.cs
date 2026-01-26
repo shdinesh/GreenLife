@@ -39,9 +39,10 @@
             // 
             // btnCustomerDashBoard
             // 
-            this.btnCustomerDashBoard.Location = new System.Drawing.Point(33, 17);
+            this.btnCustomerDashBoard.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnCustomerDashBoard.Location = new System.Drawing.Point(19, 28);
             this.btnCustomerDashBoard.Name = "btnCustomerDashBoard";
-            this.btnCustomerDashBoard.Size = new System.Drawing.Size(75, 23);
+            this.btnCustomerDashBoard.Size = new System.Drawing.Size(133, 37);
             this.btnCustomerDashBoard.TabIndex = 0;
             this.btnCustomerDashBoard.Text = "Dashboard";
             this.btnCustomerDashBoard.UseVisualStyleBackColor = true;
@@ -49,9 +50,10 @@
             // 
             // btnCustomerOrders
             // 
-            this.btnCustomerOrders.Location = new System.Drawing.Point(33, 64);
+            this.btnCustomerOrders.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnCustomerOrders.Location = new System.Drawing.Point(19, 83);
             this.btnCustomerOrders.Name = "btnCustomerOrders";
-            this.btnCustomerOrders.Size = new System.Drawing.Size(75, 23);
+            this.btnCustomerOrders.Size = new System.Drawing.Size(133, 37);
             this.btnCustomerOrders.TabIndex = 1;
             this.btnCustomerOrders.Text = "Orders";
             this.btnCustomerOrders.UseVisualStyleBackColor = true;
@@ -59,9 +61,10 @@
             // 
             // btnCustomerProfile
             // 
-            this.btnCustomerProfile.Location = new System.Drawing.Point(33, 135);
+            this.btnCustomerProfile.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnCustomerProfile.Location = new System.Drawing.Point(19, 138);
             this.btnCustomerProfile.Name = "btnCustomerProfile";
-            this.btnCustomerProfile.Size = new System.Drawing.Size(75, 23);
+            this.btnCustomerProfile.Size = new System.Drawing.Size(133, 37);
             this.btnCustomerProfile.TabIndex = 2;
             this.btnCustomerProfile.Text = "Profile";
             this.btnCustomerProfile.UseVisualStyleBackColor = true;
@@ -69,19 +72,19 @@
             // 
             // panel1
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(187, 0);
+            this.panel1.Location = new System.Drawing.Point(172, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(850, 510);
+            this.panel1.Size = new System.Drawing.Size(865, 510);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.Resize += new System.EventHandler(this.panel1_Resize);
             // 
             // btnCustomerSettings
             // 
-            this.btnCustomerSettings.Location = new System.Drawing.Point(33, 190);
+            this.btnCustomerSettings.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnCustomerSettings.Location = new System.Drawing.Point(19, 195);
             this.btnCustomerSettings.Name = "btnCustomerSettings";
-            this.btnCustomerSettings.Size = new System.Drawing.Size(75, 23);
+            this.btnCustomerSettings.Size = new System.Drawing.Size(133, 37);
             this.btnCustomerSettings.TabIndex = 4;
             this.btnCustomerSettings.Text = "Settings";
             this.btnCustomerSettings.UseVisualStyleBackColor = true;
@@ -96,7 +99,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(190, 510);
+            this.panel2.Size = new System.Drawing.Size(171, 510);
             this.panel2.TabIndex = 4;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 

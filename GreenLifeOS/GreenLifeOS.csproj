@@ -170,6 +170,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Session\AppSession.cs" />
+    <Compile Include="Session\UserSessionData.cs" />
     <Compile Include="UI\CustomerMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,6 +229,18 @@
     <Compile Include="Service\ProductCategoryService.cs" />
     <Compile Include="Service\UserService.cs" />
     <Compile Include="Service\SupplierService.cs" />
+    <Compile Include="UI\AdminOrderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\AdminOrderControl.Designer.cs">
+      <DependentUpon>AdminOrderControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AdminUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\AdminUserControl.Designer.cs">
+      <DependentUpon>AdminUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\CustomerRegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,7 +314,6 @@
       <DependentUpon>CustomerOrderControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\TextBoxPlaceholder.cs" />
-    <Compile Include="Util\PasswordHasher.cs" />
     <EmbeddedResource Include="UI\CustomerMainForm.resx">
       <DependentUpon>CustomerMainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -317,6 +330,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\AdminOrderControl.resx">
+      <DependentUpon>AdminOrderControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AdminUserControl.resx">
+      <DependentUpon>AdminUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\CustomerRegistrationForm.resx">
       <DependentUpon>CustomerRegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -382,6 +401,7 @@
   <ItemGroup>
     <None Include="Resources\GLOS1.PNG" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

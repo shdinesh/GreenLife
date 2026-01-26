@@ -84,7 +84,7 @@ namespace GreenLifeOS.UI
             this.customerOrderTabs.Location = new System.Drawing.Point(0, 0);
             this.customerOrderTabs.Name = "customerOrderTabs";
             this.customerOrderTabs.SelectedIndex = 0;
-            this.customerOrderTabs.Size = new System.Drawing.Size(847, 507);
+            this.customerOrderTabs.Size = new System.Drawing.Size(858, 507);
             this.customerOrderTabs.TabIndex = 0;
             this.customerOrderTabs.SelectedIndexChanged += new System.EventHandler(this.customerOrderTabs_TabIndexChanged);
             this.customerOrderTabs.TabIndexChanged += new System.EventHandler(this.customerOrderTabs_TabIndexChanged);
@@ -104,7 +104,7 @@ namespace GreenLifeOS.UI
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(839, 481);
+            this.tabPage1.Size = new System.Drawing.Size(850, 481);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "New Order";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -183,9 +183,9 @@ namespace GreenLifeOS.UI
             this.lblCurrentDate.AutoSize = true;
             this.lblCurrentDate.Location = new System.Drawing.Point(100, 20);
             this.lblCurrentDate.Name = "lblCurrentDate";
-            this.lblCurrentDate.Size = new System.Drawing.Size(114, 13);
+            this.lblCurrentDate.Size = new System.Drawing.Size(117, 13);
             this.lblCurrentDate.TabIndex = 2;
-            this.lblCurrentDate.Text = DateTime.Now.ToString();
+            this.lblCurrentDate.Text = "1/26/2026 9:05:13 AM";
             // 
             // label1
             // 

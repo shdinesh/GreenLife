@@ -14,9 +14,9 @@ namespace GreenLifeOS
         {
             Application.EnableVisualStyles();
            // Application.SetCompatibleTextRenderingDefault(false);
-           // Application.Run(new AdminMainForm());
+            Application.Run(new AdminMainForm());
             //Application.Run(new CustomerMainForm());
-            Application.Run(new LoginForm());
+            //Application.Run(new LoginForm());
 
         }
     }
