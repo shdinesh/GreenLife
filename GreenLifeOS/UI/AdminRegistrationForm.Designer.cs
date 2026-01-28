@@ -1,6 +1,6 @@
 ﻿namespace GreenLifeOS.UI
 {
-    partial class CustomerRegistrationForm
+    partial class AdminRegistrationForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,22 +29,20 @@
         private void InitializeComponent()
         {
             this.btnClearFields = new System.Windows.Forms.Button();
-            this.btnRegisterCustomer = new System.Windows.Forms.Button();
-            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.btnRegisterAdmin = new System.Windows.Forms.Button();
+            this.txtAdminUsername = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.txtAdminPassword = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtCustomerAddress = new System.Windows.Forms.TextBox();
-            this.txtCustomerPhoneNumber = new System.Windows.Forms.TextBox();
+            this.txtAdminPhoneNumber = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtCustomerEmail = new System.Windows.Forms.TextBox();
+            this.txtAdminEmail = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtCustomerLastName = new System.Windows.Forms.TextBox();
+            this.txtAdminLastName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtCustomerFirstName = new System.Windows.Forms.TextBox();
+            this.txtAdminFirstName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -60,22 +58,22 @@
             this.btnClearFields.UseVisualStyleBackColor = true;
             this.btnClearFields.Click += new System.EventHandler(this.btnSupClear_Click);
             // 
-            // btnRegisterCustomer
+            // btnRegisterAdmin
             // 
-            this.btnRegisterCustomer.Location = new System.Drawing.Point(234, 337);
-            this.btnRegisterCustomer.Name = "btnRegisterCustomer";
-            this.btnRegisterCustomer.Size = new System.Drawing.Size(68, 23);
-            this.btnRegisterCustomer.TabIndex = 19;
-            this.btnRegisterCustomer.Text = "Save";
-            this.btnRegisterCustomer.UseVisualStyleBackColor = true;
-            this.btnRegisterCustomer.Click += new System.EventHandler(this.btnRegisterCustomer_Click);
+            this.btnRegisterAdmin.Location = new System.Drawing.Point(234, 337);
+            this.btnRegisterAdmin.Name = "btnRegisterAdmin";
+            this.btnRegisterAdmin.Size = new System.Drawing.Size(68, 23);
+            this.btnRegisterAdmin.TabIndex = 19;
+            this.btnRegisterAdmin.Text = "Save";
+            this.btnRegisterAdmin.UseVisualStyleBackColor = true;
+            this.btnRegisterAdmin.Click += new System.EventHandler(this.btnRegisterAdmin_Click);
             // 
-            // txtUsername
+            // txtAdminUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(120, 19);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(251, 20);
-            this.txtUsername.TabIndex = 30;
+            this.txtAdminUsername.Location = new System.Drawing.Point(120, 19);
+            this.txtAdminUsername.Name = "txtAdminUsername";
+            this.txtAdminUsername.Size = new System.Drawing.Size(251, 20);
+            this.txtAdminUsername.TabIndex = 30;
             // 
             // label6
             // 
@@ -86,13 +84,13 @@
             this.label6.TabIndex = 29;
             this.label6.Text = "Username";
             // 
-            // txtPassword
+            // txtAdminPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(120, 56);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(251, 20);
-            this.txtPassword.TabIndex = 32;
+            this.txtAdminPassword.Location = new System.Drawing.Point(120, 56);
+            this.txtAdminPassword.Name = "txtAdminPassword";
+            this.txtAdminPassword.PasswordChar = '*';
+            this.txtAdminPassword.Size = new System.Drawing.Size(251, 20);
+            this.txtAdminPassword.TabIndex = 32;
             // 
             // label7
             // 
@@ -105,8 +103,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtUsername);
-            this.groupBox1.Controls.Add(this.txtPassword);
+            this.groupBox1.Controls.Add(this.txtAdminUsername);
+            this.groupBox1.Controls.Add(this.txtAdminPassword);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Location = new System.Drawing.Point(5, 227);
@@ -117,15 +115,13 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.txtCustomerAddress);
-            this.groupBox2.Controls.Add(this.txtCustomerPhoneNumber);
+            this.groupBox2.Controls.Add(this.txtAdminPhoneNumber);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.txtCustomerEmail);
+            this.groupBox2.Controls.Add(this.txtAdminEmail);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.txtCustomerLastName);
+            this.groupBox2.Controls.Add(this.txtAdminLastName);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.txtCustomerFirstName);
+            this.groupBox2.Controls.Add(this.txtAdminFirstName);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Location = new System.Drawing.Point(5, 4);
             this.groupBox2.Name = "groupBox2";
@@ -133,29 +129,12 @@
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
             // 
-            // label5
+            // txtAdminPhoneNumber
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(22, 155);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 13);
-            this.label5.TabIndex = 38;
-            this.label5.Text = "Address";
-            // 
-            // txtCustomerAddress
-            // 
-            this.txtCustomerAddress.Location = new System.Drawing.Point(119, 153);
-            this.txtCustomerAddress.Multiline = true;
-            this.txtCustomerAddress.Name = "txtCustomerAddress";
-            this.txtCustomerAddress.Size = new System.Drawing.Size(251, 41);
-            this.txtCustomerAddress.TabIndex = 37;
-            // 
-            // txtCustomerPhoneNumber
-            // 
-            this.txtCustomerPhoneNumber.Location = new System.Drawing.Point(119, 119);
-            this.txtCustomerPhoneNumber.Name = "txtCustomerPhoneNumber";
-            this.txtCustomerPhoneNumber.Size = new System.Drawing.Size(251, 20);
-            this.txtCustomerPhoneNumber.TabIndex = 36;
+            this.txtAdminPhoneNumber.Location = new System.Drawing.Point(119, 119);
+            this.txtAdminPhoneNumber.Name = "txtAdminPhoneNumber";
+            this.txtAdminPhoneNumber.Size = new System.Drawing.Size(251, 20);
+            this.txtAdminPhoneNumber.TabIndex = 36;
             // 
             // label4
             // 
@@ -166,12 +145,12 @@
             this.label4.TabIndex = 35;
             this.label4.Text = "Phone No.";
             // 
-            // txtCustomerEmail
+            // txtAdminEmail
             // 
-            this.txtCustomerEmail.Location = new System.Drawing.Point(119, 85);
-            this.txtCustomerEmail.Name = "txtCustomerEmail";
-            this.txtCustomerEmail.Size = new System.Drawing.Size(251, 20);
-            this.txtCustomerEmail.TabIndex = 34;
+            this.txtAdminEmail.Location = new System.Drawing.Point(119, 85);
+            this.txtAdminEmail.Name = "txtAdminEmail";
+            this.txtAdminEmail.Size = new System.Drawing.Size(251, 20);
+            this.txtAdminEmail.TabIndex = 34;
             // 
             // label3
             // 
@@ -182,12 +161,12 @@
             this.label3.TabIndex = 33;
             this.label3.Text = "Email";
             // 
-            // txtCustomerLastName
+            // txtAdminLastName
             // 
-            this.txtCustomerLastName.Location = new System.Drawing.Point(119, 52);
-            this.txtCustomerLastName.Name = "txtCustomerLastName";
-            this.txtCustomerLastName.Size = new System.Drawing.Size(251, 20);
-            this.txtCustomerLastName.TabIndex = 32;
+            this.txtAdminLastName.Location = new System.Drawing.Point(119, 52);
+            this.txtAdminLastName.Name = "txtAdminLastName";
+            this.txtAdminLastName.Size = new System.Drawing.Size(251, 20);
+            this.txtAdminLastName.TabIndex = 32;
             // 
             // label2
             // 
@@ -198,12 +177,12 @@
             this.label2.TabIndex = 31;
             this.label2.Text = "Last Name";
             // 
-            // txtCustomerFirstName
+            // txtAdminFirstName
             // 
-            this.txtCustomerFirstName.Location = new System.Drawing.Point(119, 19);
-            this.txtCustomerFirstName.Name = "txtCustomerFirstName";
-            this.txtCustomerFirstName.Size = new System.Drawing.Size(251, 20);
-            this.txtCustomerFirstName.TabIndex = 30;
+            this.txtAdminFirstName.Location = new System.Drawing.Point(119, 19);
+            this.txtAdminFirstName.Name = "txtAdminFirstName";
+            this.txtAdminFirstName.Size = new System.Drawing.Size(251, 20);
+            this.txtAdminFirstName.TabIndex = 30;
             // 
             // label1
             // 
@@ -214,7 +193,7 @@
             this.label1.TabIndex = 29;
             this.label1.Text = "First name";
             // 
-            // CustomerRegistrationForm
+            // AdminRegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -222,11 +201,10 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnClearFields);
-            this.Controls.Add(this.btnRegisterCustomer);
-            this.Name = "CustomerRegistrationForm";
+            this.Controls.Add(this.btnRegisterAdmin);
+            this.Name = "AdminRegistrationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Register New Customer";
-            this.Load += new System.EventHandler(this.CustomerRegistrationForm_Load);
+            this.Text = "Register New Admin";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -238,22 +216,20 @@
         #endregion
 
         private System.Windows.Forms.Button btnClearFields;
-        private System.Windows.Forms.Button btnRegisterCustomer;
-        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Button btnRegisterAdmin;
+        private System.Windows.Forms.TextBox txtAdminUsername;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.TextBox txtAdminPassword;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtCustomerAddress;
-        private System.Windows.Forms.TextBox txtCustomerPhoneNumber;
+        private System.Windows.Forms.TextBox txtAdminPhoneNumber;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtCustomerEmail;
+        private System.Windows.Forms.TextBox txtAdminEmail;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtCustomerLastName;
+        private System.Windows.Forms.TextBox txtAdminLastName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtCustomerFirstName;
+        private System.Windows.Forms.TextBox txtAdminFirstName;
         private System.Windows.Forms.Label label1;
     }
 }

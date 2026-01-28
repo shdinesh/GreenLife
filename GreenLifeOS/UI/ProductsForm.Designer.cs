@@ -42,7 +42,7 @@ namespace GreenLifeOS.UI
             this.SellingPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AvailableStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbProductCategory = new System.Windows.Forms.ComboBox();
             this.txtSearchProduct = new System.Windows.Forms.TextBox();
             this.txtMinPrice = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -134,21 +134,24 @@ namespace GreenLifeOS.UI
             this.AvailableStock.Name = "AvailableStock";
             this.AvailableStock.ReadOnly = true;
             // 
-            // comboBox1
+            // cmbProductCategory
             // 
-            this.comboBox1.FormattingEnabled = true;
-            resources.ApplyResources(this.comboBox1, "comboBox1");
-            this.comboBox1.Name = "comboBox1";
+            this.cmbProductCategory.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbProductCategory, "cmbProductCategory");
+            this.cmbProductCategory.Name = "cmbProductCategory";
+            this.cmbProductCategory.SelectedValueChanged += new System.EventHandler(this.comboBox1_SelectedValueChanged);
             // 
             // txtSearchProduct
             // 
             resources.ApplyResources(this.txtSearchProduct, "txtSearchProduct");
             this.txtSearchProduct.Name = "txtSearchProduct";
+            this.txtSearchProduct.TextChanged += new System.EventHandler(this.txtSearchProduct_TextChanged);
             // 
             // txtMinPrice
             // 
             resources.ApplyResources(this.txtMinPrice, "txtMinPrice");
             this.txtMinPrice.Name = "txtMinPrice";
+            this.txtMinPrice.TextChanged += new System.EventHandler(this.txtMinPrice_TextChanged);
             // 
             // label1
             // 
@@ -159,6 +162,7 @@ namespace GreenLifeOS.UI
             // 
             resources.ApplyResources(this.txtMaxPrice, "txtMaxPrice");
             this.txtMaxPrice.Name = "txtMaxPrice";
+            this.txtMaxPrice.TextChanged += new System.EventHandler(this.txtMaxPrice_TextChanged);
             // 
             // txtPurchaseQuantity
             // 
@@ -180,7 +184,7 @@ namespace GreenLifeOS.UI
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtMinPrice);
             this.Controls.Add(this.txtSearchProduct);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cmbProductCategory);
             this.Controls.Add(this.productsGV);
             this.Controls.Add(this.btnAddToOrder);
             this.Name = "ProductsForm";
@@ -194,7 +198,7 @@ namespace GreenLifeOS.UI
         #endregion
         private System.Windows.Forms.Button btnAddToOrder;
         private System.Windows.Forms.DataGridView productsGV;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbProductCategory;
         private System.Windows.Forms.TextBox txtSearchProduct;
         private System.Windows.Forms.TextBox txtMinPrice;
         private System.Windows.Forms.Label label1;

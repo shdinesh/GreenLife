@@ -1,8 +1,6 @@
-﻿using GreenLifeOS.Model;
-using GreenLifeOS.Service;
+﻿using GreenLifeOS.Service;
 using GreenLifeOS.Session;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -132,7 +130,8 @@ namespace GreenLifeOS.UI
                     Date = DateTime.Now,
                     Amount = orderAmount,
                     Status = OrderStatus.PENDING.ToString(),
-                    CustomerId = AppSession.CurrentUser.UserId
+                    CustomerId = AppSession.CurrentUser.UserId,
+                    LastUpdated = DateTime.Now,
 
                 };
                 AddNewOrder(order);
@@ -169,6 +168,7 @@ namespace GreenLifeOS.UI
 
         private void customerOrderTabs_TabIndexChanged(object sender, EventArgs e)
         {
+            reloadOrders();
             switch (customerOrderTabs.SelectedIndex)
             {
                 case 0:

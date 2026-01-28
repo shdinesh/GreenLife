@@ -63,10 +63,12 @@ namespace GreenLifeOS.UI
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ordersListGV = new System.Windows.Forms.DataGridView();
             this.OrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrderDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastUpdated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerOrderTabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.orderItemsGV)).BeginInit();
@@ -283,7 +285,7 @@ namespace GreenLifeOS.UI
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(839, 481);
+            this.tabPage2.Size = new System.Drawing.Size(850, 481);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Order History";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -385,10 +387,12 @@ namespace GreenLifeOS.UI
             this.ordersListGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ordersListGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OrderId,
+            this.OrderNumber,
             this.Customer,
             this.OrderDate,
             this.Amount,
-            this.Status});
+            this.Status,
+            this.LastUpdated});
             this.ordersListGV.Location = new System.Drawing.Point(6, 19);
             this.ordersListGV.Name = "ordersListGV";
             this.ordersListGV.ReadOnly = true;
@@ -403,6 +407,13 @@ namespace GreenLifeOS.UI
             this.OrderId.HeaderText = "Order ID";
             this.OrderId.Name = "OrderId";
             this.OrderId.ReadOnly = true;
+            // 
+            // OrderNumber
+            // 
+            this.OrderNumber.DataPropertyName = "OrderNumber";
+            this.OrderNumber.HeaderText = "Order Number";
+            this.OrderNumber.Name = "OrderNumber";
+            this.OrderNumber.ReadOnly = true;
             // 
             // Customer
             // 
@@ -431,6 +442,13 @@ namespace GreenLifeOS.UI
             this.Status.HeaderText = "Status";
             this.Status.Name = "Status";
             this.Status.ReadOnly = true;
+            // 
+            // LastUpdated
+            // 
+            this.LastUpdated.DataPropertyName = "LastUpdated";
+            this.LastUpdated.HeaderText = "Last Updated";
+            this.LastUpdated.Name = "LastUpdated";
+            this.LastUpdated.ReadOnly = true;
             // 
             // CustomerOrderControl
             // 
@@ -467,6 +485,17 @@ namespace GreenLifeOS.UI
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDiscount;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView ordersListGV;
+        private System.Windows.Forms.DataGridView orderLineItemsGV;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemSellingPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LineItemTotal2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn CategoryId;
         private System.Windows.Forms.DataGridViewTextBoxColumn pName;
@@ -475,21 +504,12 @@ namespace GreenLifeOS.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn SellingPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn PurchaseQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn LineItemTotal;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView ordersListGV;
-        private System.Windows.Forms.DataGridView orderLineItemsGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemSellingPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LineItemTotal2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdated;
     }
 }

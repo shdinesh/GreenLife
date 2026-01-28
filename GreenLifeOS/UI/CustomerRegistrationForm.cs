@@ -1,6 +1,5 @@
 ﻿using GreenLifeOS.Service;
 using System;
-using BCrypt.Net;
 using System.Windows.Forms;
 
 namespace GreenLifeOS.UI
@@ -8,13 +7,14 @@ namespace GreenLifeOS.UI
     public partial class CustomerRegistrationForm : Form
     {
         private readonly ICustomerService customerService;
-        private static string ROLE = "CUSTOMER";
+        private Customer editableCustomer;
 
 
-        public CustomerRegistrationForm(ProductCategory editableProductCategory)
+        public CustomerRegistrationForm(Customer editableCustomer)
         {
             InitializeComponent();
             customerService = new CustomerService();
+            this.editableCustomer = editableCustomer;
 
         }
 
@@ -66,16 +66,24 @@ namespace GreenLifeOS.UI
                     Email = txtCustomerEmail.Text,
                     Address = txtCustomerAddress.Text,
                     PhoneNumber = txtCustomerPhoneNumber.Text,
-                    User = new User()
+
+                };
+
+                if (editableCustomer == null)
+                {
+                    newCustomer.User = new User()
                     {
                         UserName = txtUsername.Text,
                         Password = BCrypt.Net.BCrypt.HashPassword(txtPassword.Text),
-                        UserRole = ROLE,
-                    }
+                        UserRole = UserRole.CUSTOMER.ToString(),
+                    };
+                    RegisterNewCustomer(newCustomer);
+                }
+                else
+                {
 
-                };
-                RegisterNewCustomer(newCustomer);
-
+                    UpdateCustomer(newCustomer);
+                }
             }
             catch (Exception ex)
             {
@@ -104,6 +112,43 @@ namespace GreenLifeOS.UI
         private void LogError(string message, Exception ex)
         {
             System.Diagnostics.Debug.WriteLine($"{message}: {ex.Message}");
+        }
+
+        private void CustomerRegistrationForm_Load(object sender, EventArgs e)
+        {
+            if (editableCustomer != null)
+            {
+                txtCustomerFirstName.Text = editableCustomer.FirstName;
+                txtCustomerLastName.Text = editableCustomer.LastName;
+                txtCustomerEmail.Text = editableCustomer.Email;
+                txtCustomerAddress.Text = editableCustomer.Address;
+                txtCustomerPhoneNumber.Text = editableCustomer.PhoneNumber;
+                txtUsername.Enabled = false;
+                txtPassword.Enabled = false;
+            }
+        }
+
+        private void UpdateCustomer(Customer customer)
+        {
+            try
+            {
+                customer = mapCustomerValues(customer);
+                customerService.UpdateCustomer(customer);
+                ShowSuccessMessage("Success", "Customer updated successfully");
+            }
+            catch (Exception ex)
+            {
+                ShowErrorMessage("Error", "An error occurred while updating the customer. Please try again. " + ex.Message);
+            }
+        }
+
+        private Customer mapCustomerValues(Customer customer)
+        {
+            customer.Id = editableCustomer.Id;
+            customer.User = editableCustomer.User;
+            customer.Orders = editableCustomer.Orders;
+            customer.UserId = editableCustomer.UserId;
+            return customer;
         }
     }
 }

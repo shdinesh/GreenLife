@@ -170,8 +170,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Admin.cs" />
+    <Compile Include="Repository\AdminRepository.cs" />
+    <Compile Include="Repository\IAdminRepository.cs" />
+    <Compile Include="Service\AdminService.cs" />
+    <Compile Include="Service\IAdminService.cs" />
     <Compile Include="Session\AppSession.cs" />
     <Compile Include="Session\UserSessionData.cs" />
+    <Compile Include="UI\CustomerDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\CustomerDashboard.Designer.cs">
+      <DependentUpon>CustomerDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\CustomerMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +252,18 @@
     <Compile Include="UI\AdminUserControl.Designer.cs">
       <DependentUpon>AdminUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\AdminRegistrationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\AdminRegistrationForm.Designer.cs">
+      <DependentUpon>AdminRegistrationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AdminDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\AdminDashboard.Designer.cs">
+      <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\CustomerRegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,6 +293,12 @@
     </Compile>
     <Compile Include="UI\AddUpdateSupplierForm.Designer.cs">
       <DependentUpon>AddUpdateSupplierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UpdateOrderStatusForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UpdateOrderStatusForm.Designer.cs">
+      <DependentUpon>UpdateOrderStatusForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\LoginForm.cs">
       <SubType>Form</SubType>
@@ -314,6 +343,9 @@
       <DependentUpon>CustomerOrderControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\TextBoxPlaceholder.cs" />
+    <EmbeddedResource Include="UI\CustomerDashboard.resx">
+      <DependentUpon>CustomerDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\CustomerMainForm.resx">
       <DependentUpon>CustomerMainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -336,6 +368,12 @@
     <EmbeddedResource Include="UI\AdminUserControl.resx">
       <DependentUpon>AdminUserControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\AdminRegistrationForm.resx">
+      <DependentUpon>AdminRegistrationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AdminDashboard.resx">
+      <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\CustomerRegistrationForm.resx">
       <DependentUpon>CustomerRegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -353,6 +391,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\CustomerOrderControl.resx">
       <DependentUpon>CustomerOrderControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UpdateOrderStatusForm.resx">
+      <DependentUpon>UpdateOrderStatusForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>

@@ -112,5 +112,16 @@ namespace GreenLifeOS.UI
         {
             reloadOrders();
         }
+
+        private void btnChangeOrderStatus_Click(object sender, EventArgs e)
+        {
+            if (ordersListGV.CurrentRow?.DataBoundItem is OrderVo orderVo)
+            {
+                UpdateOrderStatusForm updateOrderStatus = new UpdateOrderStatusForm(orderVo);
+                updateOrderStatus.ShowDialog();
+                reloadOrders();
+            }
+
+        }
     }
 }

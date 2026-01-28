@@ -1,5 +1,6 @@
 ﻿using Google.Protobuf.WellKnownTypes;
 using GreenLifeOS.Service;
+using GreenLifeOS.Utils;
 using System;
 using System.Windows.Forms;
 
@@ -9,17 +10,23 @@ namespace GreenLifeOS.UI
     {
         public event Action<ProductVo> ProductSelected;
         private readonly IProductService productService;
+        private readonly IProductCategoryService productCategoryService;
 
 
         public ProductsForm()
         {
             InitializeComponent();
             productService = new ProductService();
+            productCategoryService = new ProductCategoryService();
         }
 
         private void ProductsForm_Load(object sender, EventArgs e)
         {
             reloadProducts();
+            loadProductCategories();
+            this.cmbProductCategory.SelectedIndex = -1;
+
+
         }
 
         private void reloadProducts()
@@ -29,6 +36,62 @@ namespace GreenLifeOS.UI
                 productsGV.AutoGenerateColumns = false;
                 productsGV.DataSource = null;
                 productsGV.DataSource = productService.GetAllProducts();
+            }
+            catch (Exception ex)
+            {
+                LogError($"Error loading products", ex);
+                ShowErrorMessage("Error", "An error occurred while loading products. Please try again. " + ex.Message);
+            }
+
+        }
+
+        private void loadProductCategories()
+        {
+            try
+            {
+                var categories = productCategoryService.GetAllProductCategories();
+                categories.Insert(0, new ProductCategory
+                {
+                    Id = 0,
+                    Name = "All"
+                });
+
+                cmbProductCategory.DataSource = null;
+                cmbProductCategory.DataSource = categories;
+                cmbProductCategory.DisplayMember = "Name";
+                cmbProductCategory.ValueMember = "Id";
+
+            }
+            catch (Exception ex)
+            {
+                LogError($"Error loading product categories", ex);
+                ShowErrorMessage("Error", "An error occurred while loading product categories. Please try again. " + ex.Message);
+            }
+        }
+
+        private void searchProducts()
+        {
+            try
+            {
+                int categoryId = 0;
+                double minPrice;
+                double maxPrice;
+                if (cmbProductCategory.SelectedValue != null &&
+                    int.TryParse(cmbProductCategory.SelectedValue.ToString(), out int id))
+                    categoryId = id;
+
+
+                string productName = txtSearchProduct.Text ?? "";
+
+                if (!double.TryParse(txtMinPrice.Text.Trim(), out minPrice))
+                    minPrice = 0;
+
+                if (!double.TryParse(txtMaxPrice.Text.Trim(), out maxPrice))
+                    maxPrice = 0;
+
+                productsGV.AutoGenerateColumns = false;
+                productsGV.DataSource = null;
+                productsGV.DataSource = productService.SearchProduct(categoryId, productName, minPrice, maxPrice);
             }
             catch (Exception ex)
             {
@@ -118,5 +181,26 @@ namespace GreenLifeOS.UI
                 this.Close();
             }
         }
+        private void txtSearchProduct_TextChanged(object sender, EventArgs e)
+        {
+            searchProducts();
+        }
+
+        private void txtMinPrice_TextChanged(object sender, EventArgs e)
+        {
+            searchProducts();
+        }
+
+        private void txtMaxPrice_TextChanged(object sender, EventArgs e)
+        {
+            searchProducts();
+
+        }
+
+        private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            searchProducts();
+        }
     }
+
 }

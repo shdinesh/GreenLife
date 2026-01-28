@@ -25,7 +25,23 @@ namespace GreenLifeOS.Repository
                 .FirstOrDefault(s => s.UserName == username);
         }
 
-       
+        public bool DeleteUser(int id)
+        {
+            var user = GetUserById(id);
+            if (user == null)
+                throw new ArgumentException($"User with ID {id} not found.", nameof(id));
+
+            this.dbContext.Users.Remove(user);
+            this.dbContext.SaveChanges();
+            return true;
+        }
+
+        public User GetUserById(int id)
+        {
+            return this.dbContext.Users
+                .FirstOrDefault(s => s.Id == id);
+        }
+
         public void Dispose()
         {
             Dispose(true);

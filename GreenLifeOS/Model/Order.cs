@@ -21,6 +21,12 @@ namespace GreenLifeOS
         [Column("status")]
         public string Status { get; set; }
 
+        [Column("order_number")]
+        public string OrderNumber { get; set; }
+
+        [Column("last_updated")]
+        public DateTime? LastUpdated { get; set; }
+
         // Foreign Key
         [Column("customer_id")]
         public int? CustomerId { get; set; }

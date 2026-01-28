@@ -73,6 +73,21 @@ namespace GreenLifeOS.Service
             }
         }
 
+        public List<ProductVo> SearchProduct(int categoryId, string name, double minPrice, double maxPrice)
+        {
+            try
+            {
+                var products = productRepository.SearchProduct(categoryId, name, minPrice,maxPrice)
+                               ?? Enumerable.Empty<Product>();
+
+                return products.Select(MapToProductVo).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("An error occurred while retrieving products. Please try again.", ex);
+            }
+        }
+
         private static ProductVo MapToProductVo(Product product)
         {
             if (product == null)

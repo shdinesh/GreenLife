@@ -18,10 +18,8 @@ namespace GreenLifeOS
         [Column("role")]
         public string UserRole { get; set; }
 
-
-
-
         public virtual Customer Customer { get; set; }
+        public virtual Admin Admin { get; set; }
 
     }
 }

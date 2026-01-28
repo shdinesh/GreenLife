@@ -144,6 +144,26 @@ namespace GreenLifeOS.Service
             }
         }
 
+        public Order UpdateOrderStatus(OrderVo orderVo)
+        {
+            try
+            {
+                var existingOrder = GetOrderById(orderVo.OrderId);
+                if (existingOrder == null)
+                    throw new ArgumentException($"Order with ID {orderVo.OrderId} not found.", nameof(orderVo.OrderId));
+
+                existingOrder.Status = orderVo.Status;
+                existingOrder.LastUpdated = DateTime.Now;
+
+                var result = orderRepository.UpdateOrder(existingOrder);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("An error occurred while updating the order. Please try again.", ex);
+            }
+        }
+
 
         private ValidationResult ValidateOrder(Order order)
         {
@@ -161,9 +181,11 @@ namespace GreenLifeOS.Service
             {
                 OrderId = order.Id,
                 OrderDate = order.Date.ToString(),
-                Customer = order.Customer.FirstName,
+                Customer = order.Customer?.FirstName,
                 Amount = order.Amount,
-                Status = order.Status
+                Status = order.Status,
+                OrderNumber = order.OrderNumber,
+                LastUpdated = order.LastUpdated.ToString(),
             };
         }
         private static ProductVo MapToProductVo(OrderItem orderItem)
@@ -175,8 +197,8 @@ namespace GreenLifeOS.Service
             {
                 Id = orderItem.OrderId,
                 LineItemId = orderItem.Id,
-                Name = orderItem.Product.Name,
-                Code = orderItem.Product.Code,
+                Name = orderItem.Product?.Name,
+                Code = orderItem.Product?.Code,
                 SellingPrice = orderItem.SellingPrice,
                 PurchaseQuantity = orderItem.OrderQty,
                 Discount = orderItem.Discount

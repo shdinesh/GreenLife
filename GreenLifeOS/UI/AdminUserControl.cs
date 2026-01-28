@@ -1,55 +1,24 @@
 ﻿using GreenLifeOS.Service;
-using GreenLifeOS.Session;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace GreenLifeOS.UI
 {
     public partial class AdminUserControl : UserControl
     {
-        private BindingList<ProductVo> orderProducts;
-        private IProductService productService;
+        private ICustomerService customerService;
+        private IUserService userService;
+        private IAdminService adminService;
 
         public AdminUserControl()
         {
-            orderProducts = new BindingList<ProductVo>();
-            productService = new ProductService();
-            orderProducts.ListChanged += OrderItems_ListChanged;
+            customerService = new CustomerService();
+            adminService = new AdminService();
+            userService = new UserService();
             InitializeComponent();
         }
 
-        private void btnAddOrderItem_Click(object sender, EventArgs e)
-        {
-            var child = new ProductsForm();
-
-            child.ProductSelected += product =>
-            {
-                bool exists = orderProducts.Any(p => p.Id == product.Id);
-
-                if (exists)
-                {
-                    MessageBox.Show("Product already exists.");
-                    return;
-                }
-                orderProducts.Add(product);
-                loadOrderItems();
-            };
-
-            child.Show();
-
-        }
-
-        private void loadOrderItems()
-        {
-            //orderItemsGV.AutoGenerateColumns = false;
-            //orderItemsGV.DataSource = orderProducts;
-
-        }
-
-       
         private void ShowErrorMessage(string title, string message)
         {
             MessageBox.Show(this, message, title,
@@ -67,91 +36,34 @@ namespace GreenLifeOS.UI
             System.Diagnostics.Debug.WriteLine($"{message}: {ex.Message}");
         }
 
-        private void OrderItems_ListChanged(object sender, ListChangedEventArgs e)
-        {
-            //btnPlaceOrder.Enabled = orderProducts.Count > 0;
-            /*double discount = 0.00;
-            if (!double.TryParse(txtDiscount.Text.Trim(), out discount))
-            {
-                MessageBox.Show("Please enter a valid discount percentage.",
-                                "Invalid Input",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Warning);
-                return;
-            }
-
-            double finalAmount = CalculateFinalAmount(orderProducts, discount);*/
-            //lblOrderTotalAmount.Text = finalAmount.ToString("N2");
-        }
-
-        private double CalculateFinalAmount(IEnumerable<ProductVo> products, double discountPercent)
-        {
-            if (products == null) return 0;
-
-            double total = products.Sum(p => p.LineItemTotal);
-            double finalAmount = total - (total * discountPercent / 100);
-            return finalAmount;
-        }
-
-        
-
-        private void AddNewOrder(Order order)
+        private void reloadAllCustomers()
         {
             try
             {
-                List<OrderItem> orderItems = mapOrderItems();
-                order.OrderItems = orderItems;
-                //orderService.AddNewOrder(order);
-                productService.decreaseAvailableStock(orderItems);
-
-                ShowSuccessMessage("Success", "Order placed successfully");
+                customersGV.AutoGenerateColumns = false;
+                customersGV.DataSource = null;
+                customersGV.DataSource = customerService.GetAllCustomers();
             }
             catch (Exception ex)
             {
-                LogError($"Error saving order", ex);
-                ShowErrorMessage("Error", "An error occurred while placing the order. Please try again. " + ex.Message);
+                LogError($"Error loading customers", ex);
+                ShowErrorMessage("Error", "An error occurred while loading customers. Please try again. " + ex.Message);
             }
+
         }
 
-        private void customerOrderTabs_TabIndexChanged(object sender, EventArgs e)
-        {
-            //switch (customerOrderTabs.SelectedIndex)
-            //{
-            //    case 0:
-            //        break;
-            //    case 1:
-            //        reloadOrders();
-            //        break;
-            //}
-        }
-
-        private void reloadOrders()
+        private void reloadAllAdmins()
         {
             try
             {
-                //ordersListGV.AutoGenerateColumns = false;
-                //ordersListGV.DataSource = null;
-                //ordersListGV.DataSource = orderService.GetAllOrders();
+                adminsGV.AutoGenerateColumns = false;
+                adminsGV.DataSource = null;
+                adminsGV.DataSource = adminService.GetAllAdmins();
             }
             catch (Exception ex)
             {
-                LogError($"Error loading orders", ex);
-                ShowErrorMessage("Error", "An error occurred while loading orders. Please try again. " + ex.Message);
-            }
-
-        }
-        private void reloadOrderItems(int OrderId)
-        {
-            try
-            {
-                //orderLineItemsGV.AutoGenerateColumns = false;
-                //orderLineItemsGV.DataSource = null;
-                //orderLineItemsGV.DataSource = orderService.GetAllLineItems(OrderId);
-            }
-            catch (Exception ex)
-            {
-                LogError($"Error loading orders", ex);
-                ShowErrorMessage("Error", "An error occurred while loading orders. Please try again. " + ex.Message);
+                LogError($"Error loading customers", ex);
+                ShowErrorMessage("Error", "An error occurred while loading customers. Please try again. " + ex.Message);
             }
 
         }
@@ -162,33 +74,67 @@ namespace GreenLifeOS.UI
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void resetOrderForm()
+        private void btnUpdateCustomer_Click(object sender, EventArgs e)
         {
-            orderProducts.Clear();
-            loadOrderItems();
-            //lblOrderTotalAmount.Text = "0.00";
+            if (customersGV.CurrentRow?.DataBoundItem is Customer customer)
+            {
+                CustomerRegistrationForm customerRegistration = new CustomerRegistrationForm(customer);
+                customerRegistration.ShowDialog();
+                reloadAllCustomers();
+            }
         }
 
-        private List<OrderItem> mapOrderItems()
+        private void AdminUserControl_Load(object sender, EventArgs e)
         {
-            return orderProducts
-             .Select(p => new OrderItem
-             {
-                 ProductId = p.Id,
-                 OrderQty = p.PurchaseQuantity,
-                 SellingPrice = p.SellingPrice,
-                 Discount = p.Discount ?? 0.00,
-             })
-             .ToList();
+            reloadAllCustomers();
         }
 
-        private void ordersListGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btnDeleteCustomer_Click(object sender, EventArgs e)
         {
-            //if (ordersListGV.CurrentRow?.DataBoundItem is OrderVo orderVo)
-            //{
-            //    reloadOrderItems(orderVo.OrderId);
-            //}
+            if (customersGV.CurrentRow?.DataBoundItem is Customer customer)
+            {
+                try
+                {
+                    string message = "Are you sure you want to delete this Customer?";
+                    string caption = "Confirmation";
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
 
+                    DialogResult result = ShowConfirmationDialog(caption, message, buttons);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        int customerId = customer.Id;
+                        customerService.DeleteCustomer(customerId);
+                        userService.DeleteUser(customer.User.Id);
+                        reloadAllCustomers();
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    LogError($"Error deleting customer ID {customer.Id}", ex);
+                    ShowErrorMessage("Error", "An error occurred while deleting the customer. Please try again. " + ex.Message);
+                }
+            }
+        }
+        private void adminUsersTabs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (adminUsersTabs.SelectedIndex)
+            {
+                case 0:
+                    reloadAllCustomers();
+                    break;
+                case 1:
+                    reloadAllAdmins();
+                    break;
+            }
+        }
+
+        private void btnNewAdmin_Click(object sender, EventArgs e)
+        {
+            AdminRegistrationForm adminRegistration = new AdminRegistrationForm();
+            adminRegistration.ShowDialog();
+            reloadAllAdmins();
         }
     }
 }

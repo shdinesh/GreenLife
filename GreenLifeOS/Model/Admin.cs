@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GreenLifeOS
 {
-    [Table("customer")]
-    public class Customer
+    [Table("admin")]
+    public class Admin
     {
         [Column("id")]
         public int Id { get; set; }
@@ -22,12 +21,8 @@ namespace GreenLifeOS
         [Required, MaxLength(16)]
         public string PhoneNumber { get; set; }
 
-        [Required, MaxLength(150)]
-        public string Address { get; set; }
-
         [MaxLength(100)]
         public string Email { get; set; }
-
 
         [Key]
         [ForeignKey(nameof(User))]
@@ -35,8 +30,6 @@ namespace GreenLifeOS
         public int UserId { get; set; }
 
         public virtual User User { get; set; }
-
-        public virtual ICollection<Order> Orders { get; set; }
 
 
 

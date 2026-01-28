@@ -57,6 +57,25 @@ namespace GreenLifeOS.Repository
                 .ToList();
         }
 
+        public List<Product> SearchProduct(int categoryId, string name, double minPrice, double maxPrice)
+        {
+            IQueryable<Product> query = dbContext.Products.AsNoTracking();
+
+            if (categoryId > 0)
+                query = query.Where(p => p.CategoryId == categoryId);
+
+            if (!string.IsNullOrWhiteSpace(name))
+                query = query.Where(p => p.Name.Contains(name));
+
+            if (minPrice > 0)
+                query = query.Where(p => p.SellingPrice >= minPrice);
+
+            if (maxPrice > 0)
+                query = query.Where(p => p.SellingPrice <= maxPrice);
+
+            return query.ToList();
+        }
+
         public Product GetProductById(int id)
         {
             return this.dbContext.Products

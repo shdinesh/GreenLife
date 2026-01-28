@@ -39,7 +39,7 @@ namespace GreenLifeOS.UI
 
         }
 
-        private void reloadProductCategories()
+        private void loadProductCategoriesToGV()
         {
             try
             {
@@ -49,10 +49,34 @@ namespace GreenLifeOS.UI
             }
             catch (Exception ex)
             {
-                LogError($"Error loading product categorys", ex);
-                ShowErrorMessage("Error", "An error occurred while loading product categorys. Please try again. " + ex.Message);
+                LogError($"Error loading product categories", ex);
+                ShowErrorMessage("Error", "An error occurred while loading product categories. Please try again. " + ex.Message);
             }
 
+        }
+
+        private void loadProductCategoriesToCmb()
+        {
+            try
+            {
+                var categories = productCategoryService.GetAllProductCategories();
+                categories.Insert(0, new ProductCategory
+                {
+                    Id = 0,
+                    Name = "All"
+                });
+
+                cmbProductCategories.DataSource = null;
+                cmbProductCategories.DataSource = categories;
+                cmbProductCategories.DisplayMember = "Name";
+                cmbProductCategories.ValueMember = "Id";
+
+            }
+            catch (Exception ex)
+            {
+                LogError($"Error loading product categories", ex);
+                ShowErrorMessage("Error", "An error occurred while loading product categories. Please try again. " + ex.Message);
+            }
         }
 
         private void reloadProducts()
@@ -62,6 +86,38 @@ namespace GreenLifeOS.UI
                 productsGV.AutoGenerateColumns = false;
                 productsGV.DataSource = null;
                 productsGV.DataSource = productService.GetAllProducts();
+            }
+            catch (Exception ex)
+            {
+                LogError($"Error loading products", ex);
+                ShowErrorMessage("Error", "An error occurred while loading products. Please try again. " + ex.Message);
+            }
+
+        }
+
+        private void searchProducts()
+        {
+            try
+            {
+                int categoryId = 0;
+                double minPrice;
+                double maxPrice;
+                if (cmbProductCategories.SelectedValue != null &&
+                    int.TryParse(cmbProductCategories.SelectedValue.ToString(), out int id))
+                    categoryId = id;
+
+
+                string productName = txtSearchProduct.Text ?? "";
+
+                if (!double.TryParse(txtMinPrice.Text.Trim(), out minPrice))
+                    minPrice = 0;
+
+                if (!double.TryParse(txtMaxPrice.Text.Trim(), out maxPrice))
+                    maxPrice = 0;
+
+                productsGV.AutoGenerateColumns = false;
+                productsGV.DataSource = null;
+                productsGV.DataSource = productService.SearchProduct(categoryId, productName, minPrice, maxPrice);
             }
             catch (Exception ex)
             {
@@ -81,8 +137,8 @@ namespace GreenLifeOS.UI
             }
             catch (Exception ex)
             {
-                LogError($"Error loading products", ex);
-                //ShowErrorMessage("Error", "An error occurred while loading products. Please try again. " + ex.Message);
+                LogError($"Error loading stocks", ex);
+                ShowErrorMessage("Error", "An error occurred while loading stocks. Please try again. " + ex.Message);
             }
 
         }
@@ -101,12 +157,7 @@ namespace GreenLifeOS.UI
 
         private void LogError(string message, Exception ex)
         {
-            // In a real application, use a proper logging framework
-            // For now, we'll write to debug output
             System.Diagnostics.Debug.WriteLine($"{message}: {ex.Message}");
-
-            // Could also write to a log file or use a logging service
-            // Logger.LogError(message, ex);
         }
 
         private void inventoryTabs_SelectedIndexChanged(object sender, EventArgs e)
@@ -122,7 +173,7 @@ namespace GreenLifeOS.UI
                     break;
 
                 case 2:
-                    reloadProductCategories();
+                    loadProductCategoriesToGV();
                     break;
                 case 3:
                     reloadSuppliers();
@@ -177,12 +228,11 @@ namespace GreenLifeOS.UI
             }
         }
 
-
         private void btnNewProductCategory_Click(object sender, EventArgs e)
         {
             AddUpdateProductCategoryForm addUpdateProductCategoryForm = new AddUpdateProductCategoryForm();
             addUpdateProductCategoryForm.ShowDialog();
-            reloadProductCategories();
+            loadProductCategoriesToGV();
         }
 
         private void btnUpdateProductCategory_Click(object sender, EventArgs e)
@@ -192,7 +242,7 @@ namespace GreenLifeOS.UI
             {
                 AddUpdateProductCategoryForm addUpdateProductCategoryForm = new AddUpdateProductCategoryForm(productCategory);
                 addUpdateProductCategoryForm.ShowDialog();
-                reloadProductCategories();
+                loadProductCategoriesToGV();
             }
         }
 
@@ -213,7 +263,7 @@ namespace GreenLifeOS.UI
 
                         int supId = productCategory.Id;
                         productCategoryService.DeleteProductCategory(supId);
-                        reloadProductCategories();
+                        loadProductCategoriesToGV();
                     }
 
                 }
@@ -228,7 +278,8 @@ namespace GreenLifeOS.UI
 
         private void InventoryControl_Load(object sender, EventArgs e)
         {
-                reloadProducts();
+            reloadProducts();
+            loadProductCategoriesToCmb();
         }
 
         private void btnNewProduct_Click(object sender, EventArgs e)
@@ -319,8 +370,28 @@ namespace GreenLifeOS.UI
             {
                 AddUpdateStockForm addUpdateStockForm = new AddUpdateStockForm(stockVo);
                 addUpdateStockForm.ShowDialog();
-                reloadProductCategories();
+                loadProductCategoriesToGV();
             }
+        }
+
+        private void txtSearchProduct_TextChanged(object sender, EventArgs e)
+        {
+            searchProducts();
+        }
+
+        private void txtMinPrice_TextChanged(object sender, EventArgs e)
+        {
+            searchProducts();
+        }
+
+        private void txtMaxPrice_TextChanged(object sender, EventArgs e)
+        {
+            searchProducts();
+        }
+
+        private void cmbProductCategories_SelectedValueChanged(object sender, EventArgs e)
+        {
+            searchProducts();
         }
     }
 }

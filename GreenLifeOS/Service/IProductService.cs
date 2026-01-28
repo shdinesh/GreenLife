@@ -12,6 +12,9 @@ namespace GreenLifeOS.Service
         void increaseAvailableStock(Stock stock);
         void decreaseAvailableStock(List<OrderItem> orderItems);
 
+        List<ProductVo> SearchProduct(int categoryId, string name, double minPrice, double maxPrice);
+
+
 
     }
 }

@@ -5,6 +5,8 @@ namespace GreenLifeOS.Service
     internal interface IUserService
     {
         User findUserByUsername(string username);
+        User GetUserById(int id);
+        bool DeleteUser(int id);
 
     }
 }

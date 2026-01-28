@@ -30,48 +30,43 @@ namespace GreenLifeOS.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.customerOrderTabs = new System.Windows.Forms.TabControl();
+            this.adminUsersTabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.customersGV = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CategoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SellingPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PurchaseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LineItemTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnUpdateCustomer = new System.Windows.Forms.Button();
             this.btnDeleteCustomer = new System.Windows.Forms.Button();
-            this.btnNewAdmin = new System.Windows.Forms.Button();
+            this.btnUpdateCustomer = new System.Windows.Forms.Button();
+            this.customersGV = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.adminsGV = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.customerOrderTabs.SuspendLayout();
+            this.btnNewAdmin = new System.Windows.Forms.Button();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.adminUsersTabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customersGV)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.adminsGV)).BeginInit();
             this.SuspendLayout();
             // 
-            // customerOrderTabs
+            // adminUsersTabs
             // 
-            this.customerOrderTabs.Controls.Add(this.tabPage1);
-            this.customerOrderTabs.Controls.Add(this.tabPage2);
-            this.customerOrderTabs.Location = new System.Drawing.Point(0, 0);
-            this.customerOrderTabs.Name = "customerOrderTabs";
-            this.customerOrderTabs.SelectedIndex = 0;
-            this.customerOrderTabs.Size = new System.Drawing.Size(858, 507);
-            this.customerOrderTabs.TabIndex = 0;
-            this.customerOrderTabs.SelectedIndexChanged += new System.EventHandler(this.customerOrderTabs_TabIndexChanged);
-            this.customerOrderTabs.TabIndexChanged += new System.EventHandler(this.customerOrderTabs_TabIndexChanged);
+            this.adminUsersTabs.Controls.Add(this.tabPage1);
+            this.adminUsersTabs.Controls.Add(this.tabPage2);
+            this.adminUsersTabs.Location = new System.Drawing.Point(0, 0);
+            this.adminUsersTabs.Name = "adminUsersTabs";
+            this.adminUsersTabs.SelectedIndex = 0;
+            this.adminUsersTabs.Size = new System.Drawing.Size(850, 507);
+            this.adminUsersTabs.TabIndex = 0;
+            this.adminUsersTabs.SelectedIndexChanged += new System.EventHandler(this.adminUsersTabs_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -81,111 +76,10 @@ namespace GreenLifeOS.UI
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(850, 481);
+            this.tabPage1.Size = new System.Drawing.Size(842, 481);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Customers";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // customersGV
-            // 
-            this.customersGV.AllowUserToAddRows = false;
-            this.customersGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.customersGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.customersGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.CategoryId,
-            this.pName,
-            this.Code,
-            this.Category,
-            this.SellingPrice,
-            this.PurchaseQuantity,
-            this.LineItemTotal});
-            this.customersGV.Location = new System.Drawing.Point(3, 6);
-            this.customersGV.MultiSelect = false;
-            this.customersGV.Name = "customersGV";
-            this.customersGV.ReadOnly = true;
-            this.customersGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.customersGV.Size = new System.Drawing.Size(839, 404);
-            this.customersGV.TabIndex = 0;
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "ID";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // CategoryId
-            // 
-            this.CategoryId.DataPropertyName = "CategoryId";
-            this.CategoryId.HeaderText = "CategoryId";
-            this.CategoryId.Name = "CategoryId";
-            this.CategoryId.ReadOnly = true;
-            this.CategoryId.Visible = false;
-            // 
-            // pName
-            // 
-            this.pName.DataPropertyName = "Name";
-            this.pName.HeaderText = "Name";
-            this.pName.Name = "pName";
-            this.pName.ReadOnly = true;
-            // 
-            // Code
-            // 
-            this.Code.DataPropertyName = "Code";
-            this.Code.HeaderText = "Code";
-            this.Code.Name = "Code";
-            this.Code.ReadOnly = true;
-            // 
-            // Category
-            // 
-            this.Category.DataPropertyName = "Category";
-            this.Category.HeaderText = "Category";
-            this.Category.Name = "Category";
-            this.Category.ReadOnly = true;
-            // 
-            // SellingPrice
-            // 
-            this.SellingPrice.DataPropertyName = "SellingPrice";
-            this.SellingPrice.HeaderText = "Selling Price (Rs.)";
-            this.SellingPrice.Name = "SellingPrice";
-            this.SellingPrice.ReadOnly = true;
-            // 
-            // PurchaseQuantity
-            // 
-            this.PurchaseQuantity.DataPropertyName = "PurchaseQuantity";
-            this.PurchaseQuantity.HeaderText = "Quantity";
-            this.PurchaseQuantity.Name = "PurchaseQuantity";
-            this.PurchaseQuantity.ReadOnly = true;
-            // 
-            // LineItemTotal
-            // 
-            this.LineItemTotal.DataPropertyName = "LineItemTotal";
-            this.LineItemTotal.HeaderText = "Line Item Total (Rs.)";
-            this.LineItemTotal.Name = "LineItemTotal";
-            this.LineItemTotal.ReadOnly = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.btnNewAdmin);
-            this.tabPage2.Controls.Add(this.adminsGV);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(850, 481);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Admins";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // btnUpdateCustomer
-            // 
-            this.btnUpdateCustomer.Location = new System.Drawing.Point(628, 435);
-            this.btnUpdateCustomer.Name = "btnUpdateCustomer";
-            this.btnUpdateCustomer.Size = new System.Drawing.Size(96, 23);
-            this.btnUpdateCustomer.TabIndex = 1;
-            this.btnUpdateCustomer.Text = "Update";
-            this.btnUpdateCustomer.UseVisualStyleBackColor = true;
             // 
             // btnDeleteCustomer
             // 
@@ -195,15 +89,50 @@ namespace GreenLifeOS.UI
             this.btnDeleteCustomer.TabIndex = 2;
             this.btnDeleteCustomer.Text = "Delete";
             this.btnDeleteCustomer.UseVisualStyleBackColor = true;
+            this.btnDeleteCustomer.Click += new System.EventHandler(this.btnDeleteCustomer_Click);
             // 
-            // btnNewAdmin
+            // btnUpdateCustomer
             // 
-            this.btnNewAdmin.Location = new System.Drawing.Point(729, 440);
-            this.btnNewAdmin.Name = "btnNewAdmin";
-            this.btnNewAdmin.Size = new System.Drawing.Size(96, 23);
-            this.btnNewAdmin.TabIndex = 4;
-            this.btnNewAdmin.Text = "New";
-            this.btnNewAdmin.UseVisualStyleBackColor = true;
+            this.btnUpdateCustomer.Location = new System.Drawing.Point(628, 435);
+            this.btnUpdateCustomer.Name = "btnUpdateCustomer";
+            this.btnUpdateCustomer.Size = new System.Drawing.Size(96, 23);
+            this.btnUpdateCustomer.TabIndex = 1;
+            this.btnUpdateCustomer.Text = "Update";
+            this.btnUpdateCustomer.UseVisualStyleBackColor = true;
+            this.btnUpdateCustomer.Click += new System.EventHandler(this.btnUpdateCustomer_Click);
+            // 
+            // customersGV
+            // 
+            this.customersGV.AllowUserToAddRows = false;
+            this.customersGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.customersGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.customersGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.User,
+            this.CustomerFirstName,
+            this.CustomerLastName,
+            this.CustomerAddress,
+            this.CustomerEmail,
+            this.CustomerPhoneNumber});
+            this.customersGV.Location = new System.Drawing.Point(3, 6);
+            this.customersGV.MultiSelect = false;
+            this.customersGV.Name = "customersGV";
+            this.customersGV.ReadOnly = true;
+            this.customersGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.customersGV.Size = new System.Drawing.Size(839, 404);
+            this.customersGV.TabIndex = 0;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.adminsGV);
+            this.tabPage2.Controls.Add(this.btnNewAdmin);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(842, 481);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Admins";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // adminsGV
             // 
@@ -215,17 +144,14 @@ namespace GreenLifeOS.UI
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8});
-            this.adminsGV.Location = new System.Drawing.Point(3, 6);
+            this.dataGridViewTextBoxColumn5});
+            this.adminsGV.Location = new System.Drawing.Point(3, 3);
             this.adminsGV.MultiSelect = false;
             this.adminsGV.Name = "adminsGV";
             this.adminsGV.ReadOnly = true;
             this.adminsGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.adminsGV.Size = new System.Drawing.Size(840, 412);
-            this.adminsGV.TabIndex = 3;
+            this.adminsGV.Size = new System.Drawing.Size(841, 407);
+            this.adminsGV.TabIndex = 5;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -237,62 +163,102 @@ namespace GreenLifeOS.UI
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "CategoryId";
-            this.dataGridViewTextBoxColumn2.HeaderText = "CategoryId";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "FirstName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "First Name";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Visible = false;
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "LastName";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Last Name";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Code";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Code";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Email";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Email";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Category";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Category";
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "PhoneNumber";
+            this.dataGridViewTextBoxColumn5.HeaderText = "PhoneNumber";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn6
+            // btnNewAdmin
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "SellingPrice";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Selling Price (Rs.)";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.btnNewAdmin.Location = new System.Drawing.Point(729, 440);
+            this.btnNewAdmin.Name = "btnNewAdmin";
+            this.btnNewAdmin.Size = new System.Drawing.Size(96, 23);
+            this.btnNewAdmin.TabIndex = 4;
+            this.btnNewAdmin.Text = "New";
+            this.btnNewAdmin.UseVisualStyleBackColor = true;
+            this.btnNewAdmin.Click += new System.EventHandler(this.btnNewAdmin_Click);
             // 
-            // dataGridViewTextBoxColumn7
+            // Id
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "PurchaseQuantity";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Quantity";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "ID";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
             // 
-            // dataGridViewTextBoxColumn8
+            // User
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "LineItemTotal";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Line Item Total (Rs.)";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.User.DataPropertyName = "User";
+            this.User.HeaderText = "User";
+            this.User.Name = "User";
+            this.User.ReadOnly = true;
+            this.User.Visible = false;
+            // 
+            // CustomerFirstName
+            // 
+            this.CustomerFirstName.DataPropertyName = "FirstName";
+            this.CustomerFirstName.HeaderText = "First Name";
+            this.CustomerFirstName.Name = "CustomerFirstName";
+            this.CustomerFirstName.ReadOnly = true;
+            // 
+            // CustomerLastName
+            // 
+            this.CustomerLastName.DataPropertyName = "LastName";
+            this.CustomerLastName.HeaderText = "Last Name";
+            this.CustomerLastName.Name = "CustomerLastName";
+            this.CustomerLastName.ReadOnly = true;
+            // 
+            // CustomerAddress
+            // 
+            this.CustomerAddress.DataPropertyName = "Address";
+            this.CustomerAddress.HeaderText = "Address";
+            this.CustomerAddress.Name = "CustomerAddress";
+            this.CustomerAddress.ReadOnly = true;
+            // 
+            // CustomerEmail
+            // 
+            this.CustomerEmail.DataPropertyName = "Email";
+            this.CustomerEmail.HeaderText = "Email";
+            this.CustomerEmail.Name = "CustomerEmail";
+            this.CustomerEmail.ReadOnly = true;
+            // 
+            // CustomerPhoneNumber
+            // 
+            this.CustomerPhoneNumber.DataPropertyName = "PhoneNumber";
+            this.CustomerPhoneNumber.HeaderText = "PhoneNumber";
+            this.CustomerPhoneNumber.Name = "CustomerPhoneNumber";
+            this.CustomerPhoneNumber.ReadOnly = true;
             // 
             // AdminUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.customerOrderTabs);
+            this.Controls.Add(this.adminUsersTabs);
             this.Name = "AdminUserControl";
             this.Size = new System.Drawing.Size(850, 510);
-            this.customerOrderTabs.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.AdminUserControl_Load);
+            this.adminUsersTabs.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.customersGV)).EndInit();
             this.tabPage2.ResumeLayout(false);
@@ -303,18 +269,10 @@ namespace GreenLifeOS.UI
 
         #endregion
 
-        private System.Windows.Forms.TabControl customerOrderTabs;
+        private System.Windows.Forms.TabControl adminUsersTabs;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.DataGridView customersGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SellingPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PurchaseQuantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LineItemTotal;
         private System.Windows.Forms.Button btnDeleteCustomer;
         private System.Windows.Forms.Button btnUpdateCustomer;
         private System.Windows.Forms.Button btnNewAdmin;
@@ -324,8 +282,12 @@ namespace GreenLifeOS.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn User;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerFirstName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerLastName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerPhoneNumber;
     }
 }

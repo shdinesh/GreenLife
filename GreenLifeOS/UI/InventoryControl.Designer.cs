@@ -1,4 +1,6 @@
-﻿namespace GreenLifeOS.UI
+﻿using GreenLifeOS.Utils;
+
+namespace GreenLifeOS.UI
 {
     partial class InventoryControl
     {
@@ -30,12 +32,11 @@
         {
             this.inventoryTabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.txtMaxPrice = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMinPrice = new System.Windows.Forms.TextBox();
             this.txtSearchProduct = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbProductCategories = new System.Windows.Forms.ComboBox();
             this.btnUpdateProduct = new System.Windows.Forms.Button();
             this.btnDeleteProduct = new System.Windows.Forms.Button();
             this.productsGV = new System.Windows.Forms.DataGridView();
@@ -68,12 +69,12 @@
             this.btnUpdateSupplier = new System.Windows.Forms.Button();
             this.btnDeleteSupplier = new System.Windows.Forms.Button();
             this.suppliersGV = new System.Windows.Forms.DataGridView();
-            this.btnNewSupplier = new System.Windows.Forms.Button();
             this.SupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SupplierName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SupplierAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SupplierEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhoneNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnNewSupplier = new System.Windows.Forms.Button();
             this.inventoryTabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsGV)).BeginInit();
@@ -100,12 +101,11 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.btnSearch);
             this.tabPage1.Controls.Add(this.txtMaxPrice);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.txtMinPrice);
             this.tabPage1.Controls.Add(this.txtSearchProduct);
-            this.tabPage1.Controls.Add(this.comboBox1);
+            this.tabPage1.Controls.Add(this.cmbProductCategories);
             this.tabPage1.Controls.Add(this.btnUpdateProduct);
             this.tabPage1.Controls.Add(this.btnDeleteProduct);
             this.tabPage1.Controls.Add(this.productsGV);
@@ -118,21 +118,13 @@
             this.tabPage1.Text = "Products";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(747, 15);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(83, 23);
-            this.btnSearch.TabIndex = 30;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            // 
             // txtMaxPrice
             // 
             this.txtMaxPrice.Location = new System.Drawing.Point(623, 15);
             this.txtMaxPrice.Name = "txtMaxPrice";
             this.txtMaxPrice.Size = new System.Drawing.Size(104, 20);
             this.txtMaxPrice.TabIndex = 29;
+            this.txtMaxPrice.TextChanged += new System.EventHandler(this.txtMaxPrice_TextChanged);
             // 
             // label1
             // 
@@ -150,6 +142,7 @@
             this.txtMinPrice.Name = "txtMinPrice";
             this.txtMinPrice.Size = new System.Drawing.Size(110, 20);
             this.txtMinPrice.TabIndex = 27;
+            this.txtMinPrice.TextChanged += new System.EventHandler(this.txtMinPrice_TextChanged);
             // 
             // txtSearchProduct
             // 
@@ -157,15 +150,17 @@
             this.txtSearchProduct.Name = "txtSearchProduct";
             this.txtSearchProduct.Size = new System.Drawing.Size(283, 20);
             this.txtSearchProduct.TabIndex = 26;
+            this.txtSearchProduct.TextChanged += new System.EventHandler(this.txtSearchProduct_TextChanged);
             // 
-            // comboBox1
+            // cmbProductCategories
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ItemHeight = 13;
-            this.comboBox1.Location = new System.Drawing.Point(7, 14);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 25;
+            this.cmbProductCategories.FormattingEnabled = true;
+            this.cmbProductCategories.ItemHeight = 13;
+            this.cmbProductCategories.Location = new System.Drawing.Point(7, 14);
+            this.cmbProductCategories.Name = "cmbProductCategories";
+            this.cmbProductCategories.Size = new System.Drawing.Size(121, 21);
+            this.cmbProductCategories.TabIndex = 25;
+            this.cmbProductCategories.SelectedValueChanged += new System.EventHandler(this.cmbProductCategories_SelectedValueChanged);
             // 
             // btnUpdateProduct
             // 
@@ -501,17 +496,6 @@
             this.suppliersGV.Size = new System.Drawing.Size(836, 419);
             this.suppliersGV.TabIndex = 14;
             // 
-            // btnNewSupplier
-            // 
-            this.btnNewSupplier.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnNewSupplier.Location = new System.Drawing.Point(614, 448);
-            this.btnNewSupplier.Name = "btnNewSupplier";
-            this.btnNewSupplier.Size = new System.Drawing.Size(68, 23);
-            this.btnNewSupplier.TabIndex = 13;
-            this.btnNewSupplier.Text = "New";
-            this.btnNewSupplier.UseVisualStyleBackColor = true;
-            this.btnNewSupplier.Click += new System.EventHandler(this.btnNewSupplier_Click);
-            // 
             // SupplierId
             // 
             this.SupplierId.DataPropertyName = "Id";
@@ -546,6 +530,17 @@
             this.PhoneNo.HeaderText = "Phone Number";
             this.PhoneNo.Name = "PhoneNo";
             this.PhoneNo.ReadOnly = true;
+            // 
+            // btnNewSupplier
+            // 
+            this.btnNewSupplier.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnNewSupplier.Location = new System.Drawing.Point(614, 448);
+            this.btnNewSupplier.Name = "btnNewSupplier";
+            this.btnNewSupplier.Size = new System.Drawing.Size(68, 23);
+            this.btnNewSupplier.TabIndex = 13;
+            this.btnNewSupplier.Text = "New";
+            this.btnNewSupplier.UseVisualStyleBackColor = true;
+            this.btnNewSupplier.Click += new System.EventHandler(this.btnNewSupplier_Click);
             // 
             // InventoryControl
             // 
@@ -592,8 +587,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtMinPrice;
         private System.Windows.Forms.TextBox txtSearchProduct;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.ComboBox cmbProductCategories;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CategoryId;
         private System.Windows.Forms.DataGridViewTextBoxColumn PName;
