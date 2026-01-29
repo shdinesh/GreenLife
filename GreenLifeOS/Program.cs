@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GreenLifeOS.UI;
+using System;
 using System.Windows.Forms;
 
 namespace GreenLifeOS
@@ -14,8 +15,8 @@ namespace GreenLifeOS
             Application.EnableVisualStyles();
            //Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new AdminMainForm());
-            Application.Run(new CustomerMainForm());
-            //Application.Run(new LoginForm());
+            //Application.Run(new CustomerMainForm());
+            Application.Run(new LoginForm());
 
         }
     }

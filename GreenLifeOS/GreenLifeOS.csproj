@@ -177,11 +177,23 @@
     <Compile Include="Service\IAdminService.cs" />
     <Compile Include="Session\AppSession.cs" />
     <Compile Include="Session\UserSessionData.cs" />
-    <Compile Include="UI\CustomerDashboard.cs">
+    <Compile Include="UI\AdminProfileControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\CustomerDashboard.Designer.cs">
-      <DependentUpon>CustomerDashboard.cs</DependentUpon>
+    <Compile Include="UI\AdminProfileControl.Designer.cs">
+      <DependentUpon>AdminProfileControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomerProfileControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\CustomerProfileControl.Designer.cs">
+      <DependentUpon>CustomerProfileControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomerDashboardControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\CustomerDashboardControl.Designer.cs">
+      <DependentUpon>CustomerDashboardControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\CustomerMainForm.cs">
       <SubType>Form</SubType>
@@ -258,11 +270,11 @@
     <Compile Include="UI\AdminRegistrationForm.Designer.cs">
       <DependentUpon>AdminRegistrationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\AdminDashboard.cs">
+    <Compile Include="UI\AdminDashboardControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\AdminDashboard.Designer.cs">
-      <DependentUpon>AdminDashboard.cs</DependentUpon>
+    <Compile Include="UI\AdminDashboardControl.Designer.cs">
+      <DependentUpon>AdminDashboardControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\CustomerRegistrationForm.cs">
       <SubType>Form</SubType>
@@ -343,8 +355,14 @@
       <DependentUpon>CustomerOrderControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\TextBoxPlaceholder.cs" />
-    <EmbeddedResource Include="UI\CustomerDashboard.resx">
-      <DependentUpon>CustomerDashboard.cs</DependentUpon>
+    <EmbeddedResource Include="UI\AdminProfileControl.resx">
+      <DependentUpon>AdminProfileControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CustomerProfileControl.resx">
+      <DependentUpon>CustomerProfileControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CustomerDashboardControl.resx">
+      <DependentUpon>CustomerDashboardControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\CustomerMainForm.resx">
       <DependentUpon>CustomerMainForm.cs</DependentUpon>
@@ -371,8 +389,8 @@
     <EmbeddedResource Include="UI\AdminRegistrationForm.resx">
       <DependentUpon>AdminRegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\AdminDashboard.resx">
-      <DependentUpon>AdminDashboard.cs</DependentUpon>
+    <EmbeddedResource Include="UI\AdminDashboardControl.resx">
+      <DependentUpon>AdminDashboardControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\CustomerRegistrationForm.resx">
       <DependentUpon>CustomerRegistrationForm.cs</DependentUpon>

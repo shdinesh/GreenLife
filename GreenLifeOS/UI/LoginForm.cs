@@ -43,21 +43,24 @@ namespace GreenLifeOS.UI
                     return;
                 }
                 var userRole = user.UserRole;
+                var sesionData = new UserSessionData
+                {
+                    UserId = user.Id,
+                    UserName = user.UserName,
+                    Role = user.UserRole,
+                    LoginTime = DateTime.Now
+                };
                 if (userRole.Equals(UserRole.ADMIN.ToString()))
                 {
+                    sesionData.AdminId = user.Admin?.Id;
+                    AppSession.Start(sesionData);
                     AdminMainForm adminMainForm = new AdminMainForm();
                     adminMainForm.ShowDialog();
                 }
                 else if (userRole.Equals(UserRole.CUSTOMER.ToString()))
                 {
-                    AppSession.Start(new UserSessionData
-                    {
-                        UserId = user.Id,
-                        UserName = user.UserName,
-                        Role = user.UserRole,
-                        CustomerId = user.Customer?.Id,
-                        LoginTime = DateTime.Now
-                    });
+                    sesionData.CustomerId = user.Customer?.Id;
+                    AppSession.Start(sesionData);
                     CustomerMainForm frm = new CustomerMainForm();
                     frm.ShowDialog();
                 }
@@ -108,7 +111,7 @@ namespace GreenLifeOS.UI
 
         private void linkLabelRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            CustomerRegistrationForm customerRegistration  = new CustomerRegistrationForm();
+            CustomerRegistrationForm customerRegistration = new CustomerRegistrationForm();
             customerRegistration.ShowDialog();
         }
     }

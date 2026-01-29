@@ -83,5 +83,11 @@ namespace GreenLifeOS
             LoadChildForm(new AdminUserControl());
 
         }
+
+        private void btnAdminProfile_Click(object sender, EventArgs e)
+        {
+            LoadChildForm(new AdminProfileControl());
+
+        }
     }
 }

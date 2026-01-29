@@ -41,8 +41,9 @@ namespace GreenLifeOS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            CustomerRegistrationForm customerRegistration = new CustomerRegistrationForm();
-            customerRegistration.Show();
+
+            CustomerProfileControl profileControl = new CustomerProfileControl();
+            LoadChildForm(profileControl);
         }
 
         private void button3_Click(object sender, EventArgs e)

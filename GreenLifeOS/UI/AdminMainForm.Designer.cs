@@ -33,14 +33,17 @@
             this.panelRightControl = new System.Windows.Forms.Panel();
             this.btnAdminInventory = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnUserLogout = new System.Windows.Forms.Button();
             this.btnAdminOrders = new System.Windows.Forms.Button();
             this.btnAdminReports = new System.Windows.Forms.Button();
+            this.btnAdminProfile = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAdminDashboard
             // 
             this.btnAdminDashboard.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminDashboard.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnAdminDashboard.Location = new System.Drawing.Point(19, 28);
             this.btnAdminDashboard.Name = "btnAdminDashboard";
             this.btnAdminDashboard.Size = new System.Drawing.Size(133, 37);
@@ -52,6 +55,7 @@
             // btnAdminUsers
             // 
             this.btnAdminUsers.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminUsers.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnAdminUsers.Location = new System.Drawing.Point(19, 193);
             this.btnAdminUsers.Name = "btnAdminUsers";
             this.btnAdminUsers.Size = new System.Drawing.Size(133, 38);
@@ -73,6 +77,7 @@
             // btnAdminInventory
             // 
             this.btnAdminInventory.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminInventory.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnAdminInventory.Location = new System.Drawing.Point(19, 138);
             this.btnAdminInventory.Name = "btnAdminInventory";
             this.btnAdminInventory.Size = new System.Drawing.Size(133, 38);
@@ -83,6 +88,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnAdminProfile);
+            this.panel2.Controls.Add(this.btnUserLogout);
             this.panel2.Controls.Add(this.btnAdminOrders);
             this.panel2.Controls.Add(this.btnAdminReports);
             this.panel2.Controls.Add(this.btnAdminDashboard);
@@ -95,9 +102,22 @@
             this.panel2.TabIndex = 4;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
+            // btnUserLogout
+            // 
+            this.btnUserLogout.BackColor = System.Drawing.SystemColors.Control;
+            this.btnUserLogout.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUserLogout.ForeColor = System.Drawing.Color.DarkGreen;
+            this.btnUserLogout.Location = new System.Drawing.Point(19, 460);
+            this.btnUserLogout.Name = "btnUserLogout";
+            this.btnUserLogout.Size = new System.Drawing.Size(133, 38);
+            this.btnUserLogout.TabIndex = 7;
+            this.btnUserLogout.Text = "Logout";
+            this.btnUserLogout.UseVisualStyleBackColor = false;
+            // 
             // btnAdminOrders
             // 
             this.btnAdminOrders.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminOrders.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnAdminOrders.Location = new System.Drawing.Point(19, 81);
             this.btnAdminOrders.Name = "btnAdminOrders";
             this.btnAdminOrders.Size = new System.Drawing.Size(133, 38);
@@ -109,6 +129,7 @@
             // btnAdminReports
             // 
             this.btnAdminReports.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminReports.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnAdminReports.Location = new System.Drawing.Point(19, 248);
             this.btnAdminReports.Name = "btnAdminReports";
             this.btnAdminReports.Size = new System.Drawing.Size(133, 38);
@@ -116,6 +137,18 @@
             this.btnAdminReports.Text = "Reports";
             this.btnAdminReports.UseVisualStyleBackColor = true;
             this.btnAdminReports.Click += new System.EventHandler(this.btnAdminReports_Click);
+            // 
+            // btnAdminProfile
+            // 
+            this.btnAdminProfile.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminProfile.ForeColor = System.Drawing.Color.LimeGreen;
+            this.btnAdminProfile.Location = new System.Drawing.Point(19, 305);
+            this.btnAdminProfile.Name = "btnAdminProfile";
+            this.btnAdminProfile.Size = new System.Drawing.Size(133, 38);
+            this.btnAdminProfile.TabIndex = 8;
+            this.btnAdminProfile.Text = "Profile";
+            this.btnAdminProfile.UseVisualStyleBackColor = true;
+            this.btnAdminProfile.Click += new System.EventHandler(this.btnAdminProfile_Click);
             // 
             // AdminMainForm
             // 
@@ -141,6 +174,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnAdminReports;
         private System.Windows.Forms.Button btnAdminOrders;
+        private System.Windows.Forms.Button btnUserLogout;
+        private System.Windows.Forms.Button btnAdminProfile;
     }
 }
 

@@ -4,12 +4,12 @@ using System.Windows.Forms;
 
 namespace GreenLifeOS.UI
 {
-    public partial class CustomerDashboard : UserControl
+    public partial class CustomerDashboardControl : UserControl
     {
         private readonly IOrderService orderService;
         private IProductService productService;
 
-        public CustomerDashboard()
+        public CustomerDashboardControl()
         {
             orderService = new OrderService();
             productService = new ProductService();

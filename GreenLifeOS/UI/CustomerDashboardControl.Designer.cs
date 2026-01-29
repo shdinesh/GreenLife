@@ -2,7 +2,7 @@
 
 namespace GreenLifeOS.UI
 {
-    partial class AdminDashboard
+    partial class CustomerDashboardControl
     {
         /// <summary> 
         /// Required designer variable.
