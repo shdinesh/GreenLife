@@ -42,6 +42,7 @@
             // 
             // btnSupClear
             // 
+            this.btnSupClear.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnSupClear.Location = new System.Drawing.Point(592, 102);
             this.btnSupClear.Name = "btnSupClear";
             this.btnSupClear.Size = new System.Drawing.Size(68, 23);
@@ -52,6 +53,7 @@
             // 
             // btnSupSave
             // 
+            this.btnSupSave.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnSupSave.Location = new System.Drawing.Point(518, 102);
             this.btnSupSave.Name = "btnSupSave";
             this.btnSupSave.Size = new System.Drawing.Size(68, 23);
@@ -64,7 +66,7 @@
             // 
             this.txtSupEmail.Location = new System.Drawing.Point(416, 62);
             this.txtSupEmail.Name = "txtSupEmail";
-            this.txtSupEmail.Size = new System.Drawing.Size(244, 20);
+            this.txtSupEmail.Size = new System.Drawing.Size(244, 22);
             this.txtSupEmail.TabIndex = 18;
             // 
             // label4
@@ -72,7 +74,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(352, 65);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 13);
+            this.label4.Size = new System.Drawing.Size(34, 13);
             this.label4.TabIndex = 17;
             this.label4.Text = "Email";
             // 
@@ -80,7 +82,7 @@
             // 
             this.txtSupPhone.Location = new System.Drawing.Point(69, 59);
             this.txtSupPhone.Name = "txtSupPhone";
-            this.txtSupPhone.Size = new System.Drawing.Size(242, 20);
+            this.txtSupPhone.Size = new System.Drawing.Size(242, 22);
             this.txtSupPhone.TabIndex = 16;
             // 
             // label3
@@ -88,7 +90,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(17, 62);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 15;
             this.label3.Text = "Phone";
             // 
@@ -96,7 +98,7 @@
             // 
             this.txtSupAddress.Location = new System.Drawing.Point(416, 21);
             this.txtSupAddress.Name = "txtSupAddress";
-            this.txtSupAddress.Size = new System.Drawing.Size(244, 20);
+            this.txtSupAddress.Size = new System.Drawing.Size(244, 22);
             this.txtSupAddress.TabIndex = 14;
             // 
             // label2
@@ -104,7 +106,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(352, 21);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 13);
+            this.label2.Size = new System.Drawing.Size(48, 13);
             this.label2.TabIndex = 13;
             this.label2.Text = "Address";
             // 
@@ -112,7 +114,7 @@
             // 
             this.txtSupName.Location = new System.Drawing.Point(69, 21);
             this.txtSupName.Name = "txtSupName";
-            this.txtSupName.Size = new System.Drawing.Size(242, 20);
+            this.txtSupName.Size = new System.Drawing.Size(242, 22);
             this.txtSupName.TabIndex = 12;
             // 
             // label1
@@ -120,7 +122,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(17, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 11;
             this.label1.Text = "Name";
             // 
@@ -139,6 +141,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtSupName);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "AddUpdateSupplierForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add-Update Supplier";

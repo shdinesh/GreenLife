@@ -6,9 +6,10 @@ namespace GreenLifeOS
     [Table("user")]
     public class User
     {
+        [Column("id")]
         public int Id { get; set; }
 
-        [Required]
+        [Required, MaxLength(100), MinLength(8)]
         public string UserName { get; set; }
 
         [Required]

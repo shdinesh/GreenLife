@@ -201,6 +201,11 @@ namespace GreenLifeOS.UI
         {
             searchProducts();
         }
+
+        private void txtPurchaseQuantity_SelectedItemChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

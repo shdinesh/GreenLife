@@ -38,6 +38,7 @@
             // 
             // btnClearFields
             // 
+            this.btnClearFields.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnClearFields.Location = new System.Drawing.Point(270, 147);
             this.btnClearFields.Name = "btnClearFields";
             this.btnClearFields.Size = new System.Drawing.Size(68, 23);
@@ -48,6 +49,7 @@
             // 
             // btnSaveProductCategory
             // 
+            this.btnSaveProductCategory.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnSaveProductCategory.Location = new System.Drawing.Point(196, 147);
             this.btnSaveProductCategory.Name = "btnSaveProductCategory";
             this.btnSaveProductCategory.Size = new System.Drawing.Size(68, 23);
@@ -60,24 +62,26 @@
             // 
             this.txtCategoryName.Location = new System.Drawing.Point(87, 21);
             this.txtCategoryName.Name = "txtCategoryName";
-            this.txtCategoryName.Size = new System.Drawing.Size(251, 20);
+            this.txtCategoryName.Size = new System.Drawing.Size(251, 22);
             this.txtCategoryName.TabIndex = 12;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(17, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 11;
             this.label1.Text = "Name";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(17, 62);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.Size = new System.Drawing.Size(66, 13);
             this.label3.TabIndex = 15;
             this.label3.Text = "Description";
             // 
@@ -100,6 +104,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtCategoryName);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "AddUpdateProductCategoryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add-Update Product Category";

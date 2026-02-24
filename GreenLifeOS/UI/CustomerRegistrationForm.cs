@@ -7,14 +7,17 @@ namespace GreenLifeOS.UI
     public partial class CustomerRegistrationForm : Form
     {
         private readonly ICustomerService customerService;
+        private readonly IAdminService adminService;
         private Customer editableCustomer;
+        private UserRole userRole;
 
 
-        public CustomerRegistrationForm(Customer editableCustomer)
+        public CustomerRegistrationForm(UserRole userRole)
         {
             InitializeComponent();
             customerService = new CustomerService();
-            this.editableCustomer = editableCustomer;
+            adminService = new AdminService();
+            this.userRole = userRole;
 
         }
 
@@ -22,6 +25,7 @@ namespace GreenLifeOS.UI
         {
             InitializeComponent();
             customerService = new CustomerService();
+            adminService = new AdminService();
 
         }
 
@@ -51,26 +55,36 @@ namespace GreenLifeOS.UI
             }
         }
 
-
-
+        private void RegisterNewAdmin(Admin newAdmin)
+        {
+            try
+            {
+                adminService.AddNewAdmin(newAdmin);
+                ShowSuccessMessage("Success", "Admin registered successfully");
+            }
+            catch (Exception ex)
+            {
+                LogError($"Error registering admin", ex);
+                ShowErrorMessage("Error", "An error occurred while registering admin user. Please try again. " + ex.Message);
+            }
+        }
 
         private void btnRegisterCustomer_Click(object sender, EventArgs e)
         {
             try
             {
-                var newCustomer = new Customer()
+                if (UserRole.CUSTOMER.Equals(userRole))
                 {
+                    var newCustomer = new Customer()
+                    {
+                        Title = (string)cmbTitle.SelectedItem,
+                        FirstName = txtCustomerFirstName.Text,
+                        LastName = txtCustomerLastName.Text,
+                        Email = txtCustomerEmail.Text,
+                        Address = txtCustomerAddress.Text,
+                        PhoneNumber = txtCustomerPhoneNumber.Text,
 
-                    FirstName = txtCustomerFirstName.Text,
-                    LastName = txtCustomerLastName.Text,
-                    Email = txtCustomerEmail.Text,
-                    Address = txtCustomerAddress.Text,
-                    PhoneNumber = txtCustomerPhoneNumber.Text,
-
-                };
-
-                if (editableCustomer == null)
-                {
+                    };
                     newCustomer.User = new User()
                     {
                         UserName = txtUsername.Text,
@@ -78,12 +92,29 @@ namespace GreenLifeOS.UI
                         UserRole = UserRole.CUSTOMER.ToString(),
                     };
                     RegisterNewCustomer(newCustomer);
-                }
-                else
-                {
 
-                    UpdateCustomer(newCustomer);
                 }
+                else if (UserRole.ADMIN.Equals(userRole))
+                {
+                    var newAdmin = new Admin()
+                    {
+                        Title = (string)cmbTitle.SelectedItem,
+                        FirstName = txtCustomerFirstName.Text,
+                        LastName = txtCustomerLastName.Text,
+                        Email = txtCustomerEmail.Text,
+                        Address = txtCustomerAddress.Text,
+                        PhoneNumber = txtCustomerPhoneNumber.Text,
+
+                    };
+                    newAdmin.User = new User()
+                    {
+                        UserName = txtUsername.Text,
+                        Password = BCrypt.Net.BCrypt.HashPassword(txtPassword.Text),
+                        UserRole = UserRole.ADMIN.ToString(),
+                    };
+                    RegisterNewAdmin(newAdmin);
+                }
+
             }
             catch (Exception ex)
             {
@@ -116,15 +147,14 @@ namespace GreenLifeOS.UI
 
         private void CustomerRegistrationForm_Load(object sender, EventArgs e)
         {
-            if (editableCustomer != null)
+            if (UserRole.CUSTOMER.Equals(userRole))
             {
-                txtCustomerFirstName.Text = editableCustomer.FirstName;
-                txtCustomerLastName.Text = editableCustomer.LastName;
-                txtCustomerEmail.Text = editableCustomer.Email;
-                txtCustomerAddress.Text = editableCustomer.Address;
-                txtCustomerPhoneNumber.Text = editableCustomer.PhoneNumber;
-                txtUsername.Enabled = false;
-                txtPassword.Enabled = false;
+                this.Text = "Register New Customer";
+            }
+            else if (UserRole.ADMIN.Equals(userRole))
+            {
+                this.Text = "Register New Admin";
+
             }
         }
 

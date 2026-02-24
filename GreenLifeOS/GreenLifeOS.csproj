@@ -61,6 +61,16 @@
     <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
     </Reference>
+    <Reference Include="MetroFramework, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.RunTime.1.2.0.3\lib\net40-Client\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.Design.1.2.0.3\lib\net40\MetroFramework.Design.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.2.0.3, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroFramework.Fonts.1.2.0.3\lib\net40\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNetCore.Cryptography.Internal, Version=10.0.2.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNetCore.Cryptography.Internal.10.0.2\lib\net462\Microsoft.AspNetCore.Cryptography.Internal.dll</HintPath>
     </Reference>
@@ -137,6 +147,7 @@
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
     </Reference>
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
     </Reference>
@@ -171,12 +182,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Admin.cs" />
+    <Compile Include="Model\ProductRatingAndReview.cs" />
+    <Compile Include="Model\VO\SalesReportVo.cs" />
+    <Compile Include="Repository\IReportsRepository.cs" />
+    <Compile Include="Repository\ReportsRepository.cs" />
     <Compile Include="Repository\AdminRepository.cs" />
     <Compile Include="Repository\IAdminRepository.cs" />
+    <Compile Include="Service\ReportsService.cs" />
     <Compile Include="Service\AdminService.cs" />
+    <Compile Include="Service\IReportsService.cs" />
     <Compile Include="Service\IAdminService.cs" />
     <Compile Include="Session\AppSession.cs" />
     <Compile Include="Session\UserSessionData.cs" />
+    <Compile Include="UI\AdminReportControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\AdminReportControl.Designer.cs">
+      <DependentUpon>AdminReportControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\AdminProfileControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -276,6 +299,18 @@
     <Compile Include="UI\AdminDashboardControl.Designer.cs">
       <DependentUpon>AdminDashboardControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\UserPasswordChangeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UserPasswordChangeForm.Designer.cs">
+      <DependentUpon>UserPasswordChangeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UserProfileUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UserProfileUpdateForm.Designer.cs">
+      <DependentUpon>UserProfileUpdateForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\CustomerRegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,6 +340,12 @@
     </Compile>
     <Compile Include="UI\AddUpdateSupplierForm.Designer.cs">
       <DependentUpon>AddUpdateSupplierForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\UpdateOrderStatusForm.cs">
       <SubType>Form</SubType>
@@ -342,11 +383,11 @@
     <Compile Include="UI\SupplierControl.Designer.cs">
       <DependentUpon>SupplierControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\InventoryControl.cs">
+    <Compile Include="UI\AdminInventoryControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\InventoryControl.Designer.cs">
-      <DependentUpon>InventoryControl.cs</DependentUpon>
+    <Compile Include="UI\AdminInventoryControl.Designer.cs">
+      <DependentUpon>AdminInventoryControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\CustomerOrderControl.cs">
       <SubType>UserControl</SubType>
@@ -354,7 +395,11 @@
     <Compile Include="UI\CustomerOrderControl.Designer.cs">
       <DependentUpon>CustomerOrderControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\CSVExport.cs" />
     <Compile Include="Utils\TextBoxPlaceholder.cs" />
+    <EmbeddedResource Include="UI\AdminReportControl.resx">
+      <DependentUpon>AdminReportControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\AdminProfileControl.resx">
       <DependentUpon>AdminProfileControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -392,6 +437,12 @@
     <EmbeddedResource Include="UI\AdminDashboardControl.resx">
       <DependentUpon>AdminDashboardControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\UserPasswordChangeForm.resx">
+      <DependentUpon>UserPasswordChangeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UserProfileUpdateForm.resx">
+      <DependentUpon>UserProfileUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\CustomerRegistrationForm.resx">
       <DependentUpon>CustomerRegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -409,6 +460,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\CustomerOrderControl.resx">
       <DependentUpon>CustomerOrderControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\UpdateOrderStatusForm.resx">
       <DependentUpon>UpdateOrderStatusForm.cs</DependentUpon>
@@ -437,8 +491,8 @@
     <EmbeddedResource Include="UI\SuppliersForm.resx">
       <DependentUpon>SuppliersForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\InventoryControl.resx">
-      <DependentUpon>InventoryControl.cs</DependentUpon>
+    <EmbeddedResource Include="UI\AdminInventoryControl.resx">
+      <DependentUpon>AdminInventoryControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -460,7 +514,17 @@
   <ItemGroup>
     <None Include="Resources\GLOS1.PNG" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="MetroFramework.txt" />
+    <None Include="Resources\white-rice.jpg" />
+    <None Include="Resources\brown-rice.jpg" />
+    <None Include="Resources\rice-flour.jpg" />
+    <None Include="Resources\honey.jpeg" />
+    <None Include="Resources\nature.png" />
+    <None Include="Resources\customer-profile.png" />
+    <None Include="Resources\profile2.png" />
+    <None Include="Resources\profile.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

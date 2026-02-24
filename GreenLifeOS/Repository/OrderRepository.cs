@@ -59,7 +59,7 @@ namespace GreenLifeOS.Repository
 
         public Order GetOrderById(int id)
         {
-            return this.dbContext.Orders
+            return this.dbContext.Orders.AsNoTracking()
                 .FirstOrDefault(s => s.Id == id);
         }
 
@@ -68,7 +68,8 @@ namespace GreenLifeOS.Repository
             if (order == null)
                 throw new ArgumentNullException(nameof(order));
 
-            var existingOrder = GetOrderById(order.Id);
+            var existingOrder = this.dbContext.Orders
+                .FirstOrDefault(s => s.Id == order.Id);
             if (existingOrder == null)
                 throw new ArgumentException($"Order with ID {order.Id} not found.", nameof(order.Id));
 

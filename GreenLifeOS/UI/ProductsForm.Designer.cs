@@ -41,19 +41,33 @@ namespace GreenLifeOS.UI
             this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SellingPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AvailableStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbProductCategory = new System.Windows.Forms.ComboBox();
             this.txtSearchProduct = new System.Windows.Forms.TextBox();
             this.txtMinPrice = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMaxPrice = new System.Windows.Forms.TextBox();
-            this.txtPurchaseQuantity = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtPurchaseQuantity = new System.Windows.Forms.NumericUpDown();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.productsGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPurchaseQuantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddToOrder
             // 
+            this.btnAddToOrder.ForeColor = System.Drawing.Color.LimeGreen;
             resources.ApplyResources(this.btnAddToOrder, "btnAddToOrder");
             this.btnAddToOrder.Name = "btnAddToOrder";
             this.btnAddToOrder.UseVisualStyleBackColor = true;
@@ -71,6 +85,7 @@ namespace GreenLifeOS.UI
             this.Category,
             this.SellingPrice,
             this.Description,
+            this.Discount,
             this.AvailableStock});
             resources.ApplyResources(this.productsGV, "productsGV");
             this.productsGV.MultiSelect = false;
@@ -127,6 +142,13 @@ namespace GreenLifeOS.UI
             this.Description.Name = "Description";
             this.Description.ReadOnly = true;
             // 
+            // Discount
+            // 
+            this.Discount.DataPropertyName = "Discount";
+            resources.ApplyResources(this.Discount, "Discount");
+            this.Discount.Name = "Discount";
+            this.Discount.ReadOnly = true;
+            // 
             // AvailableStock
             // 
             this.AvailableStock.DataPropertyName = "AvailableStock";
@@ -164,22 +186,86 @@ namespace GreenLifeOS.UI
             this.txtMaxPrice.Name = "txtMaxPrice";
             this.txtMaxPrice.TextChanged += new System.EventHandler(this.txtMaxPrice_TextChanged);
             // 
-            // txtPurchaseQuantity
-            // 
-            resources.ApplyResources(this.txtPurchaseQuantity, "txtPurchaseQuantity");
-            this.txtPurchaseQuantity.Name = "txtPurchaseQuantity";
-            // 
             // label2
             // 
             resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
             // 
+            // txtPurchaseQuantity
+            // 
+            resources.ApplyResources(this.txtPurchaseQuantity, "txtPurchaseQuantity");
+            this.txtPurchaseQuantity.Name = "txtPurchaseQuantity";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Image = global::GreenLifeOS.Properties.Resources.honey;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
+            // linkLabel1
+            // 
+            resources.ApplyResources(this.linkLabel1, "linkLabel1");
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.TabStop = true;
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.Name = "label8";
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.Name = "label9";
+            // 
+            // label10
+            // 
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
+            // 
             // ProductsForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtPurchaseQuantity);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtMaxPrice);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtMinPrice);
@@ -190,6 +276,8 @@ namespace GreenLifeOS.UI
             this.Name = "ProductsForm";
             this.Load += new System.EventHandler(this.ProductsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productsGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPurchaseQuantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,8 +291,8 @@ namespace GreenLifeOS.UI
         private System.Windows.Forms.TextBox txtMinPrice;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtMaxPrice;
-        private System.Windows.Forms.TextBox txtPurchaseQuantity;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown txtPurchaseQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn CategoryId;
         private System.Windows.Forms.DataGridViewTextBoxColumn pName;
@@ -212,6 +300,17 @@ namespace GreenLifeOS.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn Category;
         private System.Windows.Forms.DataGridViewTextBoxColumn SellingPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
         private System.Windows.Forms.DataGridViewTextBoxColumn AvailableStock;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }

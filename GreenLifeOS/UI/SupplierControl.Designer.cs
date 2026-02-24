@@ -37,6 +37,7 @@
             // 
             // btnUpdateSup
             // 
+            this.btnUpdateSup.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnUpdateSup.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnUpdateSup.Location = new System.Drawing.Point(693, 469);
             this.btnUpdateSup.Name = "btnUpdateSup";
@@ -48,6 +49,7 @@
             // 
             // btnSupDelete
             // 
+            this.btnSupDelete.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnSupDelete.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnSupDelete.Location = new System.Drawing.Point(767, 469);
             this.btnSupDelete.Name = "btnSupDelete";
@@ -71,6 +73,7 @@
             // 
             // btnNewSupplier
             // 
+            this.btnNewSupplier.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnNewSupplier.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnNewSupplier.Location = new System.Drawing.Point(619, 469);
             this.btnNewSupplier.Name = "btnNewSupplier";

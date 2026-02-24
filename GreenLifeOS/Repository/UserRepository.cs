@@ -38,7 +38,7 @@ namespace GreenLifeOS.Repository
 
         public User GetUserById(int id)
         {
-            return this.dbContext.Users
+            return this.dbContext.Users.AsNoTracking()
                 .FirstOrDefault(s => s.Id == id);
         }
 

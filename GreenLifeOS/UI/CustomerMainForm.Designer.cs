@@ -32,14 +32,15 @@
             this.btnCustomerOrders = new System.Windows.Forms.Button();
             this.btnCustomerProfile = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnCustomerSettings = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnUserLogout = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCustomerDashBoard
             // 
-            this.btnCustomerDashBoard.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnCustomerDashBoard.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCustomerDashBoard.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnCustomerDashBoard.Location = new System.Drawing.Point(19, 28);
             this.btnCustomerDashBoard.Name = "btnCustomerDashBoard";
             this.btnCustomerDashBoard.Size = new System.Drawing.Size(133, 37);
@@ -50,7 +51,8 @@
             // 
             // btnCustomerOrders
             // 
-            this.btnCustomerOrders.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnCustomerOrders.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCustomerOrders.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnCustomerOrders.Location = new System.Drawing.Point(19, 83);
             this.btnCustomerOrders.Name = "btnCustomerOrders";
             this.btnCustomerOrders.Size = new System.Drawing.Size(133, 37);
@@ -61,7 +63,8 @@
             // 
             // btnCustomerProfile
             // 
-            this.btnCustomerProfile.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold);
+            this.btnCustomerProfile.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCustomerProfile.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnCustomerProfile.Location = new System.Drawing.Point(19, 138);
             this.btnCustomerProfile.Name = "btnCustomerProfile";
             this.btnCustomerProfile.Size = new System.Drawing.Size(133, 37);
@@ -72,36 +75,39 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(172, 0);
+            this.panel1.Location = new System.Drawing.Point(167, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(865, 510);
+            this.panel1.Size = new System.Drawing.Size(869, 510);
             this.panel1.TabIndex = 3;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.Resize += new System.EventHandler(this.panel1_Resize);
             // 
-            // btnCustomerSettings
-            // 
-            this.btnCustomerSettings.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold);
-            this.btnCustomerSettings.Location = new System.Drawing.Point(19, 195);
-            this.btnCustomerSettings.Name = "btnCustomerSettings";
-            this.btnCustomerSettings.Size = new System.Drawing.Size(133, 37);
-            this.btnCustomerSettings.TabIndex = 4;
-            this.btnCustomerSettings.Text = "Settings";
-            this.btnCustomerSettings.UseVisualStyleBackColor = true;
-            this.btnCustomerSettings.Click += new System.EventHandler(this.button3_Click);
-            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.btnUserLogout);
             this.panel2.Controls.Add(this.btnCustomerDashBoard);
-            this.panel2.Controls.Add(this.btnCustomerSettings);
             this.panel2.Controls.Add(this.btnCustomerOrders);
             this.panel2.Controls.Add(this.btnCustomerProfile);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(171, 510);
             this.panel2.TabIndex = 4;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // btnUserLogout
+            // 
+            this.btnUserLogout.BackColor = System.Drawing.SystemColors.Control;
+            this.btnUserLogout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUserLogout.ForeColor = System.Drawing.Color.DarkGreen;
+            this.btnUserLogout.Location = new System.Drawing.Point(19, 455);
+            this.btnUserLogout.Name = "btnUserLogout";
+            this.btnUserLogout.Size = new System.Drawing.Size(133, 38);
+            this.btnUserLogout.TabIndex = 8;
+            this.btnUserLogout.Text = "Logout";
+            this.btnUserLogout.UseVisualStyleBackColor = false;
+            this.btnUserLogout.Click += new System.EventHandler(this.btnUserLogout_Click);
             // 
             // CustomerMainForm
             // 
@@ -113,6 +119,7 @@
             this.Name = "CustomerMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
+            this.Load += new System.EventHandler(this.CustomerMainForm_Load);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -124,8 +131,8 @@
         private System.Windows.Forms.Button btnCustomerOrders;
         private System.Windows.Forms.Button btnCustomerProfile;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnCustomerSettings;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnUserLogout;
     }
 }
 

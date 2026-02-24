@@ -19,7 +19,22 @@
         public int CategoryId { get; set; }
         public int PurchaseQuantity { get; set; }
 
-        public double LineItemTotal => (double)(PurchaseQuantity * SellingPrice);
+        //public double LineItemTotal (double)(PurchaseQuantity * SellingPrice * (1 - Discount / 100.0)); public double? Discount { get; set; }
+        public double LineItemDiscount
+        {
+            get
+            {
+                return (double)(PurchaseQuantity * SellingPrice * (Discount / 100.0));
+            }
+        }
+        public double LineItemTotal
+        {
+            get
+            {
+                return (double)(PurchaseQuantity * SellingPrice * (1 - Discount / 100.0));
+            }
+        }
+
         public double? Discount { get; set; }
 
         public virtual string Category { get; set; }

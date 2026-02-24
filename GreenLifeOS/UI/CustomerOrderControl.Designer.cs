@@ -32,10 +32,12 @@ namespace GreenLifeOS.UI
         {
             this.customerOrderTabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.lblDiscountTotal = new System.Windows.Forms.Label();
+            this.lblSubTotal = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblOrderTotalAmount = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnPlaceOrder = new System.Windows.Forms.Button();
-            this.txtDiscount = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnRemoveOrderItem = new System.Windows.Forms.Button();
             this.btnAddOrderItem = new System.Windows.Forms.Button();
@@ -49,6 +51,7 @@ namespace GreenLifeOS.UI
             this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SellingPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PurchaseQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductDiscount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LineItemTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -93,16 +96,19 @@ namespace GreenLifeOS.UI
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.lblDiscountTotal);
+            this.tabPage1.Controls.Add(this.lblSubTotal);
+            this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.lblOrderTotalAmount);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.btnPlaceOrder);
-            this.tabPage1.Controls.Add(this.txtDiscount);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.btnRemoveOrderItem);
             this.tabPage1.Controls.Add(this.btnAddOrderItem);
             this.tabPage1.Controls.Add(this.lblCurrentDate);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.orderItemsGV);
+            this.tabPage1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -111,29 +117,64 @@ namespace GreenLifeOS.UI
             this.tabPage1.Text = "New Order";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // lblDiscountTotal
+            // 
+            this.lblDiscountTotal.AutoSize = true;
+            this.lblDiscountTotal.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiscountTotal.Location = new System.Drawing.Point(758, 366);
+            this.lblDiscountTotal.Name = "lblDiscountTotal";
+            this.lblDiscountTotal.Size = new System.Drawing.Size(28, 13);
+            this.lblDiscountTotal.TabIndex = 12;
+            this.lblDiscountTotal.Text = "0.00";
+            this.lblDiscountTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblSubTotal
+            // 
+            this.lblSubTotal.AutoSize = true;
+            this.lblSubTotal.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubTotal.Location = new System.Drawing.Point(758, 344);
+            this.lblSubTotal.Name = "lblSubTotal";
+            this.lblSubTotal.Size = new System.Drawing.Size(28, 13);
+            this.lblSubTotal.TabIndex = 11;
+            this.lblSubTotal.Text = "0.00";
+            this.lblSubTotal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(601, 344);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(81, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Sub Total (Rs.)";
+            // 
             // lblOrderTotalAmount
             // 
             this.lblOrderTotalAmount.AutoSize = true;
-            this.lblOrderTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderTotalAmount.Location = new System.Drawing.Point(722, 402);
+            this.lblOrderTotalAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrderTotalAmount.Location = new System.Drawing.Point(752, 398);
             this.lblOrderTotalAmount.Name = "lblOrderTotalAmount";
-            this.lblOrderTotalAmount.Size = new System.Drawing.Size(35, 16);
+            this.lblOrderTotalAmount.Size = new System.Drawing.Size(41, 21);
             this.lblOrderTotalAmount.TabIndex = 9;
             this.lblOrderTotalAmount.Text = "0.00";
+            this.lblOrderTotalAmount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(634, 402);
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(601, 398);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 16);
+            this.label4.Size = new System.Drawing.Size(135, 21);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Total (Rs.)";
+            this.label4.Text = "Grand Total (Rs.)";
             // 
             // btnPlaceOrder
             // 
             this.btnPlaceOrder.Enabled = false;
+            this.btnPlaceOrder.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlaceOrder.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnPlaceOrder.Location = new System.Drawing.Point(637, 434);
             this.btnPlaceOrder.Name = "btnPlaceOrder";
             this.btnPlaceOrder.Size = new System.Drawing.Size(190, 36);
@@ -142,26 +183,19 @@ namespace GreenLifeOS.UI
             this.btnPlaceOrder.UseVisualStyleBackColor = true;
             this.btnPlaceOrder.Click += new System.EventHandler(this.btnPlaceOrder_Click);
             // 
-            // txtDiscount
-            // 
-            this.txtDiscount.Location = new System.Drawing.Point(721, 358);
-            this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.ReadOnly = true;
-            this.txtDiscount.Size = new System.Drawing.Size(106, 20);
-            this.txtDiscount.TabIndex = 6;
-            this.txtDiscount.Text = "0.00";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(634, 361);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(601, 366);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 13);
+            this.label3.Size = new System.Drawing.Size(99, 13);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Disount %";
+            this.label3.Text = "Disount Total(Rs.)";
             // 
             // btnRemoveOrderItem
             // 
+            this.btnRemoveOrderItem.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnRemoveOrderItem.Location = new System.Drawing.Point(742, 16);
             this.btnRemoveOrderItem.Name = "btnRemoveOrderItem";
             this.btnRemoveOrderItem.Size = new System.Drawing.Size(85, 23);
@@ -172,6 +206,7 @@ namespace GreenLifeOS.UI
             // 
             // btnAddOrderItem
             // 
+            this.btnAddOrderItem.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnAddOrderItem.Location = new System.Drawing.Point(647, 16);
             this.btnAddOrderItem.Name = "btnAddOrderItem";
             this.btnAddOrderItem.Size = new System.Drawing.Size(86, 23);
@@ -183,18 +218,19 @@ namespace GreenLifeOS.UI
             // lblCurrentDate
             // 
             this.lblCurrentDate.AutoSize = true;
+            this.lblCurrentDate.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentDate.Location = new System.Drawing.Point(100, 20);
             this.lblCurrentDate.Name = "lblCurrentDate";
-            this.lblCurrentDate.Size = new System.Drawing.Size(117, 13);
+            this.lblCurrentDate.Size = new System.Drawing.Size(125, 13);
             this.lblCurrentDate.TabIndex = 2;
-            this.lblCurrentDate.Text = "1/26/2026 9:05:13 AM";
+            this.lblCurrentDate.Text = "02/01/2026 3:05:13 PM";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(22, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 13);
+            this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Order Date";
             // 
@@ -211,6 +247,7 @@ namespace GreenLifeOS.UI
             this.Category,
             this.SellingPrice,
             this.PurchaseQuantity,
+            this.ProductDiscount,
             this.LineItemTotal});
             this.orderItemsGV.Location = new System.Drawing.Point(3, 50);
             this.orderItemsGV.MultiSelect = false;
@@ -270,6 +307,13 @@ namespace GreenLifeOS.UI
             this.PurchaseQuantity.HeaderText = "Quantity";
             this.PurchaseQuantity.Name = "PurchaseQuantity";
             this.PurchaseQuantity.ReadOnly = true;
+            // 
+            // ProductDiscount
+            // 
+            this.ProductDiscount.DataPropertyName = "Discount";
+            this.ProductDiscount.HeaderText = "Discount (%)";
+            this.ProductDiscount.Name = "ProductDiscount";
+            this.ProductDiscount.ReadOnly = true;
             // 
             // LineItemTotal
             // 
@@ -483,7 +527,6 @@ namespace GreenLifeOS.UI
         private System.Windows.Forms.Button btnPlaceOrder;
         private System.Windows.Forms.Label lblOrderTotalAmount;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtDiscount;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -496,14 +539,6 @@ namespace GreenLifeOS.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
         private System.Windows.Forms.DataGridViewTextBoxColumn LineItemTotal2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Code;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SellingPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PurchaseQuantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LineItemTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderId;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
@@ -511,5 +546,17 @@ namespace GreenLifeOS.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdated;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CategoryId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Code;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SellingPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PurchaseQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductDiscount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LineItemTotal;
+        private System.Windows.Forms.Label lblDiscountTotal;
+        private System.Windows.Forms.Label lblSubTotal;
+        private System.Windows.Forms.Label label2;
     }
 }

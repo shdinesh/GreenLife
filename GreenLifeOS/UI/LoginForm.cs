@@ -100,6 +100,7 @@ namespace GreenLifeOS.UI
             if (result == DialogResult.Yes)
             {
                 this.Close();
+
             }
         }
 
@@ -111,7 +112,7 @@ namespace GreenLifeOS.UI
 
         private void linkLabelRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            CustomerRegistrationForm customerRegistration = new CustomerRegistrationForm();
+            CustomerRegistrationForm customerRegistration = new CustomerRegistrationForm(UserRole.CUSTOMER);
             customerRegistration.ShowDialog();
         }
     }

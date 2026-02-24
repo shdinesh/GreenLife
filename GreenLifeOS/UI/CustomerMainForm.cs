@@ -28,13 +28,14 @@ namespace GreenLifeOS
 
         private void btnSupplier_Click(object sender, EventArgs e)
         {
-            SuppliersForm suppliersForm = new SuppliersForm();
-            suppliersForm.Show();
+            CustomerDashboardControl customerDashboard = new CustomerDashboardControl();
+            LoadChildForm(customerDashboard);
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+
             CustomerOrderControl orderControl = new CustomerOrderControl();
             LoadChildForm(orderControl);
         }
@@ -48,7 +49,6 @@ namespace GreenLifeOS
 
         private void button3_Click(object sender, EventArgs e)
         {
-            LoadChildForm(new InventoryControl());
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -74,5 +74,32 @@ namespace GreenLifeOS
 
             }
         }
+
+        private void CustomerMainForm_Load(object sender, EventArgs e)
+        {
+            LoadChildForm(new CustomerDashboardControl());
+        }
+
+        private void btnUserLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = ShowConfirmationDialog("Logout", "Are you sure you want to Logout?", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                LoginForm loginForm = new LoginForm();
+                loginForm.ShowDialog();
+                this.Close();
+            }
+
+        }
+
+        private DialogResult ShowConfirmationDialog(string title, string message, MessageBoxButtons buttons)
+        {
+            return MessageBox.Show(this, message, title,
+                buttons, MessageBoxIcon.Question);
+        }
+
+
     }
 }

@@ -17,6 +17,7 @@ namespace GreenLifeOS
             //Application.Run(new AdminMainForm());
             //Application.Run(new CustomerMainForm());
             Application.Run(new LoginForm());
+           // Application.Run(new Form1());
 
         }
     }

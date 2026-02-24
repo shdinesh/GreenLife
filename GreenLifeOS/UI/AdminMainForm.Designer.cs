@@ -33,16 +33,16 @@
             this.panelRightControl = new System.Windows.Forms.Panel();
             this.btnAdminInventory = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnAdminProfile = new System.Windows.Forms.Button();
             this.btnUserLogout = new System.Windows.Forms.Button();
             this.btnAdminOrders = new System.Windows.Forms.Button();
             this.btnAdminReports = new System.Windows.Forms.Button();
-            this.btnAdminProfile = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAdminDashboard
             // 
-            this.btnAdminDashboard.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminDashboard.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdminDashboard.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnAdminDashboard.Location = new System.Drawing.Point(19, 28);
             this.btnAdminDashboard.Name = "btnAdminDashboard";
@@ -50,11 +50,11 @@
             this.btnAdminDashboard.TabIndex = 0;
             this.btnAdminDashboard.Text = "Dashboard";
             this.btnAdminDashboard.UseVisualStyleBackColor = true;
-            this.btnAdminDashboard.Click += new System.EventHandler(this.btnSupplier_Click);
+            this.btnAdminDashboard.Click += new System.EventHandler(this.btnAdminDashboard_Click);
             // 
             // btnAdminUsers
             // 
-            this.btnAdminUsers.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminUsers.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdminUsers.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnAdminUsers.Location = new System.Drawing.Point(19, 193);
             this.btnAdminUsers.Name = "btnAdminUsers";
@@ -71,12 +71,11 @@
             this.panelRightControl.Name = "panelRightControl";
             this.panelRightControl.Size = new System.Drawing.Size(867, 510);
             this.panelRightControl.TabIndex = 3;
-            this.panelRightControl.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panelRightControl.Resize += new System.EventHandler(this.panel1_Resize);
             // 
             // btnAdminInventory
             // 
-            this.btnAdminInventory.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminInventory.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdminInventory.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnAdminInventory.Location = new System.Drawing.Point(19, 138);
             this.btnAdminInventory.Name = "btnAdminInventory";
@@ -98,14 +97,25 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(172, 510);
+            this.panel2.Size = new System.Drawing.Size(173, 510);
             this.panel2.TabIndex = 4;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // btnAdminProfile
+            // 
+            this.btnAdminProfile.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminProfile.ForeColor = System.Drawing.Color.LimeGreen;
+            this.btnAdminProfile.Location = new System.Drawing.Point(19, 305);
+            this.btnAdminProfile.Name = "btnAdminProfile";
+            this.btnAdminProfile.Size = new System.Drawing.Size(133, 38);
+            this.btnAdminProfile.TabIndex = 8;
+            this.btnAdminProfile.Text = "Profile";
+            this.btnAdminProfile.UseVisualStyleBackColor = true;
+            this.btnAdminProfile.Click += new System.EventHandler(this.btnAdminProfile_Click);
             // 
             // btnUserLogout
             // 
             this.btnUserLogout.BackColor = System.Drawing.SystemColors.Control;
-            this.btnUserLogout.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUserLogout.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUserLogout.ForeColor = System.Drawing.Color.DarkGreen;
             this.btnUserLogout.Location = new System.Drawing.Point(19, 460);
             this.btnUserLogout.Name = "btnUserLogout";
@@ -113,10 +123,11 @@
             this.btnUserLogout.TabIndex = 7;
             this.btnUserLogout.Text = "Logout";
             this.btnUserLogout.UseVisualStyleBackColor = false;
+            this.btnUserLogout.Click += new System.EventHandler(this.btnUserLogout_Click);
             // 
             // btnAdminOrders
             // 
-            this.btnAdminOrders.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminOrders.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdminOrders.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnAdminOrders.Location = new System.Drawing.Point(19, 81);
             this.btnAdminOrders.Name = "btnAdminOrders";
@@ -128,7 +139,7 @@
             // 
             // btnAdminReports
             // 
-            this.btnAdminReports.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdminReports.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdminReports.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnAdminReports.Location = new System.Drawing.Point(19, 248);
             this.btnAdminReports.Name = "btnAdminReports";
@@ -137,18 +148,6 @@
             this.btnAdminReports.Text = "Reports";
             this.btnAdminReports.UseVisualStyleBackColor = true;
             this.btnAdminReports.Click += new System.EventHandler(this.btnAdminReports_Click);
-            // 
-            // btnAdminProfile
-            // 
-            this.btnAdminProfile.Font = new System.Drawing.Font("Bahnschrift", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdminProfile.ForeColor = System.Drawing.Color.LimeGreen;
-            this.btnAdminProfile.Location = new System.Drawing.Point(19, 305);
-            this.btnAdminProfile.Name = "btnAdminProfile";
-            this.btnAdminProfile.Size = new System.Drawing.Size(133, 38);
-            this.btnAdminProfile.TabIndex = 8;
-            this.btnAdminProfile.Text = "Profile";
-            this.btnAdminProfile.UseVisualStyleBackColor = true;
-            this.btnAdminProfile.Click += new System.EventHandler(this.btnAdminProfile_Click);
             // 
             // AdminMainForm
             // 
@@ -160,6 +159,7 @@
             this.Name = "AdminMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
+            this.Load += new System.EventHandler(this.AdminMainForm_Load);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 

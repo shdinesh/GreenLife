@@ -44,18 +44,20 @@
             // 
             // btnClearStock
             // 
-            this.btnClearStock.Location = new System.Drawing.Point(614, 122);
+            this.btnClearStock.ForeColor = System.Drawing.Color.LimeGreen;
+            this.btnClearStock.Location = new System.Drawing.Point(596, 122);
             this.btnClearStock.Name = "btnClearStock";
-            this.btnClearStock.Size = new System.Drawing.Size(68, 23);
+            this.btnClearStock.Size = new System.Drawing.Size(86, 23);
             this.btnClearStock.TabIndex = 20;
             this.btnClearStock.Text = "Clear";
             this.btnClearStock.UseVisualStyleBackColor = true;
             // 
             // btnSaveStock
             // 
-            this.btnSaveStock.Location = new System.Drawing.Point(533, 122);
+            this.btnSaveStock.ForeColor = System.Drawing.Color.LimeGreen;
+            this.btnSaveStock.Location = new System.Drawing.Point(490, 122);
             this.btnSaveStock.Name = "btnSaveStock";
-            this.btnSaveStock.Size = new System.Drawing.Size(68, 23);
+            this.btnSaveStock.Size = new System.Drawing.Size(92, 23);
             this.btnSaveStock.TabIndex = 19;
             this.btnSaveStock.Text = "Save";
             this.btnSaveStock.UseVisualStyleBackColor = true;
@@ -66,16 +68,17 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(361, 69);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.Size = new System.Drawing.Size(51, 13);
             this.label3.TabIndex = 15;
             this.label3.Text = "Quantity";
             // 
             // Date
             // 
             this.Date.AutoSize = true;
+            this.Date.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Date.Location = new System.Drawing.Point(18, 69);
             this.Date.Name = "Date";
-            this.Date.Size = new System.Drawing.Size(30, 13);
+            this.Date.Size = new System.Drawing.Size(31, 13);
             this.Date.TabIndex = 21;
             this.Date.Text = "Date";
             // 
@@ -92,7 +95,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(15, 23);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.Size = new System.Drawing.Size(47, 13);
             this.label4.TabIndex = 24;
             this.label4.Text = "Product";
             // 
@@ -101,7 +104,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(361, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 13);
+            this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 26;
             this.label1.Text = "Supplier";
             // 
@@ -117,33 +120,33 @@
             // 
             this.stockDatePicker.CustomFormat = "dd/MM/yyyy";
             this.stockDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.stockDatePicker.Location = new System.Drawing.Point(85, 69);
+            this.stockDatePicker.Location = new System.Drawing.Point(85, 67);
             this.stockDatePicker.Name = "stockDatePicker";
-            this.stockDatePicker.Size = new System.Drawing.Size(251, 20);
+            this.stockDatePicker.Size = new System.Drawing.Size(251, 22);
             this.stockDatePicker.TabIndex = 27;
             // 
             // txtStockQuantity
             // 
             this.txtStockQuantity.Location = new System.Drawing.Point(431, 66);
             this.txtStockQuantity.Name = "txtStockQuantity";
-            this.txtStockQuantity.Size = new System.Drawing.Size(91, 20);
+            this.txtStockQuantity.Size = new System.Drawing.Size(91, 22);
             this.txtStockQuantity.TabIndex = 28;
             // 
             // txtStockPrice
             // 
             this.txtStockPrice.Location = new System.Drawing.Point(596, 66);
             this.txtStockPrice.Name = "txtStockPrice";
-            this.txtStockPrice.Size = new System.Drawing.Size(86, 20);
+            this.txtStockPrice.Size = new System.Drawing.Size(86, 22);
             this.txtStockPrice.TabIndex = 30;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(542, 72);
+            this.label2.Location = new System.Drawing.Point(536, 72);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 13);
+            this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 29;
-            this.label2.Text = "Price";
+            this.label2.Text = "Price (Rs.)";
             // 
             // AddUpdateStockForm
             // 
@@ -162,6 +165,7 @@
             this.Controls.Add(this.btnClearStock);
             this.Controls.Add(this.btnSaveStock);
             this.Controls.Add(this.label3);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "AddUpdateStockForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Stocks";

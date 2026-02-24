@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace GreenLifeOS.UI
 {
-    public partial class InventoryControl : UserControl
+    public partial class AdminInventoryControl : UserControl
     {
         private readonly ISupplierService supplierService;
         private readonly IProductCategoryService productCategoryService;
@@ -13,7 +13,7 @@ namespace GreenLifeOS.UI
 
 
 
-        public InventoryControl()
+        public AdminInventoryControl()
         {
             InitializeComponent();
             supplierService = new SupplierService();

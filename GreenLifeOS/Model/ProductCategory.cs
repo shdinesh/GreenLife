@@ -11,10 +11,10 @@ namespace GreenLifeOS
         [Column("id")]
         public int Id { get; set; }
 
-        [Required, MaxLength(100)]
+        [Required, MaxLength(150)]
         public string Name { get; set; }
 
-        [Required, MaxLength(150)]
+        [MaxLength(200)]
         public string Description { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
@@ -28,5 +28,6 @@ namespace GreenLifeOS
         {
             return Name ?? base.ToString();
         }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GreenLifeOS
@@ -10,23 +11,23 @@ namespace GreenLifeOS
         [Column("id")]
         public int Id { get; set; }
 
-
-        // Foreign Key
+        [Required]
         [Column("product_id")]
-        public int? ProductId { get; set; }
+        public int ProductId { get; set; }
 
-        // Foreign Key
-        [Column("supplier")]
-        public int? SupplierId { get; set; }
+        [Required]
+        [Column("supplier_id")]
+        public int SupplierId { get; set; }
 
-
+        [Required]
         [Column("quantity")]
         public int StockQty { get; set; }
 
+        [Required]
         [Column("price")]
         public double Price { get; set; }
 
-
+        [Required]
         [Column("date")]
         public DateTime Date { get; set; }
 

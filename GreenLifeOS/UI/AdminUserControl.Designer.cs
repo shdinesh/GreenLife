@@ -35,6 +35,13 @@ namespace GreenLifeOS.UI
             this.btnDeleteCustomer = new System.Windows.Forms.Button();
             this.btnUpdateCustomer = new System.Windows.Forms.Button();
             this.customersGV = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.adminsGV = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,13 +50,6 @@ namespace GreenLifeOS.UI
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNewAdmin = new System.Windows.Forms.Button();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerLastName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.adminUsersTabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customersGV)).BeginInit();
@@ -73,6 +73,7 @@ namespace GreenLifeOS.UI
             this.tabPage1.Controls.Add(this.btnDeleteCustomer);
             this.tabPage1.Controls.Add(this.btnUpdateCustomer);
             this.tabPage1.Controls.Add(this.customersGV);
+            this.tabPage1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -83,6 +84,7 @@ namespace GreenLifeOS.UI
             // 
             // btnDeleteCustomer
             // 
+            this.btnDeleteCustomer.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnDeleteCustomer.Location = new System.Drawing.Point(733, 435);
             this.btnDeleteCustomer.Name = "btnDeleteCustomer";
             this.btnDeleteCustomer.Size = new System.Drawing.Size(98, 23);
@@ -93,6 +95,7 @@ namespace GreenLifeOS.UI
             // 
             // btnUpdateCustomer
             // 
+            this.btnUpdateCustomer.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnUpdateCustomer.Location = new System.Drawing.Point(628, 435);
             this.btnUpdateCustomer.Name = "btnUpdateCustomer";
             this.btnUpdateCustomer.Size = new System.Drawing.Size(96, 23);
@@ -121,6 +124,57 @@ namespace GreenLifeOS.UI
             this.customersGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.customersGV.Size = new System.Drawing.Size(839, 404);
             this.customersGV.TabIndex = 0;
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "ID";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // User
+            // 
+            this.User.DataPropertyName = "User";
+            this.User.HeaderText = "User";
+            this.User.Name = "User";
+            this.User.ReadOnly = true;
+            this.User.Visible = false;
+            // 
+            // CustomerFirstName
+            // 
+            this.CustomerFirstName.DataPropertyName = "FirstName";
+            this.CustomerFirstName.HeaderText = "First Name";
+            this.CustomerFirstName.Name = "CustomerFirstName";
+            this.CustomerFirstName.ReadOnly = true;
+            // 
+            // CustomerLastName
+            // 
+            this.CustomerLastName.DataPropertyName = "LastName";
+            this.CustomerLastName.HeaderText = "Last Name";
+            this.CustomerLastName.Name = "CustomerLastName";
+            this.CustomerLastName.ReadOnly = true;
+            // 
+            // CustomerAddress
+            // 
+            this.CustomerAddress.DataPropertyName = "Address";
+            this.CustomerAddress.HeaderText = "Address";
+            this.CustomerAddress.Name = "CustomerAddress";
+            this.CustomerAddress.ReadOnly = true;
+            // 
+            // CustomerEmail
+            // 
+            this.CustomerEmail.DataPropertyName = "Email";
+            this.CustomerEmail.HeaderText = "Email";
+            this.CustomerEmail.Name = "CustomerEmail";
+            this.CustomerEmail.ReadOnly = true;
+            // 
+            // CustomerPhoneNumber
+            // 
+            this.CustomerPhoneNumber.DataPropertyName = "PhoneNumber";
+            this.CustomerPhoneNumber.HeaderText = "PhoneNumber";
+            this.CustomerPhoneNumber.Name = "CustomerPhoneNumber";
+            this.CustomerPhoneNumber.ReadOnly = true;
             // 
             // tabPage2
             // 
@@ -198,57 +252,6 @@ namespace GreenLifeOS.UI
             this.btnNewAdmin.Text = "New";
             this.btnNewAdmin.UseVisualStyleBackColor = true;
             this.btnNewAdmin.Click += new System.EventHandler(this.btnNewAdmin_Click);
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "ID";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // User
-            // 
-            this.User.DataPropertyName = "User";
-            this.User.HeaderText = "User";
-            this.User.Name = "User";
-            this.User.ReadOnly = true;
-            this.User.Visible = false;
-            // 
-            // CustomerFirstName
-            // 
-            this.CustomerFirstName.DataPropertyName = "FirstName";
-            this.CustomerFirstName.HeaderText = "First Name";
-            this.CustomerFirstName.Name = "CustomerFirstName";
-            this.CustomerFirstName.ReadOnly = true;
-            // 
-            // CustomerLastName
-            // 
-            this.CustomerLastName.DataPropertyName = "LastName";
-            this.CustomerLastName.HeaderText = "Last Name";
-            this.CustomerLastName.Name = "CustomerLastName";
-            this.CustomerLastName.ReadOnly = true;
-            // 
-            // CustomerAddress
-            // 
-            this.CustomerAddress.DataPropertyName = "Address";
-            this.CustomerAddress.HeaderText = "Address";
-            this.CustomerAddress.Name = "CustomerAddress";
-            this.CustomerAddress.ReadOnly = true;
-            // 
-            // CustomerEmail
-            // 
-            this.CustomerEmail.DataPropertyName = "Email";
-            this.CustomerEmail.HeaderText = "Email";
-            this.CustomerEmail.Name = "CustomerEmail";
-            this.CustomerEmail.ReadOnly = true;
-            // 
-            // CustomerPhoneNumber
-            // 
-            this.CustomerPhoneNumber.DataPropertyName = "PhoneNumber";
-            this.CustomerPhoneNumber.HeaderText = "PhoneNumber";
-            this.CustomerPhoneNumber.Name = "CustomerPhoneNumber";
-            this.CustomerPhoneNumber.ReadOnly = true;
             // 
             // AdminUserControl
             // 

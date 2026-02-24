@@ -26,12 +26,6 @@ namespace GreenLifeOS
             rightContent.Show();
         }
 
-        private void btnSupplier_Click(object sender, EventArgs e)
-        {
-            SuppliersForm suppliersForm = new SuppliersForm();
-            suppliersForm.Show();
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             ProductCategoryForm productCategoryForm = new ProductCategoryForm();
@@ -40,17 +34,7 @@ namespace GreenLifeOS
       
         private void button3_Click(object sender, EventArgs e)
         {
-            LoadChildForm(new InventoryControl());
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            LoadChildForm(new AdminInventoryControl());
         }
 
         private void panel1_Resize(object sender, EventArgs e)
@@ -69,6 +53,7 @@ namespace GreenLifeOS
 
         private void btnAdminReports_Click(object sender, EventArgs e)
         {
+            LoadChildForm(new AdminReportControl());
 
         }
 
@@ -88,6 +73,36 @@ namespace GreenLifeOS
         {
             LoadChildForm(new AdminProfileControl());
 
+        }
+
+        private void AdminMainForm_Load(object sender, EventArgs e)
+        {
+            LoadChildForm(new AdminDashboardControl());
+
+        }
+
+        private void btnAdminDashboard_Click(object sender, EventArgs e)
+        {
+            LoadChildForm(new AdminDashboardControl());
+        }
+
+        private void btnUserLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = ShowConfirmationDialog("Logout", "Are you sure you want to Logout?", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                this.Hide();
+                LoginForm loginForm = new LoginForm();
+                loginForm.ShowDialog();
+                this.Close();
+            }
+        }
+
+        private DialogResult ShowConfirmationDialog(string title, string message, MessageBoxButtons buttons)
+        {
+            return MessageBox.Show(this, message, title,
+                buttons, MessageBoxIcon.Question);
         }
     }
 }

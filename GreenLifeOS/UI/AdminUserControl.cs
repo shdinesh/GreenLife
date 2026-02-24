@@ -76,12 +76,12 @@ namespace GreenLifeOS.UI
 
         private void btnUpdateCustomer_Click(object sender, EventArgs e)
         {
-            if (customersGV.CurrentRow?.DataBoundItem is Customer customer)
-            {
-                CustomerRegistrationForm customerRegistration = new CustomerRegistrationForm(customer);
-                customerRegistration.ShowDialog();
-                reloadAllCustomers();
-            }
+            //if (customersGV.CurrentRow?.DataBoundItem is Customer customer)
+            //{
+            //    CustomerRegistrationForm customerRegistration = new CustomerRegistrationForm(customer);
+            //    customerRegistration.ShowDialog();
+            //    reloadAllCustomers();
+            //}
         }
 
         private void AdminUserControl_Load(object sender, EventArgs e)
@@ -132,8 +132,8 @@ namespace GreenLifeOS.UI
 
         private void btnNewAdmin_Click(object sender, EventArgs e)
         {
-            AdminRegistrationForm adminRegistration = new AdminRegistrationForm();
-            adminRegistration.ShowDialog();
+            CustomerRegistrationForm adminRegistrationForm  = new CustomerRegistrationForm(UserRole.ADMIN);
+            adminRegistrationForm.ShowDialog();
             reloadAllAdmins();
         }
     }

@@ -33,9 +33,9 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.btnExitLogin = new System.Windows.Forms.Button();
             this.linkLabelRegister = new System.Windows.Forms.LinkLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // label1
@@ -43,7 +43,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(28, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Username";
             // 
@@ -51,7 +51,7 @@
             // 
             this.txtUsername.Location = new System.Drawing.Point(118, 40);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(257, 20);
+            this.txtUsername.Size = new System.Drawing.Size(257, 22);
             this.txtUsername.TabIndex = 1;
             // 
             // txtPassword
@@ -59,7 +59,7 @@
             this.txtPassword.Location = new System.Drawing.Point(118, 79);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(257, 20);
+            this.txtPassword.Size = new System.Drawing.Size(257, 22);
             this.txtPassword.TabIndex = 3;
             // 
             // label2
@@ -67,12 +67,13 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(28, 82);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
+            this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Password";
             // 
             // btnLogin
             // 
+            this.btnLogin.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnLogin.Location = new System.Drawing.Point(300, 125);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
@@ -81,17 +82,9 @@
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = global::GreenLifeOS.Properties.Resources.GLOS1;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(404, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(174, 155);
-            this.panel1.TabIndex = 5;
-            // 
             // btnExitLogin
             // 
+            this.btnExitLogin.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnExitLogin.Location = new System.Drawing.Point(219, 125);
             this.btnExitLogin.Name = "btnExitLogin";
             this.btnExitLogin.Size = new System.Drawing.Size(75, 23);
@@ -105,11 +98,20 @@
             this.linkLabelRegister.AutoSize = true;
             this.linkLabelRegister.Location = new System.Drawing.Point(154, 130);
             this.linkLabelRegister.Name = "linkLabelRegister";
-            this.linkLabelRegister.Size = new System.Drawing.Size(46, 13);
+            this.linkLabelRegister.Size = new System.Drawing.Size(49, 13);
             this.linkLabelRegister.TabIndex = 7;
             this.linkLabelRegister.TabStop = true;
             this.linkLabelRegister.Text = "Register";
             this.linkLabelRegister.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRegister_LinkClicked);
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::GreenLifeOS.Properties.Resources.GLOS1;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(404, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(174, 155);
+            this.panel1.TabIndex = 5;
             // 
             // LoginForm
             // 
@@ -124,6 +126,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label1);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

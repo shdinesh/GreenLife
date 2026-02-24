@@ -58,8 +58,8 @@ namespace GreenLifeOS.UI
 
                 var newStock = new Stock()
                 {
-                    ProductId = (int?)cmbStockProducts.SelectedValue,
-                    SupplierId = (int?)cmbStockSuppliers.SelectedValue,
+                    ProductId = (int)cmbStockProducts.SelectedValue,
+                    SupplierId = (int)cmbStockSuppliers.SelectedValue,
                     StockQty = quantity,
                     Date = stockDatePicker.Value,
                     Price = price,

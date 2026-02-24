@@ -7,15 +7,16 @@ namespace GreenLifeOS
     [Table("supplier")]
     public class Supplier
     {
+        [Column("id")]
         public int Id { get; set; }
 
-        [Required, MaxLength(100)]
+        [Required, MaxLength(150)]
         public string Name { get; set; }
 
-        [Required, MaxLength(100)]
+        [Required, MaxLength(200)]
         public string Address { get; set; }
 
-        [Required]
+        [Required, MaxLength(150)]
         public string Email { get; set; }
 
         [Required, MaxLength(16)]

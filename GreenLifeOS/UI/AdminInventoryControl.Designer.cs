@@ -2,7 +2,7 @@
 
 namespace GreenLifeOS.UI
 {
-    partial class InventoryControl
+    partial class AdminInventoryControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -32,6 +32,7 @@ namespace GreenLifeOS.UI
         {
             this.inventoryTabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.txtMaxPrice = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtMinPrice = new System.Windows.Forms.TextBox();
@@ -101,6 +102,7 @@ namespace GreenLifeOS.UI
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.txtMaxPrice);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.txtMinPrice);
@@ -110,6 +112,7 @@ namespace GreenLifeOS.UI
             this.tabPage1.Controls.Add(this.btnDeleteProduct);
             this.tabPage1.Controls.Add(this.productsGV);
             this.tabPage1.Controls.Add(this.btnNewProduct);
+            this.tabPage1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -118,11 +121,22 @@ namespace GreenLifeOS.UI
             this.tabPage1.Text = "Products";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.ForeColor = System.Drawing.Color.LimeGreen;
+            this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button1.Location = new System.Drawing.Point(613, 447);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(68, 23);
+            this.button1.TabIndex = 30;
+            this.button1.Text = "Info";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // txtMaxPrice
             // 
             this.txtMaxPrice.Location = new System.Drawing.Point(623, 15);
             this.txtMaxPrice.Name = "txtMaxPrice";
-            this.txtMaxPrice.Size = new System.Drawing.Size(104, 20);
+            this.txtMaxPrice.Size = new System.Drawing.Size(104, 22);
             this.txtMaxPrice.TabIndex = 29;
             this.txtMaxPrice.TextChanged += new System.EventHandler(this.txtMaxPrice_TextChanged);
             // 
@@ -140,15 +154,15 @@ namespace GreenLifeOS.UI
             // 
             this.txtMinPrice.Location = new System.Drawing.Point(491, 15);
             this.txtMinPrice.Name = "txtMinPrice";
-            this.txtMinPrice.Size = new System.Drawing.Size(110, 20);
+            this.txtMinPrice.Size = new System.Drawing.Size(110, 22);
             this.txtMinPrice.TabIndex = 27;
             this.txtMinPrice.TextChanged += new System.EventHandler(this.txtMinPrice_TextChanged);
             // 
             // txtSearchProduct
             // 
-            this.txtSearchProduct.Location = new System.Drawing.Point(134, 15);
+            this.txtSearchProduct.Location = new System.Drawing.Point(134, 13);
             this.txtSearchProduct.Name = "txtSearchProduct";
-            this.txtSearchProduct.Size = new System.Drawing.Size(283, 20);
+            this.txtSearchProduct.Size = new System.Drawing.Size(283, 22);
             this.txtSearchProduct.TabIndex = 26;
             this.txtSearchProduct.TextChanged += new System.EventHandler(this.txtSearchProduct_TextChanged);
             // 
@@ -164,6 +178,7 @@ namespace GreenLifeOS.UI
             // 
             // btnUpdateProduct
             // 
+            this.btnUpdateProduct.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnUpdateProduct.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnUpdateProduct.Location = new System.Drawing.Point(688, 447);
             this.btnUpdateProduct.Name = "btnUpdateProduct";
@@ -175,6 +190,7 @@ namespace GreenLifeOS.UI
             // 
             // btnDeleteProduct
             // 
+            this.btnDeleteProduct.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnDeleteProduct.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnDeleteProduct.Location = new System.Drawing.Point(762, 447);
             this.btnDeleteProduct.Name = "btnDeleteProduct";
@@ -266,8 +282,9 @@ namespace GreenLifeOS.UI
             // 
             // btnNewProduct
             // 
+            this.btnNewProduct.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnNewProduct.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnNewProduct.Location = new System.Drawing.Point(614, 447);
+            this.btnNewProduct.Location = new System.Drawing.Point(538, 447);
             this.btnNewProduct.Name = "btnNewProduct";
             this.btnNewProduct.Size = new System.Drawing.Size(68, 23);
             this.btnNewProduct.TabIndex = 21;
@@ -281,6 +298,7 @@ namespace GreenLifeOS.UI
             this.tabPage2.Controls.Add(this.btnDeleteStock);
             this.tabPage2.Controls.Add(this.btnAddNewStock);
             this.tabPage2.Controls.Add(this.stocksGV);
+            this.tabPage2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -390,6 +408,7 @@ namespace GreenLifeOS.UI
             this.tabPage3.Controls.Add(this.btnDeleteProductCategory);
             this.tabPage3.Controls.Add(this.productCategoryGV);
             this.tabPage3.Controls.Add(this.btnNewProductCategory);
+            this.tabPage3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(839, 484);
@@ -448,6 +467,7 @@ namespace GreenLifeOS.UI
             this.tabPage4.Controls.Add(this.btnDeleteSupplier);
             this.tabPage4.Controls.Add(this.suppliersGV);
             this.tabPage4.Controls.Add(this.btnNewSupplier);
+            this.tabPage4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(839, 484);
@@ -542,12 +562,12 @@ namespace GreenLifeOS.UI
             this.btnNewSupplier.UseVisualStyleBackColor = true;
             this.btnNewSupplier.Click += new System.EventHandler(this.btnNewSupplier_Click);
             // 
-            // InventoryControl
+            // AdminInventoryControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.inventoryTabs);
-            this.Name = "InventoryControl";
+            this.Name = "AdminInventoryControl";
             this.Size = new System.Drawing.Size(850, 510);
             this.Load += new System.EventHandler(this.InventoryControl_Load);
             this.inventoryTabs.ResumeLayout(false);
@@ -611,5 +631,6 @@ namespace GreenLifeOS.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn SupplierAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn SupplierEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNo;
+        private System.Windows.Forms.Button button1;
     }
 }

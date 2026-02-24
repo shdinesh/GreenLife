@@ -41,22 +41,50 @@ namespace GreenLifeOS.UI
 
         private void CustomerProfileControl_Load(object sender, EventArgs e)
         {
+            reloadProfileInfo();
+            CenterLabelsUnderImage();
+
+        }
+
+        private void CenterLabelsUnderImage()
+        {
+            lblProfileName.Left = pictureBox1.Left + (pictureBox1.Width - lblProfileName.Width) / 2;
+            lblRoleName.Left = pictureBox1.Left + (pictureBox1.Width - lblRoleName.Width) / 2;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             if (AppSession.CurrentUser != null)
             {
                 Customer customer = userService.GetUserById(AppSession.CurrentUser.UserId).Customer;
                 if (customer != null)
                 {
-                    lblCustomerTitle.Text = "Mr";
+                    UserProfileUpdateForm profileUpdateForm = new UserProfileUpdateForm(customer);
+                    profileUpdateForm.ShowDialog();
+                    reloadProfileInfo();
+                }
+            }
+
+        }
+
+        private void reloadProfileInfo()
+        {
+            if (AppSession.CurrentUser != null)
+            {
+                Customer customer = userService.GetUserById(AppSession.CurrentUser.UserId).Customer;
+                if (customer != null)
+                {
+                    lblCustomerTitle.Text = customer.Title;
                     lblCustomerFirstName.Text = customer.FirstName;
                     lblCustomerLastName.Text = customer.LastName;
                     lblCustomerRole.Text = AppSession.CurrentUser.Role;
                     lblCustomerEmail.Text = customer.Email;
                     lblCustomerAddress.Text = customer.Address;
                     lblCustomerPhoneNo.Text = customer.PhoneNumber;
+                    var fullName = customer.Title + ". " + customer.FirstName + " " + customer.LastName;
+                    lblProfileName.Text = fullName;
                 }
-
             }
-
         }
     }
 }

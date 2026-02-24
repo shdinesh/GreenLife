@@ -11,6 +11,7 @@ namespace GreenLifeOS.UI
 
         public AdminDashboardControl()
         {
+            InitializeComponent();
             orderService = new OrderService();
             productService = new ProductService();
         }
@@ -32,7 +33,5 @@ namespace GreenLifeOS.UI
         {
             System.Diagnostics.Debug.WriteLine($"{message}: {ex.Message}");
         }
-
-
     }
 }

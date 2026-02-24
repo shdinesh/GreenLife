@@ -50,6 +50,7 @@
             // 
             // btnClearFields
             // 
+            this.btnClearFields.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnClearFields.Location = new System.Drawing.Point(308, 337);
             this.btnClearFields.Name = "btnClearFields";
             this.btnClearFields.Size = new System.Drawing.Size(68, 23);
@@ -60,6 +61,7 @@
             // 
             // btnRegisterAdmin
             // 
+            this.btnRegisterAdmin.ForeColor = System.Drawing.Color.LimeGreen;
             this.btnRegisterAdmin.Location = new System.Drawing.Point(234, 337);
             this.btnRegisterAdmin.Name = "btnRegisterAdmin";
             this.btnRegisterAdmin.Size = new System.Drawing.Size(68, 23);
@@ -72,7 +74,7 @@
             // 
             this.txtAdminUsername.Location = new System.Drawing.Point(120, 19);
             this.txtAdminUsername.Name = "txtAdminUsername";
-            this.txtAdminUsername.Size = new System.Drawing.Size(251, 20);
+            this.txtAdminUsername.Size = new System.Drawing.Size(251, 22);
             this.txtAdminUsername.TabIndex = 30;
             // 
             // label6
@@ -80,7 +82,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(17, 22);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.Size = new System.Drawing.Size(58, 13);
             this.label6.TabIndex = 29;
             this.label6.Text = "Username";
             // 
@@ -89,7 +91,7 @@
             this.txtAdminPassword.Location = new System.Drawing.Point(120, 56);
             this.txtAdminPassword.Name = "txtAdminPassword";
             this.txtAdminPassword.PasswordChar = '*';
-            this.txtAdminPassword.Size = new System.Drawing.Size(251, 20);
+            this.txtAdminPassword.Size = new System.Drawing.Size(251, 22);
             this.txtAdminPassword.TabIndex = 32;
             // 
             // label7
@@ -97,7 +99,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(18, 61);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 13);
+            this.label7.Size = new System.Drawing.Size(56, 13);
             this.label7.TabIndex = 31;
             this.label7.Text = "Password";
             // 
@@ -133,7 +135,7 @@
             // 
             this.txtAdminPhoneNumber.Location = new System.Drawing.Point(119, 119);
             this.txtAdminPhoneNumber.Name = "txtAdminPhoneNumber";
-            this.txtAdminPhoneNumber.Size = new System.Drawing.Size(251, 20);
+            this.txtAdminPhoneNumber.Size = new System.Drawing.Size(251, 22);
             this.txtAdminPhoneNumber.TabIndex = 36;
             // 
             // label4
@@ -141,7 +143,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(25, 122);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 13);
+            this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 35;
             this.label4.Text = "Phone No.";
             // 
@@ -149,7 +151,7 @@
             // 
             this.txtAdminEmail.Location = new System.Drawing.Point(119, 85);
             this.txtAdminEmail.Name = "txtAdminEmail";
-            this.txtAdminEmail.Size = new System.Drawing.Size(251, 20);
+            this.txtAdminEmail.Size = new System.Drawing.Size(251, 22);
             this.txtAdminEmail.TabIndex = 34;
             // 
             // label3
@@ -157,7 +159,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(25, 90);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 33;
             this.label3.Text = "Email";
             // 
@@ -165,7 +167,7 @@
             // 
             this.txtAdminLastName.Location = new System.Drawing.Point(119, 52);
             this.txtAdminLastName.Name = "txtAdminLastName";
-            this.txtAdminLastName.Size = new System.Drawing.Size(251, 20);
+            this.txtAdminLastName.Size = new System.Drawing.Size(251, 22);
             this.txtAdminLastName.TabIndex = 32;
             // 
             // label2
@@ -173,7 +175,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(25, 55);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.Size = new System.Drawing.Size(59, 13);
             this.label2.TabIndex = 31;
             this.label2.Text = "Last Name";
             // 
@@ -181,7 +183,7 @@
             // 
             this.txtAdminFirstName.Location = new System.Drawing.Point(119, 19);
             this.txtAdminFirstName.Name = "txtAdminFirstName";
-            this.txtAdminFirstName.Size = new System.Drawing.Size(251, 20);
+            this.txtAdminFirstName.Size = new System.Drawing.Size(251, 22);
             this.txtAdminFirstName.TabIndex = 30;
             // 
             // label1
@@ -189,7 +191,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(25, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 29;
             this.label1.Text = "First name";
             // 
@@ -202,6 +204,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnClearFields);
             this.Controls.Add(this.btnRegisterAdmin);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "AdminRegistrationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register New Admin";

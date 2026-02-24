@@ -24,9 +24,15 @@ namespace GreenLifeOS
         [Required, Column("selling_price")]
         public double SellingPrice { get; set; }
 
-        // Foreign Key
+        [Column("discount")]
+        public double Discount { get; set; }
+
         [Column("category")]
         public int? CategoryId { get; set; }
+
+        [MaxLength(255)]
+        [Column("photo")]
+        public string Photo { get; set; }
 
         // Navigation property (Many-to-One)
         [ForeignKey(nameof(CategoryId))]

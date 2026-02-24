@@ -90,7 +90,7 @@ namespace GreenLifeOS.UI
         {
             btnPlaceOrder.Enabled = orderProducts.Count > 0;
             double discount = 0.00;
-            if (!double.TryParse(txtDiscount.Text.Trim(), out discount))
+            if (!double.TryParse(lblDiscountTotal.Text.Trim(), out discount))
             {
                 MessageBox.Show("Please enter a valid discount percentage.",
                                 "Invalid Input",
@@ -99,17 +99,20 @@ namespace GreenLifeOS.UI
                 return;
             }
 
-            double finalAmount = CalculateFinalAmount(orderProducts, discount);
-            lblOrderTotalAmount.Text = finalAmount.ToString("N2");
+            var lineCalculation = CalculateFinalAmount(orderProducts);
+            lblOrderTotalAmount.Text = lineCalculation.LineItemTotal.ToString("N2");
+            lblDiscountTotal.Text = lineCalculation.LineDiscountTotal.ToString("N2");
+            lblDiscountTotal.Text = lineCalculation.LineDiscountTotal.ToString("N2");
+            lblSubTotal.Text = lineCalculation.SubTotal.ToString("N2");
         }
 
-        private double CalculateFinalAmount(IEnumerable<ProductVo> products, double discountPercent)
+        private (double SubTotal, double LineItemTotal, double LineDiscountTotal) CalculateFinalAmount(IEnumerable<ProductVo> products)
         {
-            if (products == null) return 0;
-
-            double total = products.Sum(p => p.LineItemTotal);
-            double finalAmount = total - (total * discountPercent / 100);
-            return finalAmount;
+            if (products == null) return (0, 0, 0);
+            double subTotal = products.Sum(p => (p.PurchaseQuantity * p.SellingPrice));
+            double lineItemTotal = products.Sum(p => p.LineItemTotal);
+            double lineDiscountTotal = (double)products.Sum(p => (p.PurchaseQuantity * p.SellingPrice) * (p.Discount / 100.0));
+            return (subTotal, lineItemTotal, lineDiscountTotal);
         }
 
         private void btnPlaceOrder_Click(object sender, EventArgs e)
@@ -125,6 +128,7 @@ namespace GreenLifeOS.UI
                                     MessageBoxIcon.Warning);
                     return;
                 }
+
                 var order = new Order()
                 {
                     Date = DateTime.Now,
@@ -132,6 +136,7 @@ namespace GreenLifeOS.UI
                     Status = OrderStatus.PENDING.ToString(),
                     CustomerId = AppSession.CurrentUser.UserId,
                     LastUpdated = DateTime.Now,
+                    OrderNumber = generateOrderNumber(),
 
                 };
                 AddNewOrder(order);
@@ -242,6 +247,16 @@ namespace GreenLifeOS.UI
             {
                 reloadOrderItems(orderVo.OrderId);
             }
+
+        }
+
+
+        private string generateOrderNumber()
+        {
+            Random random = new Random();
+            string orderNumber = "ORD-" + DateTime.Now.ToString("yyMMdd") + "-" + random.Next(100, 100000);
+            return orderNumber;
+
 
         }
     }

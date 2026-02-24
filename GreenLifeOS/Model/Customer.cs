@@ -10,24 +10,27 @@ namespace GreenLifeOS
         [Column("id")]
         public int Id { get; set; }
 
+        [Column("title")]
+        [Required, MaxLength(10)]
+        public string Title { get; set; }
+
         [Column("first_name")]
-        [Required, MaxLength(100)]
+        [Required, MaxLength(150)]
         public string FirstName { get; set; }
 
         [Column("last_name")]
-        [Required, MaxLength(100)]
+        [Required, MaxLength(150)]
         public string LastName { get; set; }
 
         [Column("phone_number")]
         [Required, MaxLength(16)]
         public string PhoneNumber { get; set; }
 
-        [Required, MaxLength(150)]
+        [Required, MaxLength(200)]
         public string Address { get; set; }
 
-        [MaxLength(100)]
+        [MaxLength(150)]
         public string Email { get; set; }
-
 
         [Key]
         [ForeignKey(nameof(User))]
@@ -37,6 +40,8 @@ namespace GreenLifeOS
         public virtual User User { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<ProductRatingAndReview> RatingAndReviews { get; set; }
+
 
 
 
