@@ -28,7 +28,21 @@ namespace GreenLifeOS.Service
             }
             catch (Exception ex)
             {
-                throw new InvalidOperationException("An error occurred while retrieving Sales Report. Please try again.", ex);
+                throw new InvalidOperationException("An error occurred while generating Sales Report. Please try again.", ex);
+            }
+        }
+
+        public List<OrderHistoryVo> GenerateOrderHistoryReport(string customerName, string dateFrom, string dateTo, string orderStatus)
+        {
+            try
+            {
+                var salesReport = reportsRepository.GenerateOrderHistoryReport(customerName, dateFrom, dateTo, orderStatus);
+
+                return salesReport ?? new List<OrderHistoryVo>();
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("An error occurred while generating Order History Report. Please try again.", ex);
             }
         }
 

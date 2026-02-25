@@ -75,7 +75,8 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(167, 0);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(168, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(869, 510);
             this.panel1.TabIndex = 3;
@@ -92,7 +93,7 @@
             this.panel2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(171, 510);
+            this.panel2.Size = new System.Drawing.Size(168, 510);
             this.panel2.TabIndex = 4;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -119,6 +120,7 @@
             this.Name = "CustomerMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CustomerMainForm_FormClosed);
             this.Load += new System.EventHandler(this.CustomerMainForm_Load);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);

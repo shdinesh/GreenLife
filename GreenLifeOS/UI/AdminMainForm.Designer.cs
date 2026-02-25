@@ -97,7 +97,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(173, 510);
+            this.panel2.Size = new System.Drawing.Size(171, 510);
             this.panel2.TabIndex = 4;
             // 
             // btnAdminProfile
@@ -159,6 +159,7 @@
             this.Name = "AdminMainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdminMainForm_FormClosed);
             this.Load += new System.EventHandler(this.AdminMainForm_Load);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);

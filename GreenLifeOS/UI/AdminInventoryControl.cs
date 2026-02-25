@@ -1,4 +1,5 @@
 ﻿using GreenLifeOS.Service;
+using GreenLifeOS.Utils;
 using System;
 using System.Windows.Forms;
 
@@ -392,6 +393,24 @@ namespace GreenLifeOS.UI
         private void cmbProductCategories_SelectedValueChanged(object sender, EventArgs e)
         {
             searchProducts();
+        }
+
+        private void btnSaveStockReport_Click(object sender, EventArgs e)
+        {
+            using (var sfd = new SaveFileDialog())
+            {
+
+                sfd.Title = "Products Stock Report";
+                sfd.Filter = "CSV files (*.csv)|*.csv";
+                sfd.FileName = "Products Stock Report_" + DateTime.Now.ToString("yyyy-MM-dd") + ".csv";
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    CSVExport.ExportGridToCsv(productsGV, sfd.FileName);
+                    MessageBox.Show("Report exported successfully.", "Success",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
     }
 }

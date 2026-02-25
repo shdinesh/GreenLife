@@ -31,6 +31,21 @@ namespace GreenLifeOS
                 .HasOptional(p => p.Category)
                 .WithMany(c => c.Products)
                 .HasForeignKey(p => p.CategoryId);
+
+            // Customer -> User (many-to-one)
+            modelBuilder.Entity<Customer>()
+                .HasRequired(c => c.User)
+                .WithMany(u => u.Customers)
+                .HasForeignKey(c => c.UserId)
+                .WillCascadeOnDelete(false);
+
+            // Admin -> User (many-to-one)
+            modelBuilder.Entity<Admin>()
+                .HasRequired(a => a.User)
+                .WithMany(u => u.Admins)
+                .HasForeignKey(a => a.UserId)
+                .WillCascadeOnDelete(false);
+
             base.OnModelCreating(modelBuilder);
         }
 

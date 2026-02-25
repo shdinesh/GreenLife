@@ -7,6 +7,7 @@ namespace GreenLifeOS.Service
         Order AddNewOrder(Order order);
         List<OrderVo> GetAllOrders();
         List<OrderVo> GetAllOrdersByStatus(string status);
+        List<OrderVo> GetAllOrdersByCustomer(int customerId);
         List<ProductVo> GetAllLineItems(int orderId);
         Order UpdateOrder(Order order);
         Order UpdateOrderStatus(OrderVo orderVo);

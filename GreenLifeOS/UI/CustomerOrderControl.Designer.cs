@@ -89,7 +89,7 @@ namespace GreenLifeOS.UI
             this.customerOrderTabs.Location = new System.Drawing.Point(0, 0);
             this.customerOrderTabs.Name = "customerOrderTabs";
             this.customerOrderTabs.SelectedIndex = 0;
-            this.customerOrderTabs.Size = new System.Drawing.Size(858, 507);
+            this.customerOrderTabs.Size = new System.Drawing.Size(850, 507);
             this.customerOrderTabs.TabIndex = 0;
             this.customerOrderTabs.SelectedIndexChanged += new System.EventHandler(this.customerOrderTabs_TabIndexChanged);
             this.customerOrderTabs.TabIndexChanged += new System.EventHandler(this.customerOrderTabs_TabIndexChanged);
@@ -112,7 +112,7 @@ namespace GreenLifeOS.UI
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(850, 481);
+            this.tabPage1.Size = new System.Drawing.Size(842, 481);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "New Order";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -121,7 +121,7 @@ namespace GreenLifeOS.UI
             // 
             this.lblDiscountTotal.AutoSize = true;
             this.lblDiscountTotal.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiscountTotal.Location = new System.Drawing.Point(758, 366);
+            this.lblDiscountTotal.Location = new System.Drawing.Point(763, 367);
             this.lblDiscountTotal.Name = "lblDiscountTotal";
             this.lblDiscountTotal.Size = new System.Drawing.Size(28, 13);
             this.lblDiscountTotal.TabIndex = 12;
@@ -132,7 +132,7 @@ namespace GreenLifeOS.UI
             // 
             this.lblSubTotal.AutoSize = true;
             this.lblSubTotal.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubTotal.Location = new System.Drawing.Point(758, 344);
+            this.lblSubTotal.Location = new System.Drawing.Point(763, 345);
             this.lblSubTotal.Name = "lblSubTotal";
             this.lblSubTotal.Size = new System.Drawing.Size(28, 13);
             this.lblSubTotal.TabIndex = 11;
@@ -143,7 +143,7 @@ namespace GreenLifeOS.UI
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(601, 344);
+            this.label2.Location = new System.Drawing.Point(606, 345);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(81, 13);
             this.label2.TabIndex = 10;
@@ -153,7 +153,7 @@ namespace GreenLifeOS.UI
             // 
             this.lblOrderTotalAmount.AutoSize = true;
             this.lblOrderTotalAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOrderTotalAmount.Location = new System.Drawing.Point(752, 398);
+            this.lblOrderTotalAmount.Location = new System.Drawing.Point(756, 398);
             this.lblOrderTotalAmount.Name = "lblOrderTotalAmount";
             this.lblOrderTotalAmount.Size = new System.Drawing.Size(41, 21);
             this.lblOrderTotalAmount.TabIndex = 9;
@@ -164,7 +164,7 @@ namespace GreenLifeOS.UI
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(601, 398);
+            this.label4.Location = new System.Drawing.Point(605, 398);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(135, 21);
             this.label4.TabIndex = 8;
@@ -175,9 +175,9 @@ namespace GreenLifeOS.UI
             this.btnPlaceOrder.Enabled = false;
             this.btnPlaceOrder.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlaceOrder.ForeColor = System.Drawing.Color.LimeGreen;
-            this.btnPlaceOrder.Location = new System.Drawing.Point(637, 434);
+            this.btnPlaceOrder.Location = new System.Drawing.Point(583, 434);
             this.btnPlaceOrder.Name = "btnPlaceOrder";
-            this.btnPlaceOrder.Size = new System.Drawing.Size(190, 36);
+            this.btnPlaceOrder.Size = new System.Drawing.Size(244, 36);
             this.btnPlaceOrder.TabIndex = 7;
             this.btnPlaceOrder.Text = "Place Order";
             this.btnPlaceOrder.UseVisualStyleBackColor = true;
@@ -187,7 +187,7 @@ namespace GreenLifeOS.UI
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(601, 366);
+            this.label3.Location = new System.Drawing.Point(606, 367);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(99, 13);
             this.label3.TabIndex = 5;
@@ -451,6 +451,7 @@ namespace GreenLifeOS.UI
             this.OrderId.HeaderText = "Order ID";
             this.OrderId.Name = "OrderId";
             this.OrderId.ReadOnly = true;
+            this.OrderId.Visible = false;
             // 
             // OrderNumber
             // 
@@ -501,6 +502,7 @@ namespace GreenLifeOS.UI
             this.Controls.Add(this.customerOrderTabs);
             this.Name = "CustomerOrderControl";
             this.Size = new System.Drawing.Size(850, 510);
+            this.Load += new System.EventHandler(this.CustomerOrderControl_Load);
             this.customerOrderTabs.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -539,13 +541,6 @@ namespace GreenLifeOS.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Discount;
         private System.Windows.Forms.DataGridViewTextBoxColumn LineItemTotal2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdated;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn CategoryId;
         private System.Windows.Forms.DataGridViewTextBoxColumn pName;
@@ -558,5 +553,12 @@ namespace GreenLifeOS.UI
         private System.Windows.Forms.Label lblDiscountTotal;
         private System.Windows.Forms.Label lblSubTotal;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdated;
     }
 }

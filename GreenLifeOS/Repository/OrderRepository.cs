@@ -54,6 +54,7 @@ namespace GreenLifeOS.Repository
         {
             return this.dbContext.Orders
                 .AsNoTracking()
+                .OrderByDescending(o => o.Date)
                 .ToList();
         }
 

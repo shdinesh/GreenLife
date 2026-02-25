@@ -1,6 +1,7 @@
 ﻿using GreenLifeOS.Service;
 using GreenLifeOS.Session;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace GreenLifeOS.UI
@@ -49,15 +50,15 @@ namespace GreenLifeOS.UI
 
         private void CenterLabelsUnderImage()
         {
-            lblProfileName.Left = pictureBox1.Left + (pictureBox1.Width - lblProfileName.Width) / 2;
-            lblRoleName.Left = pictureBox1.Left + (pictureBox1.Width - lblRoleName.Width) / 2;
+            lblProfileName.Left = pnlProfilePicBox.Left + (pnlProfilePicBox.Width - lblProfileName.Width) / 2;
+            lblRoleName.Left = pnlProfilePicBox.Left + (pnlProfilePicBox.Width - lblRoleName.Width) / 2;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (AppSession.CurrentUser != null)
             {
-                Admin admin = userService.GetUserById(AppSession.CurrentUser.UserId).Admin;
+                Admin admin = userService.GetUserById(AppSession.CurrentUser.UserId).Admins.FirstOrDefault<Admin>();
                 if (admin != null)
                 {
                     UserProfileUpdateForm profileUpdateForm = new UserProfileUpdateForm(admin);
@@ -71,7 +72,7 @@ namespace GreenLifeOS.UI
         {
             if (AppSession.CurrentUser != null)
             {
-                Admin admin = userService.GetUserById(AppSession.CurrentUser.UserId).Admin;
+                Admin admin = userService.GetUserById(AppSession.CurrentUser.UserId).Admins.FirstOrDefault<Admin>(); ;
                 if (admin != null)
                 {
                     lblAdminTitle.Text = admin.Title;

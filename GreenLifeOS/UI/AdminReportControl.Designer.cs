@@ -45,22 +45,22 @@ namespace GreenLifeOS.UI
             this.label3 = new System.Windows.Forms.Label();
             this.dateFromSR = new System.Windows.Forms.DateTimePicker();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSaveOrderHistoryReport = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmbCustomerFilter = new System.Windows.Forms.ComboBox();
-            this.cmbOrderStatusFilter = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.btnChangeOrderStatus = new System.Windows.Forms.Button();
+            this.cmbStatusFilterOH = new System.Windows.Forms.ComboBox();
+            this.cmbCustomerFilterOH = new System.Windows.Forms.ComboBox();
+            this.dateToOH = new System.Windows.Forms.DateTimePicker();
+            this.btnGenerateOH = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.Date = new System.Windows.Forms.Label();
-            this.stockDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.ordersListGV = new System.Windows.Forms.DataGridView();
+            this.dateFromOH = new System.Windows.Forms.DateTimePicker();
+            this.orderHistoryGV = new System.Windows.Forms.DataGridView();
             this.OrderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Customer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrderDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastUpdated = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.customerOrderTabs.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -68,7 +68,7 @@ namespace GreenLifeOS.UI
             this.groupBox2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ordersListGV)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderHistoryGV)).BeginInit();
             this.SuspendLayout();
             // 
             // customerOrderTabs
@@ -213,9 +213,9 @@ namespace GreenLifeOS.UI
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.btnSaveOrderHistoryReport);
             this.tabPage2.Controls.Add(this.groupBox1);
-            this.tabPage2.Controls.Add(this.ordersListGV);
+            this.tabPage2.Controls.Add(this.orderHistoryGV);
             this.tabPage2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -225,79 +225,80 @@ namespace GreenLifeOS.UI
             this.tabPage2.Text = "Order History Report";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnSaveOrderHistoryReport
             // 
-            this.button1.ForeColor = System.Drawing.Color.LimeGreen;
-            this.button1.Location = new System.Drawing.Point(716, 445);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 25);
-            this.button1.TabIndex = 34;
-            this.button1.Text = "Save Report";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSaveOrderHistoryReport.ForeColor = System.Drawing.Color.LimeGreen;
+            this.btnSaveOrderHistoryReport.Location = new System.Drawing.Point(716, 445);
+            this.btnSaveOrderHistoryReport.Name = "btnSaveOrderHistoryReport";
+            this.btnSaveOrderHistoryReport.Size = new System.Drawing.Size(112, 25);
+            this.btnSaveOrderHistoryReport.TabIndex = 34;
+            this.btnSaveOrderHistoryReport.Text = "Save Report";
+            this.btnSaveOrderHistoryReport.UseVisualStyleBackColor = true;
+            this.btnSaveOrderHistoryReport.Click += new System.EventHandler(this.btnSaveOrderHistoryReport_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cmbCustomerFilter);
-            this.groupBox1.Controls.Add(this.cmbOrderStatusFilter);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.btnChangeOrderStatus);
+            this.groupBox1.Controls.Add(this.cmbStatusFilterOH);
+            this.groupBox1.Controls.Add(this.cmbCustomerFilterOH);
+            this.groupBox1.Controls.Add(this.dateToOH);
+            this.groupBox1.Controls.Add(this.btnGenerateOH);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.Date);
-            this.groupBox1.Controls.Add(this.stockDatePicker);
+            this.groupBox1.Controls.Add(this.dateFromOH);
             this.groupBox1.Location = new System.Drawing.Point(6, 11);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(823, 43);
             this.groupBox1.TabIndex = 33;
             this.groupBox1.TabStop = false;
             // 
-            // cmbCustomerFilter
+            // cmbStatusFilterOH
             // 
-            this.cmbCustomerFilter.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.cmbCustomerFilter.FormattingEnabled = true;
-            this.cmbCustomerFilter.Items.AddRange(new object[] {
+            this.cmbStatusFilterOH.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.cmbStatusFilterOH.FormattingEnabled = true;
+            this.cmbStatusFilterOH.Items.AddRange(new object[] {
             "All",
             "PENDING",
             "SHIPPED",
             "DELIVERED"});
-            this.cmbCustomerFilter.Location = new System.Drawing.Point(541, 8);
-            this.cmbCustomerFilter.Name = "cmbCustomerFilter";
-            this.cmbCustomerFilter.Size = new System.Drawing.Size(163, 21);
-            this.cmbCustomerFilter.TabIndex = 32;
+            this.cmbStatusFilterOH.Location = new System.Drawing.Point(541, 8);
+            this.cmbStatusFilterOH.Name = "cmbStatusFilterOH";
+            this.cmbStatusFilterOH.Size = new System.Drawing.Size(163, 21);
+            this.cmbStatusFilterOH.TabIndex = 32;
             // 
-            // cmbOrderStatusFilter
+            // cmbCustomerFilterOH
             // 
-            this.cmbOrderStatusFilter.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.cmbOrderStatusFilter.FormattingEnabled = true;
-            this.cmbOrderStatusFilter.Items.AddRange(new object[] {
+            this.cmbCustomerFilterOH.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.cmbCustomerFilterOH.FormattingEnabled = true;
+            this.cmbCustomerFilterOH.Items.AddRange(new object[] {
             "All",
             "PENDING",
             "SHIPPED",
             "DELIVERED"});
-            this.cmbOrderStatusFilter.Location = new System.Drawing.Point(338, 8);
-            this.cmbOrderStatusFilter.Name = "cmbOrderStatusFilter";
-            this.cmbOrderStatusFilter.Size = new System.Drawing.Size(186, 21);
-            this.cmbOrderStatusFilter.TabIndex = 1;
+            this.cmbCustomerFilterOH.Location = new System.Drawing.Point(338, 8);
+            this.cmbCustomerFilterOH.Name = "cmbCustomerFilterOH";
+            this.cmbCustomerFilterOH.Size = new System.Drawing.Size(186, 21);
+            this.cmbCustomerFilterOH.TabIndex = 1;
             // 
-            // dateTimePicker1
+            // dateToOH
             // 
-            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(226, 8);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(92, 22);
-            this.dateTimePicker1.TabIndex = 31;
+            this.dateToOH.CustomFormat = "dd/MM/yyyy";
+            this.dateToOH.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateToOH.Location = new System.Drawing.Point(226, 8);
+            this.dateToOH.Name = "dateToOH";
+            this.dateToOH.Size = new System.Drawing.Size(92, 22);
+            this.dateToOH.TabIndex = 31;
             // 
-            // btnChangeOrderStatus
+            // btnGenerateOH
             // 
-            this.btnChangeOrderStatus.BackColor = System.Drawing.Color.Transparent;
-            this.btnChangeOrderStatus.ForeColor = System.Drawing.Color.LimeGreen;
-            this.btnChangeOrderStatus.Location = new System.Drawing.Point(715, 9);
-            this.btnChangeOrderStatus.Name = "btnChangeOrderStatus";
-            this.btnChangeOrderStatus.Size = new System.Drawing.Size(108, 23);
-            this.btnChangeOrderStatus.TabIndex = 3;
-            this.btnChangeOrderStatus.Text = "Generate";
-            this.btnChangeOrderStatus.UseVisualStyleBackColor = false;
-            this.btnChangeOrderStatus.Click += new System.EventHandler(this.btnChangeOrderStatus_Click);
+            this.btnGenerateOH.BackColor = System.Drawing.Color.Transparent;
+            this.btnGenerateOH.ForeColor = System.Drawing.Color.LimeGreen;
+            this.btnGenerateOH.Location = new System.Drawing.Point(715, 9);
+            this.btnGenerateOH.Name = "btnGenerateOH";
+            this.btnGenerateOH.Size = new System.Drawing.Size(108, 23);
+            this.btnGenerateOH.TabIndex = 3;
+            this.btnGenerateOH.Text = "Generate";
+            this.btnGenerateOH.UseVisualStyleBackColor = false;
+            this.btnGenerateOH.Click += new System.EventHandler(this.btnGenerateOrderHistory_Click);
             // 
             // label2
             // 
@@ -317,35 +318,35 @@ namespace GreenLifeOS.UI
             this.Date.TabIndex = 28;
             this.Date.Text = "Date From";
             // 
-            // stockDatePicker
+            // dateFromOH
             // 
-            this.stockDatePicker.CustomFormat = "dd/MM/yyyy";
-            this.stockDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.stockDatePicker.Location = new System.Drawing.Point(64, 8);
-            this.stockDatePicker.Name = "stockDatePicker";
-            this.stockDatePicker.Size = new System.Drawing.Size(92, 22);
-            this.stockDatePicker.TabIndex = 29;
+            this.dateFromOH.CustomFormat = "dd/MM/yyyy";
+            this.dateFromOH.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateFromOH.Location = new System.Drawing.Point(64, 8);
+            this.dateFromOH.Name = "dateFromOH";
+            this.dateFromOH.Size = new System.Drawing.Size(92, 22);
+            this.dateFromOH.TabIndex = 29;
             // 
-            // ordersListGV
+            // orderHistoryGV
             // 
-            this.ordersListGV.AllowUserToAddRows = false;
-            this.ordersListGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ordersListGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ordersListGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.orderHistoryGV.AllowUserToAddRows = false;
+            this.orderHistoryGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.orderHistoryGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.orderHistoryGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OrderId,
             this.OrderNumber,
             this.Customer,
             this.OrderDate,
             this.Amount,
-            this.Status,
+            this.OrderStatus,
             this.LastUpdated});
-            this.ordersListGV.GridColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ordersListGV.Location = new System.Drawing.Point(3, 60);
-            this.ordersListGV.Name = "ordersListGV";
-            this.ordersListGV.ReadOnly = true;
-            this.ordersListGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ordersListGV.Size = new System.Drawing.Size(833, 368);
-            this.ordersListGV.TabIndex = 0;
+            this.orderHistoryGV.GridColor = System.Drawing.SystemColors.ActiveCaption;
+            this.orderHistoryGV.Location = new System.Drawing.Point(3, 60);
+            this.orderHistoryGV.Name = "orderHistoryGV";
+            this.orderHistoryGV.ReadOnly = true;
+            this.orderHistoryGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.orderHistoryGV.Size = new System.Drawing.Size(833, 368);
+            this.orderHistoryGV.TabIndex = 0;
             // 
             // OrderId
             // 
@@ -353,6 +354,7 @@ namespace GreenLifeOS.UI
             this.OrderId.HeaderText = "Order ID";
             this.OrderId.Name = "OrderId";
             this.OrderId.ReadOnly = true;
+            this.OrderId.Visible = false;
             // 
             // OrderNumber
             // 
@@ -363,36 +365,36 @@ namespace GreenLifeOS.UI
             // 
             // Customer
             // 
-            this.Customer.DataPropertyName = "Customer";
+            this.Customer.DataPropertyName = "CustomerName";
             this.Customer.HeaderText = "Customer";
             this.Customer.Name = "Customer";
             this.Customer.ReadOnly = true;
             // 
             // OrderDate
             // 
-            this.OrderDate.DataPropertyName = "OrderDate";
+            this.OrderDate.DataPropertyName = "FormattedOrderDate";
             this.OrderDate.HeaderText = "Order Date";
             this.OrderDate.Name = "OrderDate";
             this.OrderDate.ReadOnly = true;
             // 
             // Amount
             // 
-            this.Amount.DataPropertyName = "Amount";
+            this.Amount.DataPropertyName = "OrderAmount";
             this.Amount.HeaderText = "Amount (Rs.)";
             this.Amount.Name = "Amount";
             this.Amount.ReadOnly = true;
             // 
-            // Status
+            // OrderStatus
             // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
+            this.OrderStatus.DataPropertyName = "OrderStatus";
+            this.OrderStatus.HeaderText = "Status";
+            this.OrderStatus.Name = "OrderStatus";
+            this.OrderStatus.ReadOnly = true;
             // 
             // LastUpdated
             // 
-            this.LastUpdated.DataPropertyName = "LastUpdated";
-            this.LastUpdated.HeaderText = "Last Updated";
+            this.LastUpdated.DataPropertyName = "NumberOfProducts";
+            this.LastUpdated.HeaderText = "Number of Products";
             this.LastUpdated.Name = "LastUpdated";
             this.LastUpdated.ReadOnly = true;
             // 
@@ -412,7 +414,7 @@ namespace GreenLifeOS.UI
             this.tabPage2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ordersListGV)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderHistoryGV)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -420,23 +422,16 @@ namespace GreenLifeOS.UI
         #endregion
         private System.Windows.Forms.TabControl customerOrderTabs;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button btnChangeOrderStatus;
-        private System.Windows.Forms.ComboBox cmbOrderStatusFilter;
-        private System.Windows.Forms.DataGridView ordersListGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrderDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdated;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btnGenerateOH;
+        private System.Windows.Forms.ComboBox cmbCustomerFilterOH;
+        private System.Windows.Forms.DataGridView orderHistoryGV;
+        private System.Windows.Forms.DateTimePicker dateToOH;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DateTimePicker stockDatePicker;
+        private System.Windows.Forms.DateTimePicker dateFromOH;
         private System.Windows.Forms.Label Date;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cmbCustomerFilter;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cmbStatusFilterOH;
+        private System.Windows.Forms.Button btnSaveOrderHistoryReport;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.DateTimePicker dateToSR;
@@ -450,5 +445,12 @@ namespace GreenLifeOS.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Customer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderStatus;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastUpdated;
     }
 }

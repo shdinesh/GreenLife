@@ -25,7 +25,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>5</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -183,17 +183,41 @@
   <ItemGroup>
     <Compile Include="Model\Admin.cs" />
     <Compile Include="Model\ProductRatingAndReview.cs" />
+    <Compile Include="Model\VO\CustomerDashboardVo.cs" />
+    <Compile Include="Model\VO\CustomerVo.cs" />
+    <Compile Include="Model\VO\AdminDashboardVo.cs" />
+    <Compile Include="Model\VO\OrderHistoryVo.cs" />
     <Compile Include="Model\VO\SalesReportVo.cs" />
+    <Compile Include="Repository\CustomerDashboardRepository.cs" />
+    <Compile Include="Repository\ICustomerDashboardRepository.cs" />
+    <Compile Include="Repository\IAdminDashboardRepository.cs" />
     <Compile Include="Repository\IReportsRepository.cs" />
+    <Compile Include="Repository\AdminDashboardRepository.cs" />
     <Compile Include="Repository\ReportsRepository.cs" />
     <Compile Include="Repository\AdminRepository.cs" />
     <Compile Include="Repository\IAdminRepository.cs" />
+    <Compile Include="Service\CustomerDashboardService.cs" />
+    <Compile Include="Service\AdminDashboardService.cs" />
+    <Compile Include="Service\ICustomerDashboardService.cs" />
+    <Compile Include="Service\IAdminDashboardService.cs" />
     <Compile Include="Service\ReportsService.cs" />
     <Compile Include="Service\AdminService.cs" />
     <Compile Include="Service\IReportsService.cs" />
     <Compile Include="Service\IAdminService.cs" />
     <Compile Include="Session\AppSession.cs" />
     <Compile Include="Session\UserSessionData.cs" />
+    <Compile Include="UI\CustomerDashboardControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\CustomerDashboardControl.Designer.cs">
+      <DependentUpon>CustomerDashboardControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AdminDashboardControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\AdminDashboardControl.Designer.cs">
+      <DependentUpon>AdminDashboardControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\AdminReportControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -212,11 +236,11 @@
     <Compile Include="UI\CustomerProfileControl.Designer.cs">
       <DependentUpon>CustomerProfileControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\CustomerDashboardControl.cs">
+    <Compile Include="UI\CustomerDashboardControlA.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UI\CustomerDashboardControl.Designer.cs">
-      <DependentUpon>CustomerDashboardControl.cs</DependentUpon>
+    <Compile Include="UI\CustomerDashboardControlA.Designer.cs">
+      <DependentUpon>CustomerDashboardControlA.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\CustomerMainForm.cs">
       <SubType>Form</SubType>
@@ -293,12 +317,6 @@
     <Compile Include="UI\AdminRegistrationForm.Designer.cs">
       <DependentUpon>AdminRegistrationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\AdminDashboardControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UI\AdminDashboardControl.Designer.cs">
-      <DependentUpon>AdminDashboardControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\UserPasswordChangeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,11 +329,11 @@
     <Compile Include="UI\UserProfileUpdateForm.Designer.cs">
       <DependentUpon>UserProfileUpdateForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\CustomerRegistrationForm.cs">
+    <Compile Include="UI\UserRegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\CustomerRegistrationForm.Designer.cs">
-      <DependentUpon>CustomerRegistrationForm.cs</DependentUpon>
+    <Compile Include="UI\UserRegistrationForm.Designer.cs">
+      <DependentUpon>UserRegistrationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\AddUpdateStockForm.cs">
       <SubType>Form</SubType>
@@ -395,8 +413,21 @@
     <Compile Include="UI\CustomerOrderControl.Designer.cs">
       <DependentUpon>CustomerOrderControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\RoundedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Utils\CSVExport.cs" />
     <Compile Include="Utils\TextBoxPlaceholder.cs" />
+    <Compile Include="Validation\Request\CustomerRegistrationRequest.cs" />
+    <Compile Include="Validation\UserRegistrationValidator.cs" />
+    <Compile Include="Validation\ValidationResult.cs" />
+    <Compile Include="Validation\Validator.cs" />
+    <EmbeddedResource Include="UI\CustomerDashboardControl.resx">
+      <DependentUpon>CustomerDashboardControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\AdminDashboardControl.resx">
+      <DependentUpon>AdminDashboardControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\AdminReportControl.resx">
       <DependentUpon>AdminReportControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -405,9 +436,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\CustomerProfileControl.resx">
       <DependentUpon>CustomerProfileControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\CustomerDashboardControl.resx">
-      <DependentUpon>CustomerDashboardControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\CustomerMainForm.resx">
       <DependentUpon>CustomerMainForm.cs</DependentUpon>
@@ -434,17 +462,14 @@
     <EmbeddedResource Include="UI\AdminRegistrationForm.resx">
       <DependentUpon>AdminRegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\AdminDashboardControl.resx">
-      <DependentUpon>AdminDashboardControl.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI\UserPasswordChangeForm.resx">
       <DependentUpon>UserPasswordChangeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\UserProfileUpdateForm.resx">
       <DependentUpon>UserProfileUpdateForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\CustomerRegistrationForm.resx">
-      <DependentUpon>CustomerRegistrationForm.cs</DependentUpon>
+    <EmbeddedResource Include="UI\UserRegistrationForm.resx">
+      <DependentUpon>UserRegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\AddUpdateStockForm.resx">
       <DependentUpon>AddUpdateStockForm.cs</DependentUpon>
@@ -516,6 +541,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\GLOS60.PNG" />
     <None Include="Resources\white-rice.jpg" />
     <None Include="Resources\brown-rice.jpg" />
     <None Include="Resources\rice-flour.jpg" />

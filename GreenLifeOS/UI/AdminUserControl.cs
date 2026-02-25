@@ -132,7 +132,7 @@ namespace GreenLifeOS.UI
 
         private void btnNewAdmin_Click(object sender, EventArgs e)
         {
-            CustomerRegistrationForm adminRegistrationForm  = new CustomerRegistrationForm(UserRole.ADMIN);
+            UserRegistrationForm adminRegistrationForm  = new UserRegistrationForm(UserRole.ADMIN);
             adminRegistrationForm.ShowDialog();
             reloadAllAdmins();
         }

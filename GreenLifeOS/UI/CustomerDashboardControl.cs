@@ -1,19 +1,23 @@
 ﻿using GreenLifeOS.Service;
+using GreenLifeOS.Session;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace GreenLifeOS.UI
 {
     public partial class CustomerDashboardControl : UserControl
     {
-        private readonly IOrderService orderService;
-        private IProductService productService;
+        private readonly ICustomerDashboardService customerDashboardService;
+        private readonly IUserService userService;
+
 
         public CustomerDashboardControl()
         {
-            orderService = new OrderService();
-            productService = new ProductService();
             InitializeComponent();
+            userService = new UserService();
+            customerDashboardService = new CustomerDashboardService();
+
         }
 
 
@@ -34,6 +38,33 @@ namespace GreenLifeOS.UI
             System.Diagnostics.Debug.WriteLine($"{message}: {ex.Message}");
         }
 
+        private void CustomerDashboardControl_Load(object sender, EventArgs e)
+        {
+            loadCustomerDashboardInfo();
+        }
 
+        private void loadCustomerDashboardInfo()
+        {
+            if (AppSession.CurrentUser != null)
+            {
+                Customer customer = userService.GetUserById(AppSession.CurrentUser.UserId).Customers.FirstOrDefault<Customer>() ;
+                if (customer != null)
+                {
+                    var customerDashboardInfo = customerDashboardService.GenerateCustomerboardStats(customer.Id);
+                    if (customerDashboardInfo != null)
+                    {
+                        lblTotalOrders.Text = customerDashboardInfo.NumberOfOrdersPlaced.ToString();
+                        lblTodayTotalOrders.Text = customerDashboardInfo.NumberOfOrdersPlacedToday.ToString();
+                        lblTotalPendingOrders.Text = customerDashboardInfo.TotalPendingOrders.ToString();
+                        lblTotalShippedOrders.Text = customerDashboardInfo.TotalShippedOrders.ToString();
+                        lblTotalDeliveredOrders.Text = customerDashboardInfo.TotalDeliveredOrders.ToString();
+                    }
+                }
+
+            }
+
+
+
+        }
     }
 }

@@ -1,22 +1,17 @@
 ﻿using GreenLifeOS.Service;
 using GreenLifeOS.Session;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace GreenLifeOS.UI
 {
     public partial class CustomerProfileControl : UserControl
     {
-        private readonly IOrderService orderService;
-        private readonly IProductService productService;
-        private readonly ICustomerService customerService;
         private readonly IUserService userService;
 
         public CustomerProfileControl()
         {
-            orderService = new OrderService();
-            productService = new ProductService();
-            customerService = new CustomerService();
             userService = new UserService();
             InitializeComponent();
         }
@@ -48,15 +43,15 @@ namespace GreenLifeOS.UI
 
         private void CenterLabelsUnderImage()
         {
-            lblProfileName.Left = pictureBox1.Left + (pictureBox1.Width - lblProfileName.Width) / 2;
-            lblRoleName.Left = pictureBox1.Left + (pictureBox1.Width - lblRoleName.Width) / 2;
+            lblProfileName.Left = pnlProfilePicBox.Left + (pnlProfilePicBox.Width - lblProfileName.Width) / 2;
+            lblRoleName.Left = pnlProfilePicBox.Left + (pnlProfilePicBox.Width - lblRoleName.Width) / 2;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             if (AppSession.CurrentUser != null)
             {
-                Customer customer = userService.GetUserById(AppSession.CurrentUser.UserId).Customer;
+                Customer customer = userService.GetUserById(AppSession.CurrentUser.UserId).Customers.FirstOrDefault<Customer>(); ;
                 if (customer != null)
                 {
                     UserProfileUpdateForm profileUpdateForm = new UserProfileUpdateForm(customer);
@@ -71,7 +66,7 @@ namespace GreenLifeOS.UI
         {
             if (AppSession.CurrentUser != null)
             {
-                Customer customer = userService.GetUserById(AppSession.CurrentUser.UserId).Customer;
+                Customer customer = userService.GetUserById(AppSession.CurrentUser.UserId).Customers.FirstOrDefault<Customer>(); ;
                 if (customer != null)
                 {
                     lblCustomerTitle.Text = customer.Title;

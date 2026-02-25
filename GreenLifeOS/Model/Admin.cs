@@ -6,6 +6,7 @@ namespace GreenLifeOS
     [Table("admin")]
     public class Admin
     {
+        [Key]
         [Column("id")]
         public int Id { get; set; }
 
@@ -31,11 +32,11 @@ namespace GreenLifeOS
         [MaxLength(200)]
         public string Address { get; set; }
 
-        [Key]
-        [ForeignKey(nameof(User))]
+        //[Key]
         [Column("user_id")]
         public int UserId { get; set; }
 
+        [ForeignKey(nameof(UserId))]
         public virtual User User { get; set; }
 
 

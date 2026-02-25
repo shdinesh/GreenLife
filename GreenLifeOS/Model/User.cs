@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GreenLifeOS
@@ -6,6 +7,7 @@ namespace GreenLifeOS
     [Table("user")]
     public class User
     {
+        [Key]
         [Column("id")]
         public int Id { get; set; }
 
@@ -19,8 +21,8 @@ namespace GreenLifeOS
         [Column("role")]
         public string UserRole { get; set; }
 
-        public virtual Customer Customer { get; set; }
-        public virtual Admin Admin { get; set; }
+        public virtual ICollection<Customer> Customers { get; set; } = new HashSet<Customer>();
+        public virtual ICollection<Admin> Admins { get; set; } = new HashSet<Admin>();
 
     }
 }

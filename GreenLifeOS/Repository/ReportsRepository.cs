@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace GreenLifeOS.Repository
@@ -20,9 +21,6 @@ namespace GreenLifeOS.Repository
 
         public List<SalesReportVo> GenerateSalesReport(string dateFrom, string dateTo)
         {
-
-            // IMPORTANT: use backticks because `order` is reserved
-            // Also: total_amount is calculated correctly (no double counting)
             const string sql = @"
                             SELECT 
                                 daily.order_date      AS OrderDate,
@@ -45,10 +43,44 @@ namespace GreenLifeOS.Repository
                             ORDER BY daily.order_date;
                             ";
 
-            // EF6: Database.SqlQuery<T>() maps column aliases to SalesReportVo properties
             return dbContext.Database
                             .SqlQuery<SalesReportVo>(sql, dateFrom, dateTo)
                             .ToList();
+        }
+
+        public List<OrderHistoryVo> GenerateOrderHistoryReport(string customerName, string dateFrom, string dateTo, string orderStatus)
+        {
+            const string sql = @"
+                            SELECT
+                                o.id AS OrderId,
+                                o.order_number AS OrderNumber,
+                                CONCAT(c.first_name, ' ', c.last_name) AS CustomerName,
+                                DATE(o.date) AS OrderDate,
+                                CAST(ROUND(o.amount, 2) AS DECIMAL(12,2)) AS OrderAmount,
+                                o.status AS OrderStatus,
+                                IFNULL(SUM(oi.qty), 0) AS NumberOfProducts
+                            FROM `order` o
+                            JOIN customer c         ON c.id = o.customer_id
+                            LEFT JOIN order_item oi ON oi.order_id = o.id
+                            WHERE
+                                o.date >= @p0
+                                AND o.date <  @p1
+                                AND (@p2 IS NULL OR @p2 = '' OR CONCAT(c.first_name, ' ', c.last_name) LIKE CONCAT('%', @p2, '%'))
+                                AND (@p3 IS NULL OR @p3 = '' OR o.status = @p3)
+                            GROUP BY
+                                o.id, o.order_number, c.first_name, c.last_name, DATE(o.date), o.amount, o.status
+                            ORDER BY o.date DESC;
+                            ";
+
+            // Pass null/empty safely
+            customerName = string.IsNullOrWhiteSpace(customerName) || customerName.Equals("All", StringComparison.OrdinalIgnoreCase)
+                    ? null : customerName.Trim();
+            orderStatus = string.IsNullOrWhiteSpace(orderStatus) || orderStatus.Equals("All", StringComparison.OrdinalIgnoreCase)
+                ? null : orderStatus.Trim();
+
+            return dbContext.Database
+                .SqlQuery<OrderHistoryVo>(sql, dateFrom, dateTo, customerName, orderStatus)
+                .ToList();
         }
 
         public void Dispose()

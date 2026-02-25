@@ -1,6 +1,7 @@
 ﻿using GreenLifeOS.Service;
 using GreenLifeOS.Session;
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace GreenLifeOS.UI
@@ -50,23 +51,23 @@ namespace GreenLifeOS.UI
                     Role = user.UserRole,
                     LoginTime = DateTime.Now
                 };
+                
                 if (userRole.Equals(UserRole.ADMIN.ToString()))
                 {
-                    sesionData.AdminId = user.Admin?.Id;
+                    sesionData.AdminId = user.Admins.FirstOrDefault<Admin>()?.Id;
                     AppSession.Start(sesionData);
                     AdminMainForm adminMainForm = new AdminMainForm();
+                    this.Hide();
                     adminMainForm.ShowDialog();
                 }
                 else if (userRole.Equals(UserRole.CUSTOMER.ToString()))
                 {
-                    sesionData.CustomerId = user.Customer?.Id;
+                    sesionData.CustomerId = user.Customers.FirstOrDefault<Customer>()?.Id;
                     AppSession.Start(sesionData);
                     CustomerMainForm frm = new CustomerMainForm();
+                    this.Hide();
                     frm.ShowDialog();
                 }
-
-                this.Close();
-
             }
             catch (Exception ex)
             {
@@ -112,8 +113,13 @@ namespace GreenLifeOS.UI
 
         private void linkLabelRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            CustomerRegistrationForm customerRegistration = new CustomerRegistrationForm(UserRole.CUSTOMER);
+            UserRegistrationForm customerRegistration = new UserRegistrationForm(UserRole.CUSTOMER);
             customerRegistration.ShowDialog();
+        }
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
         }
     }
 

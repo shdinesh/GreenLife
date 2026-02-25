@@ -1,18 +1,21 @@
 ﻿using GreenLifeOS.Service;
+using GreenLifeOS.Validation;
+using GreenLifeOS.Validation.Request;
 using System;
 using System.Windows.Forms;
 
 namespace GreenLifeOS.UI
 {
-    public partial class CustomerRegistrationForm : Form
+    public partial class UserRegistrationForm : Form
     {
+        private readonly UserRegistrationValidator validator = new UserRegistrationValidator();
         private readonly ICustomerService customerService;
         private readonly IAdminService adminService;
         private Customer editableCustomer;
         private UserRole userRole;
 
 
-        public CustomerRegistrationForm(UserRole userRole)
+        public UserRegistrationForm(UserRole userRole)
         {
             InitializeComponent();
             customerService = new CustomerService();
@@ -21,7 +24,7 @@ namespace GreenLifeOS.UI
 
         }
 
-        public CustomerRegistrationForm()
+        public UserRegistrationForm()
         {
             InitializeComponent();
             customerService = new CustomerService();
@@ -31,11 +34,11 @@ namespace GreenLifeOS.UI
 
         private void btnSupClear_Click(object sender, EventArgs e)
         {
-            txtCustomerFirstName.Clear();
-            txtCustomerLastName.Clear();
-            txtCustomerEmail.Clear();
-            txtCustomerAddress.Clear();
-            txtCustomerPhoneNumber.Clear();
+            txtFirstName.Clear();
+            txtLastName.Clear();
+            txtEmail.Clear();
+            txtAddress.Clear();
+            txtPhoneNumber.Clear();
             txtUsername.Clear();
             txtPassword.Clear();
         }
@@ -71,6 +74,15 @@ namespace GreenLifeOS.UI
 
         private void btnRegisterCustomer_Click(object sender, EventArgs e)
         {
+            CustomerRegistrationRequest request = ReadForm();
+
+            var validationResult = validator.Validate(request);
+            if (!validationResult.IsValid)
+            {
+                MessageBox.Show(validationResult.Message, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 if (UserRole.CUSTOMER.Equals(userRole))
@@ -78,11 +90,11 @@ namespace GreenLifeOS.UI
                     var newCustomer = new Customer()
                     {
                         Title = (string)cmbTitle.SelectedItem,
-                        FirstName = txtCustomerFirstName.Text,
-                        LastName = txtCustomerLastName.Text,
-                        Email = txtCustomerEmail.Text,
-                        Address = txtCustomerAddress.Text,
-                        PhoneNumber = txtCustomerPhoneNumber.Text,
+                        FirstName = txtFirstName.Text,
+                        LastName = txtLastName.Text,
+                        Email = txtEmail.Text,
+                        Address = txtAddress.Text,
+                        PhoneNumber = txtPhoneNumber.Text,
 
                     };
                     newCustomer.User = new User()
@@ -99,11 +111,11 @@ namespace GreenLifeOS.UI
                     var newAdmin = new Admin()
                     {
                         Title = (string)cmbTitle.SelectedItem,
-                        FirstName = txtCustomerFirstName.Text,
-                        LastName = txtCustomerLastName.Text,
-                        Email = txtCustomerEmail.Text,
-                        Address = txtCustomerAddress.Text,
-                        PhoneNumber = txtCustomerPhoneNumber.Text,
+                        FirstName = txtFirstName.Text,
+                        LastName = txtLastName.Text,
+                        Email = txtEmail.Text,
+                        Address = txtAddress.Text,
+                        PhoneNumber = txtPhoneNumber.Text,
 
                     };
                     newAdmin.User = new User()
@@ -179,6 +191,22 @@ namespace GreenLifeOS.UI
             customer.Orders = editableCustomer.Orders;
             customer.UserId = editableCustomer.UserId;
             return customer;
+        }
+
+        private CustomerRegistrationRequest ReadForm()
+        {
+            return new CustomerRegistrationRequest
+            {
+                Title = cmbTitle.SelectedItem == null ? "" : cmbTitle.SelectedItem.ToString(),
+                FirstName = txtFirstName.Text.Trim(),
+                LastName = txtLastName.Text.Trim(),
+                Email = txtEmail.Text.Trim(),
+                PhoneNumber = txtPhoneNumber.Text.Trim(),
+                Address = txtAddress.Text.Trim(),
+                Username = txtUsername.Text.Trim(),
+                Password = txtPassword.Text,
+                ConfirmPassword = txtConfirmPassword.Text
+            };
         }
     }
 }

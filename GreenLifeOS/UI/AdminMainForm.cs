@@ -83,6 +83,7 @@ namespace GreenLifeOS
 
         private void btnAdminDashboard_Click(object sender, EventArgs e)
         {
+            //LoadChildForm(new AdminDashboardControl());
             LoadChildForm(new AdminDashboardControl());
         }
 
@@ -103,6 +104,11 @@ namespace GreenLifeOS
         {
             return MessageBox.Show(this, message, title,
                 buttons, MessageBoxIcon.Question);
+        }
+
+        private void AdminMainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

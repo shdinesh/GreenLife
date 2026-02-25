@@ -25,7 +25,7 @@ namespace GreenLifeOS.Service
             }
             catch (Exception ex)
             {
-                throw new InvalidOperationException("An error occurred while retrieving the supplier. Please try again.", ex);
+                throw new InvalidOperationException("An error occurred while retrieving the user. Please try again.", ex);
             }
         }
 

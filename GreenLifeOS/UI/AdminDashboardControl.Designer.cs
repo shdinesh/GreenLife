@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace GreenLifeOS.UI
 {
@@ -30,187 +32,442 @@ namespace GreenLifeOS.UI
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.pnlRoot = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.roundedPanel6 = new GreenLifeOS.Utils.RoundedPanel();
+            this.lblLowStockProducts = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.roundedPanelProducts = new GreenLifeOS.Utils.RoundedPanel();
+            this.lblTotalProducts = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.roundedPanel4 = new GreenLifeOS.Utils.RoundedPanel();
+            this.lblTotalCustomers = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.roundedPanel3 = new GreenLifeOS.Utils.RoundedPanel();
+            this.lblTotalActiveOrders = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.roundedPanel2 = new GreenLifeOS.Utils.RoundedPanel();
+            this.lblTotalOrdersToday = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.roundedPanel1 = new GreenLifeOS.Utils.RoundedPanel();
+            this.lblTotalSalesToday = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pnlSpacer = new System.Windows.Forms.Panel();
+            this.pnlHeader = new GreenLifeOS.Utils.RoundedPanel();
+            this.pnlLogo = new GreenLifeOS.Utils.RoundedPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.pnlRoot.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.roundedPanel6.SuspendLayout();
+            this.roundedPanelProducts.SuspendLayout();
+            this.roundedPanel4.SuspendLayout();
+            this.roundedPanel3.SuspendLayout();
+            this.roundedPanel2.SuspendLayout();
+            this.roundedPanel1.SuspendLayout();
+            this.pnlHeader.SuspendLayout();
+            this.pnlLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // pnlRoot
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.LimeGreen;
-            this.label1.Location = new System.Drawing.Point(44, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(593, 47);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Welcome to Green Life Orgainc Store";
+            this.pnlRoot.BackColor = System.Drawing.Color.Transparent;
+            this.pnlRoot.Controls.Add(this.tableLayoutPanel1);
+            this.pnlRoot.Controls.Add(this.pnlSpacer);
+            this.pnlRoot.Controls.Add(this.pnlHeader);
+            this.pnlRoot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlRoot.Location = new System.Drawing.Point(20, 20);
+            this.pnlRoot.Name = "pnlRoot";
+            this.pnlRoot.Size = new System.Drawing.Size(810, 470);
+            this.pnlRoot.TabIndex = 0;
             // 
-            // label2
+            // tableLayoutPanel1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label2.Location = new System.Drawing.Point(224, 152);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(162, 17);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Total  Registerd Cusomers";
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.Controls.Add(this.roundedPanel6, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.roundedPanelProducts, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.roundedPanel4, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.roundedPanel3, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.roundedPanel2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.roundedPanel1, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 115);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(810, 268);
+            this.tableLayoutPanel1.TabIndex = 2;
             // 
-            // label3
+            // roundedPanel6
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label3.Location = new System.Drawing.Point(224, 199);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 17);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Total  Registerd Suppliers";
+            this.roundedPanel6.BackColor = System.Drawing.Color.White;
+            this.roundedPanel6.BorderColor = System.Drawing.Color.LightGray;
+            this.roundedPanel6.BorderRadius = 20;
+            this.roundedPanel6.BorderSize = 1;
+            this.roundedPanel6.Controls.Add(this.lblLowStockProducts);
+            this.roundedPanel6.Controls.Add(this.label12);
+            this.roundedPanel6.Location = new System.Drawing.Point(550, 144);
+            this.roundedPanel6.Margin = new System.Windows.Forms.Padding(10);
+            this.roundedPanel6.Name = "roundedPanel6";
+            this.roundedPanel6.Padding = new System.Windows.Forms.Padding(16);
+            this.roundedPanel6.Size = new System.Drawing.Size(249, 114);
+            this.roundedPanel6.TabIndex = 8;
             // 
-            // label4
+            // lblLowStockProducts
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label4.Location = new System.Drawing.Point(227, 244);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(159, 17);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Total Number of Products";
+            this.lblLowStockProducts.AutoSize = true;
+            this.lblLowStockProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblLowStockProducts.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLowStockProducts.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblLowStockProducts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblLowStockProducts.Location = new System.Drawing.Point(16, 33);
+            this.lblLowStockProducts.Name = "lblLowStockProducts";
+            this.lblLowStockProducts.Size = new System.Drawing.Size(46, 54);
+            this.lblLowStockProducts.TabIndex = 1;
+            this.lblLowStockProducts.Text = "0";
             // 
-            // label5
+            // label12
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label5.Location = new System.Drawing.Point(229, 291);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(119, 17);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Total Active Orders";
+            this.label12.AutoSize = true;
+            this.label12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.DimGray;
+            this.label12.Location = new System.Drawing.Point(16, 16);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(197, 17);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Low Stock Products (Below 10)";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label6
+            // roundedPanelProducts
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label6.Location = new System.Drawing.Point(464, 152);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(22, 17);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "10";
+            this.roundedPanelProducts.BackColor = System.Drawing.Color.White;
+            this.roundedPanelProducts.BorderColor = System.Drawing.Color.LightGray;
+            this.roundedPanelProducts.BorderRadius = 20;
+            this.roundedPanelProducts.BorderSize = 1;
+            this.roundedPanelProducts.Controls.Add(this.lblTotalProducts);
+            this.roundedPanelProducts.Controls.Add(this.label10);
+            this.roundedPanelProducts.Location = new System.Drawing.Point(280, 144);
+            this.roundedPanelProducts.Margin = new System.Windows.Forms.Padding(10);
+            this.roundedPanelProducts.Name = "roundedPanelProducts";
+            this.roundedPanelProducts.Padding = new System.Windows.Forms.Padding(16);
+            this.roundedPanelProducts.Size = new System.Drawing.Size(249, 114);
+            this.roundedPanelProducts.TabIndex = 7;
             // 
-            // label7
+            // lblTotalProducts
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label7.Location = new System.Drawing.Point(464, 199);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(22, 17);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "05";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label8.Location = new System.Drawing.Point(464, 244);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(22, 17);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "10";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label9.Location = new System.Drawing.Point(464, 291);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(22, 17);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "06";
+            this.lblTotalProducts.AutoSize = true;
+            this.lblTotalProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTotalProducts.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalProducts.ForeColor = System.Drawing.Color.MediumOrchid;
+            this.lblTotalProducts.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTotalProducts.Location = new System.Drawing.Point(16, 33);
+            this.lblTotalProducts.Name = "lblTotalProducts";
+            this.lblTotalProducts.Size = new System.Drawing.Size(46, 54);
+            this.lblTotalProducts.TabIndex = 1;
+            this.lblTotalProducts.Text = "0";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label10.Location = new System.Drawing.Point(464, 334);
+            this.label10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.DimGray;
+            this.label10.Location = new System.Drawing.Point(16, 16);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(22, 17);
-            this.label10.TabIndex = 16;
-            this.label10.Text = "03";
+            this.label10.Size = new System.Drawing.Size(166, 17);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Total Registered Products";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label11
+            // roundedPanel4
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label11.Location = new System.Drawing.Point(229, 334);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(121, 17);
-            this.label11.TabIndex = 15;
-            this.label11.Text = "Low Stock Products";
+            this.roundedPanel4.BackColor = System.Drawing.Color.White;
+            this.roundedPanel4.BorderColor = System.Drawing.Color.LightGray;
+            this.roundedPanel4.BorderRadius = 20;
+            this.roundedPanel4.BorderSize = 1;
+            this.roundedPanel4.Controls.Add(this.lblTotalCustomers);
+            this.roundedPanel4.Controls.Add(this.label8);
+            this.roundedPanel4.Location = new System.Drawing.Point(10, 144);
+            this.roundedPanel4.Margin = new System.Windows.Forms.Padding(10);
+            this.roundedPanel4.Name = "roundedPanel4";
+            this.roundedPanel4.Padding = new System.Windows.Forms.Padding(16);
+            this.roundedPanel4.Size = new System.Drawing.Size(249, 114);
+            this.roundedPanel4.TabIndex = 6;
             // 
-            // panel1
+            // lblTotalCustomers
             // 
-            this.panel1.BackgroundImage = global::GreenLifeOS.Properties.Resources.GLOS1;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(656, 25);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(174, 155);
-            this.panel1.TabIndex = 6;
+            this.lblTotalCustomers.AutoSize = true;
+            this.lblTotalCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTotalCustomers.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalCustomers.ForeColor = System.Drawing.Color.Pink;
+            this.lblTotalCustomers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTotalCustomers.Location = new System.Drawing.Point(16, 33);
+            this.lblTotalCustomers.Name = "lblTotalCustomers";
+            this.lblTotalCustomers.Size = new System.Drawing.Size(46, 54);
+            this.lblTotalCustomers.TabIndex = 1;
+            this.lblTotalCustomers.Text = "0";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.DimGray;
+            this.label8.Location = new System.Drawing.Point(16, 16);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(177, 17);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Total Registered Customers";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // roundedPanel3
+            // 
+            this.roundedPanel3.BackColor = System.Drawing.Color.White;
+            this.roundedPanel3.BorderColor = System.Drawing.Color.LightGray;
+            this.roundedPanel3.BorderRadius = 20;
+            this.roundedPanel3.BorderSize = 1;
+            this.roundedPanel3.Controls.Add(this.lblTotalActiveOrders);
+            this.roundedPanel3.Controls.Add(this.label6);
+            this.roundedPanel3.Location = new System.Drawing.Point(550, 10);
+            this.roundedPanel3.Margin = new System.Windows.Forms.Padding(10);
+            this.roundedPanel3.Name = "roundedPanel3";
+            this.roundedPanel3.Padding = new System.Windows.Forms.Padding(16);
+            this.roundedPanel3.Size = new System.Drawing.Size(249, 114);
+            this.roundedPanel3.TabIndex = 5;
+            // 
+            // lblTotalActiveOrders
+            // 
+            this.lblTotalActiveOrders.AutoSize = true;
+            this.lblTotalActiveOrders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTotalActiveOrders.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalActiveOrders.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblTotalActiveOrders.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTotalActiveOrders.Location = new System.Drawing.Point(16, 33);
+            this.lblTotalActiveOrders.Name = "lblTotalActiveOrders";
+            this.lblTotalActiveOrders.Size = new System.Drawing.Size(46, 54);
+            this.lblTotalActiveOrders.TabIndex = 1;
+            this.lblTotalActiveOrders.Text = "0";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.DimGray;
+            this.label6.Location = new System.Drawing.Point(16, 16);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(126, 17);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Total Active Orders";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // roundedPanel2
+            // 
+            this.roundedPanel2.BackColor = System.Drawing.Color.White;
+            this.roundedPanel2.BorderColor = System.Drawing.Color.LightGray;
+            this.roundedPanel2.BorderRadius = 20;
+            this.roundedPanel2.BorderSize = 1;
+            this.roundedPanel2.Controls.Add(this.lblTotalOrdersToday);
+            this.roundedPanel2.Controls.Add(this.label4);
+            this.roundedPanel2.Location = new System.Drawing.Point(280, 10);
+            this.roundedPanel2.Margin = new System.Windows.Forms.Padding(10);
+            this.roundedPanel2.Name = "roundedPanel2";
+            this.roundedPanel2.Padding = new System.Windows.Forms.Padding(16);
+            this.roundedPanel2.Size = new System.Drawing.Size(249, 114);
+            this.roundedPanel2.TabIndex = 4;
+            // 
+            // lblTotalOrdersToday
+            // 
+            this.lblTotalOrdersToday.AutoSize = true;
+            this.lblTotalOrdersToday.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTotalOrdersToday.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalOrdersToday.ForeColor = System.Drawing.Color.Gold;
+            this.lblTotalOrdersToday.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTotalOrdersToday.Location = new System.Drawing.Point(16, 33);
+            this.lblTotalOrdersToday.Name = "lblTotalOrdersToday";
+            this.lblTotalOrdersToday.Size = new System.Drawing.Size(46, 54);
+            this.lblTotalOrdersToday.TabIndex = 1;
+            this.lblTotalOrdersToday.Text = "0";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DimGray;
+            this.label4.Location = new System.Drawing.Point(16, 16);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(125, 17);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Total Orders Today";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // roundedPanel1
+            // 
+            this.roundedPanel1.BackColor = System.Drawing.Color.White;
+            this.roundedPanel1.BorderColor = System.Drawing.Color.LightGray;
+            this.roundedPanel1.BorderRadius = 20;
+            this.roundedPanel1.BorderSize = 1;
+            this.roundedPanel1.Controls.Add(this.lblTotalSalesToday);
+            this.roundedPanel1.Controls.Add(this.label1);
+            this.roundedPanel1.Location = new System.Drawing.Point(10, 10);
+            this.roundedPanel1.Margin = new System.Windows.Forms.Padding(10);
+            this.roundedPanel1.Name = "roundedPanel1";
+            this.roundedPanel1.Padding = new System.Windows.Forms.Padding(16);
+            this.roundedPanel1.Size = new System.Drawing.Size(249, 114);
+            this.roundedPanel1.TabIndex = 3;
+            // 
+            // lblTotalSalesToday
+            // 
+            this.lblTotalSalesToday.AutoSize = true;
+            this.lblTotalSalesToday.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTotalSalesToday.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalSalesToday.ForeColor = System.Drawing.Color.LimeGreen;
+            this.lblTotalSalesToday.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTotalSalesToday.Location = new System.Drawing.Point(16, 33);
+            this.lblTotalSalesToday.Name = "lblTotalSalesToday";
+            this.lblTotalSalesToday.Size = new System.Drawing.Size(95, 50);
+            this.lblTotalSalesToday.TabIndex = 1;
+            this.lblTotalSalesToday.Text = "0.00";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(16, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(147, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Total Sales Today (Rs.)";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // pnlSpacer
+            // 
+            this.pnlSpacer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSpacer.Location = new System.Drawing.Point(0, 100);
+            this.pnlSpacer.Name = "pnlSpacer";
+            this.pnlSpacer.Size = new System.Drawing.Size(810, 15);
+            this.pnlSpacer.TabIndex = 1;
+            // 
+            // pnlHeader
+            // 
+            this.pnlHeader.BackColor = System.Drawing.Color.White;
+            this.pnlHeader.BorderColor = System.Drawing.Color.LightGray;
+            this.pnlHeader.BorderRadius = 20;
+            this.pnlHeader.BorderSize = 1;
+            this.pnlHeader.Controls.Add(this.pnlLogo);
+            this.pnlHeader.Controls.Add(this.lblTitle);
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Padding = new System.Windows.Forms.Padding(20, 5, 20, 5);
+            this.pnlHeader.Size = new System.Drawing.Size(810, 100);
+            this.pnlHeader.TabIndex = 0;
+            // 
+            // pnlLogo
+            // 
+            this.pnlLogo.BorderColor = System.Drawing.Color.LightGray;
+            this.pnlLogo.BorderRadius = 20;
+            this.pnlLogo.BorderSize = 0;
+            this.pnlLogo.Controls.Add(this.pictureBox1);
+            this.pnlLogo.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlLogo.Location = new System.Drawing.Point(640, 5);
+            this.pnlLogo.Name = "pnlLogo";
+            this.pnlLogo.Padding = new System.Windows.Forms.Padding(10);
+            this.pnlLogo.Size = new System.Drawing.Size(150, 90);
+            this.pnlLogo.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GreenLifeOS.Properties.Resources.GLOS60;
+            this.pictureBox1.Location = new System.Drawing.Point(19, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(98, 77);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.LimeGreen;
+            this.lblTitle.Location = new System.Drawing.Point(18, 28);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(632, 47);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Welcome to Green Life Organic Store";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // AdminDashboardControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.Controls.Add(this.pnlRoot);
             this.Name = "AdminDashboardControl";
+            this.Padding = new System.Windows.Forms.Padding(20);
             this.Size = new System.Drawing.Size(850, 510);
+            this.Load += new System.EventHandler(this.AdminDashboardControl_Load);
+            this.pnlRoot.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.roundedPanel6.ResumeLayout(false);
+            this.roundedPanel6.PerformLayout();
+            this.roundedPanelProducts.ResumeLayout(false);
+            this.roundedPanelProducts.PerformLayout();
+            this.roundedPanel4.ResumeLayout(false);
+            this.roundedPanel4.PerformLayout();
+            this.roundedPanel3.ResumeLayout(false);
+            this.roundedPanel3.PerformLayout();
+            this.roundedPanel2.ResumeLayout(false);
+            this.roundedPanel2.PerformLayout();
+            this.roundedPanel1.ResumeLayout(false);
+            this.roundedPanel1.PerformLayout();
+            this.pnlHeader.ResumeLayout(false);
+            this.pnlHeader.PerformLayout();
+            this.pnlLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
-        #endregion
 
-        private System.Windows.Forms.Label label1;
+        #endregion
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblCustomersValue;
+        private System.Windows.Forms.Label lblSuppliersValue;
+        private System.Windows.Forms.Label lblProductsValue;
+        private System.Windows.Forms.Label lblActiveOrdersValue;
+        private System.Windows.Forms.Label lblLowStockValue;
+        private Panel pnlRoot;
+        private Panel pnlSpacer;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Utils.RoundedPanel roundedPanel1;
+        private Label label1;
+        private Label lblTotalSalesToday;
+        private Utils.RoundedPanel roundedPanel6;
+        private Label lblLowStockProducts;
+        private Label label12;
+        private Utils.RoundedPanel roundedPanelProducts;
+        private Label lblTotalProducts;
+        private Label label10;
+        private Utils.RoundedPanel roundedPanel4;
+        private Label lblTotalCustomers;
+        private Label label8;
+        private Utils.RoundedPanel roundedPanel3;
+        private Label lblTotalActiveOrders;
+        private Label label6;
+        private Utils.RoundedPanel roundedPanel2;
+        private Label lblTotalOrdersToday;
+        private Label label4;
+        private Label lblTitle;
+        private Utils.RoundedPanel pnlHeader;
+        private Utils.RoundedPanel pnlLogo;
+        private PictureBox pictureBox1;
     }
 }

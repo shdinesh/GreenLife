@@ -12,13 +12,15 @@ namespace GreenLifeOS.UI
     {
         private readonly IOrderService orderService;
         private BindingList<ProductVo> orderProducts;
-        private IProductService productService;
+        private readonly IProductService productService;
+        private readonly IUserService userService;
 
         public CustomerOrderControl()
         {
             orderService = new OrderService();
             orderProducts = new BindingList<ProductVo>();
             productService = new ProductService();
+            userService = new UserService();
             orderProducts.ListChanged += OrderItems_ListChanged;
             InitializeComponent();
         }
@@ -129,17 +131,28 @@ namespace GreenLifeOS.UI
                     return;
                 }
 
-                var order = new Order()
-                {
-                    Date = DateTime.Now,
-                    Amount = orderAmount,
-                    Status = OrderStatus.PENDING.ToString(),
-                    CustomerId = AppSession.CurrentUser.UserId,
-                    LastUpdated = DateTime.Now,
-                    OrderNumber = generateOrderNumber(),
+                string message = "Do you want to place this order?";
+                string caption = "Confirmation";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
 
-                };
-                AddNewOrder(order);
+                DialogResult result = ShowConfirmationDialog(caption, message, buttons);
+
+                if (result == DialogResult.Yes)
+                {
+                    var order = new Order()
+                    {
+                        Date = DateTime.Now,
+                        Amount = orderAmount,
+                        Status = OrderStatus.PENDING.ToString(),
+                        CustomerId = AppSession.CurrentUser.CustomerId,
+                        LastUpdated = DateTime.Now,
+                        OrderNumber = generateOrderNumber(),
+
+                    };
+                    AddNewOrder(order);
+                }
+
+
 
             }
             catch (Exception ex)
@@ -188,9 +201,17 @@ namespace GreenLifeOS.UI
         {
             try
             {
-                ordersListGV.AutoGenerateColumns = false;
-                ordersListGV.DataSource = null;
-                ordersListGV.DataSource = orderService.GetAllOrders();
+                if (AppSession.CurrentUser != null)
+                {
+                    Customer customer = userService.GetUserById(AppSession.CurrentUser.UserId).Customers.FirstOrDefault<Customer>(); ;
+                    if (customer != null)
+                    {
+                        ordersListGV.AutoGenerateColumns = false;
+                        ordersListGV.DataSource = null;
+                        ordersListGV.DataSource = orderService.GetAllOrdersByCustomer(customer.Id);
+                    }
+                }
+
             }
             catch (Exception ex)
             {
@@ -258,6 +279,11 @@ namespace GreenLifeOS.UI
             return orderNumber;
 
 
+        }
+
+        private void CustomerOrderControl_Load(object sender, EventArgs e)
+        {
+            lblCurrentDate.Text = DateTime.Now.ToString("yyyy/MM/dd hh:mm tt");
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using GreenLifeOS.Repository;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GreenLifeOS.Service
 {
@@ -55,13 +56,14 @@ namespace GreenLifeOS.Service
             }
         }
 
-        public List<Customer> GetAllCustomers()
+        public List<CustomerVo> GetAllCustomers()
         {
             try
             {
-                var categories = customerRepository.GetAllCustomers();
+                var customers = customerRepository.GetAllCustomers()
+                    ?? Enumerable.Empty<Customer>();
 
-                return categories ?? new List<Customer>();
+                return customers.Select(MapToCustomerVo).ToList();
             }
             catch (Exception ex)
             {
@@ -108,6 +110,22 @@ namespace GreenLifeOS.Service
             {
                 throw new InvalidOperationException("An error occurred while updating the Customer. Please try again.", ex);
             }
+        }
+
+        private static CustomerVo MapToCustomerVo(Customer customer)
+        {
+            if (customer == null)
+                throw new ArgumentNullException(nameof(customer));
+
+            return new CustomerVo
+            {
+                Id = customer.Id,
+                Title = customer.Title,
+                FirstName = customer.FirstName,
+                LastName = customer.LastName,
+                PhoneNumber = customer.PhoneNumber,
+                Email = customer.Email,
+            };
         }
 
 

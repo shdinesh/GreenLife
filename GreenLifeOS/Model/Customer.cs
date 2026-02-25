@@ -7,6 +7,7 @@ namespace GreenLifeOS
     [Table("customer")]
     public class Customer
     {
+        [Key]
         [Column("id")]
         public int Id { get; set; }
 
@@ -32,18 +33,14 @@ namespace GreenLifeOS
         [MaxLength(150)]
         public string Email { get; set; }
 
-        [Key]
-        [ForeignKey(nameof(User))]
         [Column("user_id")]
         public int UserId { get; set; }
 
+        [ForeignKey(nameof(UserId))]
         public virtual User User { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
         public virtual ICollection<ProductRatingAndReview> RatingAndReviews { get; set; }
-
-
-
 
 
     }

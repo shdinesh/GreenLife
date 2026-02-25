@@ -50,8 +50,10 @@ namespace GreenLifeOS.UI
             this.lblRoleName = new System.Windows.Forms.Label();
             this.lblProfileName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pnlProfilePicBox = new GreenLifeOS.Utils.RoundedPanel();
             this.userInfoBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlProfilePicBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -246,7 +248,7 @@ namespace GreenLifeOS.UI
             this.lblRoleName.AutoSize = true;
             this.lblRoleName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRoleName.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lblRoleName.Location = new System.Drawing.Point(639, 259);
+            this.lblRoleName.Location = new System.Drawing.Point(651, 269);
             this.lblRoleName.Name = "lblRoleName";
             this.lblRoleName.Size = new System.Drawing.Size(64, 17);
             this.lblRoleName.TabIndex = 20;
@@ -257,7 +259,7 @@ namespace GreenLifeOS.UI
             this.lblProfileName.AutoSize = true;
             this.lblProfileName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProfileName.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lblProfileName.Location = new System.Drawing.Point(572, 234);
+            this.lblProfileName.Location = new System.Drawing.Point(584, 244);
             this.lblProfileName.Name = "lblProfileName";
             this.lblProfileName.Size = new System.Drawing.Size(146, 17);
             this.lblProfileName.TabIndex = 19;
@@ -266,24 +268,34 @@ namespace GreenLifeOS.UI
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Image = global::GreenLifeOS.Properties.Resources.customer_profile;
-            this.pictureBox1.Location = new System.Drawing.Point(570, 29);
+            this.pictureBox1.Location = new System.Drawing.Point(7, 6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(202, 190);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 18;
             this.pictureBox1.TabStop = false;
             // 
+            // pnlProfilePicBox
+            // 
+            this.pnlProfilePicBox.BorderColor = System.Drawing.Color.LightGray;
+            this.pnlProfilePicBox.BorderRadius = 20;
+            this.pnlProfilePicBox.BorderSize = 1;
+            this.pnlProfilePicBox.Controls.Add(this.pictureBox1);
+            this.pnlProfilePicBox.Location = new System.Drawing.Point(569, 31);
+            this.pnlProfilePicBox.Name = "pnlProfilePicBox";
+            this.pnlProfilePicBox.Size = new System.Drawing.Size(215, 201);
+            this.pnlProfilePicBox.TabIndex = 21;
+            // 
             // CustomerProfileControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pnlProfilePicBox);
             this.Controls.Add(this.lblRoleName);
             this.Controls.Add(this.userInfoBox);
             this.Controls.Add(this.lblProfileName);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "CustomerProfileControl";
@@ -292,6 +304,7 @@ namespace GreenLifeOS.UI
             this.userInfoBox.ResumeLayout(false);
             this.userInfoBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlProfilePicBox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,5 +332,6 @@ namespace GreenLifeOS.UI
         private System.Windows.Forms.Label lblRoleName;
         private System.Windows.Forms.Label lblProfileName;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private Utils.RoundedPanel pnlProfilePicBox;
     }
 }
