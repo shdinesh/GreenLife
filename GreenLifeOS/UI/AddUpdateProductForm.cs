@@ -1,7 +1,8 @@
 ﻿using GreenLifeOS.Service;
+using GreenLifeOS.Validation;
+using GreenLifeOS.Validation.Request;
 using System;
 using System.IO;
-using System.Reflection;
 using System.Windows.Forms;
 
 namespace GreenLifeOS.UI
@@ -11,6 +12,7 @@ namespace GreenLifeOS.UI
         private readonly IProductCategoryService productCategoryService;
         private readonly IProductService productService;
         private readonly ProductVo editableProduct = null;
+        private readonly ProductRegistrationValidator validator;
         private readonly string targetFolder = Path.Combine("D:\\Workspace\\Docs\\TopUp\\Subs\\AD\\CW1\\Products");
 
 
@@ -20,6 +22,7 @@ namespace GreenLifeOS.UI
             productCategoryService = new ProductCategoryService();
             productService = new ProductService();
             this.editableProduct = editableProduct;
+            this.validator = new ProductRegistrationValidator();
 
         }
 
@@ -28,16 +31,27 @@ namespace GreenLifeOS.UI
             InitializeComponent();
             productCategoryService = new ProductCategoryService();
             productService = new ProductService();
+            this.validator = new ProductRegistrationValidator();
 
         }
 
         private void btnSupSave_Click(object sender, EventArgs e)
         {
+            ProductRegistrationRequest request = ReadForm();
+
+            var validationResult = validator.Validate(request);
+            if (!validationResult.IsValid)
+            {
+                MessageBox.Show(validationResult.Message, "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
             try
             {
                 double sellingPrice = 0.00;
                 double discount = 0.00;
-                if (!double.TryParse(txtProductSellingPrice.Text.Trim(), out sellingPrice))
+                /*if (!double.TryParse(txtProductSellingPrice.Text.Trim(), out sellingPrice))
                 {
                     MessageBox.Show("Please enter a valid selling price.",
                                     "Invalid Input",
@@ -52,7 +66,9 @@ namespace GreenLifeOS.UI
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Warning);
                     return;
-                }
+                }*/
+                double.TryParse(txtProductSellingPrice.Text.Trim(), out sellingPrice);
+                double.TryParse(txtDiscount.Text.Trim(), out discount);
                 var srcImagePath = txtImagePath.Text?.Trim();
 
                 if (!Directory.Exists(targetFolder))
@@ -60,7 +76,7 @@ namespace GreenLifeOS.UI
                     Directory.CreateDirectory(targetFolder);
                 }
 
-                String destinationPath  = uploadFile(srcImagePath);
+                String destinationPath = uploadFile(srcImagePath);
 
                 var newProduct = new Product()
                 {
@@ -86,7 +102,7 @@ namespace GreenLifeOS.UI
             catch (Exception ex)
             {
                 LogError($"Error saving product category", ex);
-                ShowErrorMessage("Error", "An error occurred while saving the product category. Please try again. " + ex.Message);
+                ShowErrorMessage("Error", "An error occurred while saving Product. Please try again. " + ex.Message);
             }
             finally
             {
@@ -148,6 +164,9 @@ namespace GreenLifeOS.UI
                 txtProductCode.Text = editableProduct.Code;
                 txtProductDescription.Text = editableProduct.Description;
                 cmbProductCategory.SelectedValue = editableProduct.CategoryId;
+                txtProductSellingPrice.Text = editableProduct.SellingPrice.ToString();
+                txtDiscount.Text = editableProduct.Discount.ToString();
+                txtImagePath.Text = editableProduct.Photo;
 
             }
         }
@@ -182,21 +201,49 @@ namespace GreenLifeOS.UI
 
         private String uploadFile(String srcImagePath)
         {
+            if (string.IsNullOrWhiteSpace(srcImagePath))
+                return string.Empty;
+
             // Optional: avoid overwriting existing file
             var fileInfo = new FileInfo(srcImagePath);
 
             string destinationPath = Path.Combine(targetFolder, fileInfo.Name);
 
-                if (File.Exists(destinationPath))
-                {
-                    string newFileName =
-                        $"{Path.GetFileNameWithoutExtension(fileInfo.Name)}";
-        destinationPath = Path.Combine(targetFolder, newFileName);
-                }
+            if (File.Exists(destinationPath))
+            {
+                string newFileName =
+                    $"{Path.GetFileNameWithoutExtension(fileInfo.Name)}";
+                destinationPath = Path.Combine(targetFolder, newFileName);
+            }
 
-             // Copy file
+            // Copy file
             File.Copy(srcImagePath, destinationPath);
             return destinationPath;
-            }
+        }
+
+        private ProductRegistrationRequest ReadForm()
+        {
+            return new ProductRegistrationRequest
+            {
+                Name = txtProductName.Text.Trim(),
+                Code = txtProductCode.Text.Trim(),
+                CategoryId = cmbProductCategory.SelectedValue.ToString(),
+                Description = txtProductDescription.Text.Trim(),
+                SellingPrice = txtProductSellingPrice.Text,
+                Discount = txtDiscount.Text,
+                Photo = txtImagePath.Text.Trim()
+            };
+        }
+
+        private void btnClearFields_Click(object sender, EventArgs e)
+        {
+            txtProductName.Text = string.Empty;
+            txtProductCode.Text = string.Empty;
+            cmbProductCategory.SelectedValue = string.Empty;
+            txtProductDescription.Text = string.Empty;
+            txtProductSellingPrice.Text = string.Empty;
+            txtDiscount.Text = string.Empty;
+            txtImagePath.Text = string.Empty;
+        }
     }
 }

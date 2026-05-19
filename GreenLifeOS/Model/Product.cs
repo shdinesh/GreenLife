@@ -18,7 +18,7 @@ namespace GreenLifeOS
         [Required, MaxLength(20)]
         public string Code { get; set; }
 
-        [Required, MaxLength(200)]
+        [MaxLength(200)]
         public string Description { get; set; }
 
         [Required, Column("selling_price")]

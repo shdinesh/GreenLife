@@ -30,13 +30,13 @@
         {
             this.btnAdminDashboard = new System.Windows.Forms.Button();
             this.btnAdminUsers = new System.Windows.Forms.Button();
-            this.panelRightControl = new System.Windows.Forms.Panel();
             this.btnAdminInventory = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnAdminProfile = new System.Windows.Forms.Button();
             this.btnUserLogout = new System.Windows.Forms.Button();
             this.btnAdminOrders = new System.Windows.Forms.Button();
             this.btnAdminReports = new System.Windows.Forms.Button();
+            this.panelRightControl = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,15 +63,6 @@
             this.btnAdminUsers.Text = "Users";
             this.btnAdminUsers.UseVisualStyleBackColor = true;
             this.btnAdminUsers.Click += new System.EventHandler(this.btnAdminUsers_Click);
-            // 
-            // panelRightControl
-            // 
-            this.panelRightControl.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelRightControl.Location = new System.Drawing.Point(170, 0);
-            this.panelRightControl.Name = "panelRightControl";
-            this.panelRightControl.Size = new System.Drawing.Size(867, 510);
-            this.panelRightControl.TabIndex = 3;
-            this.panelRightControl.Resize += new System.EventHandler(this.panel1_Resize);
             // 
             // btnAdminInventory
             // 
@@ -149,6 +140,15 @@
             this.btnAdminReports.UseVisualStyleBackColor = true;
             this.btnAdminReports.Click += new System.EventHandler(this.btnAdminReports_Click);
             // 
+            // panelRightControl
+            // 
+            this.panelRightControl.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelRightControl.Location = new System.Drawing.Point(170, 0);
+            this.panelRightControl.Name = "panelRightControl";
+            this.panelRightControl.Size = new System.Drawing.Size(867, 510);
+            this.panelRightControl.TabIndex = 3;
+            this.panelRightControl.Resize += new System.EventHandler(this.panel1_Resize);
+            // 
             // AdminMainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,13 +170,13 @@
 
         private System.Windows.Forms.Button btnAdminDashboard;
         private System.Windows.Forms.Button btnAdminUsers;
-        private System.Windows.Forms.Panel panelRightControl;
         private System.Windows.Forms.Button btnAdminInventory;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnAdminReports;
         private System.Windows.Forms.Button btnAdminOrders;
         private System.Windows.Forms.Button btnUserLogout;
         private System.Windows.Forms.Button btnAdminProfile;
+        private System.Windows.Forms.Panel panelRightControl;
     }
 }
 

@@ -64,6 +64,12 @@ namespace GreenLifeOS.Repository
                 .FirstOrDefault(s => s.Id == id);
         }
 
+        public Order GetOrderByNumber(string number)
+        {
+            return this.dbContext.Orders.AsNoTracking()
+                .FirstOrDefault(s => s.OrderNumber == number);
+        }
+
         public Order UpdateOrder(Order order)
         {
             if (order == null)

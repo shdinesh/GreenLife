@@ -54,7 +54,7 @@ namespace GreenLifeOS.UI
                 Customer customer = userService.GetUserById(AppSession.CurrentUser.UserId).Customers.FirstOrDefault<Customer>(); ;
                 if (customer != null)
                 {
-                    UserProfileUpdateForm profileUpdateForm = new UserProfileUpdateForm(customer);
+                    UserProfileUpdateForm profileUpdateForm = new UserProfileUpdateForm(customer, 1);
                     profileUpdateForm.ShowDialog();
                     reloadProfileInfo();
                 }

@@ -26,41 +26,6 @@ namespace GreenLifeOS
             rightContent.Show();
         }
 
-        private void btnSupplier_Click(object sender, EventArgs e)
-        {
-            CustomerDashboardControl customerDashboard = new CustomerDashboardControl();
-            LoadChildForm(customerDashboard);
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-            CustomerOrderControl orderControl = new CustomerOrderControl();
-            LoadChildForm(orderControl);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-            CustomerProfileControl profileControl = new CustomerProfileControl();
-            LoadChildForm(profileControl);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void panel1_Resize(object sender, EventArgs e)
         {
 
@@ -103,6 +68,31 @@ namespace GreenLifeOS
         private void CustomerMainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Close();
+        }
+
+        private void btnCustomerOrderTracking_Click(object sender, EventArgs e)
+        {
+            CustomerOrderTrackingControl customerOrderTracking = new CustomerOrderTrackingControl();
+            LoadChildForm(customerOrderTracking);
+        }
+
+        private void btnCustomerProfile_Click(object sender, EventArgs e)
+        {
+            CustomerProfileControl profileControl = new CustomerProfileControl();
+            LoadChildForm(profileControl);
+        }
+
+        private void btnCustomerDashBoard_Click(object sender, EventArgs e)
+        {
+            CustomerDashboardControl customerDashboard = new CustomerDashboardControl();
+            LoadChildForm(customerDashboard);
+
+        }
+
+        private void btnCustomerOrders_Click(object sender, EventArgs e)
+        {
+            CustomerOrderControl orderControl = new CustomerOrderControl();
+            LoadChildForm(orderControl);
         }
     }
 }

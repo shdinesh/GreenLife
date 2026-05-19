@@ -36,6 +36,27 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <WarningLevel>5</WarningLevel>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
       <HintPath>..\packages\BCrypt.Net-Next.4.0.3\lib\net48\BCrypt.Net-Next.dll</HintPath>
@@ -230,6 +251,12 @@
     <Compile Include="UI\AdminProfileControl.Designer.cs">
       <DependentUpon>AdminProfileControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\CustomerOrderTrackingControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\CustomerOrderTrackingControl.Designer.cs">
+      <DependentUpon>CustomerOrderTrackingControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\CustomerProfileControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -418,7 +445,11 @@
     </Compile>
     <Compile Include="Utils\CSVExport.cs" />
     <Compile Include="Utils\TextBoxPlaceholder.cs" />
+    <Compile Include="Validation\Request\UserProfileUpdateRequest.cs" />
+    <Compile Include="Validation\Request\ProductRegistrationRequest.cs" />
     <Compile Include="Validation\Request\CustomerRegistrationRequest.cs" />
+    <Compile Include="Validation\ProductRegistrationValidator.cs" />
+    <Compile Include="Validation\UserProfileUpdateValidator.cs" />
     <Compile Include="Validation\UserRegistrationValidator.cs" />
     <Compile Include="Validation\ValidationResult.cs" />
     <Compile Include="Validation\Validator.cs" />
@@ -433,6 +464,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\AdminProfileControl.resx">
       <DependentUpon>AdminProfileControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\CustomerOrderTrackingControl.resx">
+      <DependentUpon>CustomerOrderTrackingControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\CustomerProfileControl.resx">
       <DependentUpon>CustomerProfileControl.cs</DependentUpon>

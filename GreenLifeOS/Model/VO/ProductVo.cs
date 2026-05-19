@@ -41,5 +41,8 @@
 
         public virtual long AvailableStock { get; set; }
 
+        public string Photo { get; set; }
+
+
     }
 }

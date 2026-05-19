@@ -11,7 +11,6 @@ namespace GreenLifeOS.UI
         private readonly UserRegistrationValidator validator = new UserRegistrationValidator();
         private readonly ICustomerService customerService;
         private readonly IAdminService adminService;
-        private Customer editableCustomer;
         private UserRole userRole;
 
 
@@ -42,7 +41,6 @@ namespace GreenLifeOS.UI
             txtUsername.Clear();
             txtPassword.Clear();
         }
-
 
         private void RegisterNewCustomer(Customer newCustomer)
         {
@@ -168,29 +166,6 @@ namespace GreenLifeOS.UI
                 this.Text = "Register New Admin";
 
             }
-        }
-
-        private void UpdateCustomer(Customer customer)
-        {
-            try
-            {
-                customer = mapCustomerValues(customer);
-                customerService.UpdateCustomer(customer);
-                ShowSuccessMessage("Success", "Customer updated successfully");
-            }
-            catch (Exception ex)
-            {
-                ShowErrorMessage("Error", "An error occurred while updating the customer. Please try again. " + ex.Message);
-            }
-        }
-
-        private Customer mapCustomerValues(Customer customer)
-        {
-            customer.Id = editableCustomer.Id;
-            customer.User = editableCustomer.User;
-            customer.Orders = editableCustomer.Orders;
-            customer.UserId = editableCustomer.UserId;
-            return customer;
         }
 
         private CustomerRegistrationRequest ReadForm()

@@ -8,6 +8,8 @@ namespace GreenLifeOS.Repository
         Order UpdateOrder(Order order);
         List<Order> GetAllOrders();
         Order GetOrderById(int id);
+        Order GetOrderByNumber(string number);
+
         bool DeleteOrder(int id);
 
     }

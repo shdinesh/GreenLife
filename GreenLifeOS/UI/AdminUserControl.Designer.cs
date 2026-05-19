@@ -35,6 +35,9 @@ namespace GreenLifeOS.UI
             this.btnDeleteCustomer = new System.Windows.Forms.Button();
             this.btnUpdateCustomer = new System.Windows.Forms.Button();
             this.customersGV = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.adminsGV = new System.Windows.Forms.DataGridView();
+            this.btnNewAdmin = new System.Windows.Forms.Button();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerFirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,14 +45,12 @@ namespace GreenLifeOS.UI
             this.CustomerAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerPhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.adminsGV = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnNewAdmin = new System.Windows.Forms.Button();
             this.adminUsersTabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customersGV)).BeginInit();
@@ -125,6 +126,48 @@ namespace GreenLifeOS.UI
             this.customersGV.Size = new System.Drawing.Size(839, 404);
             this.customersGV.TabIndex = 0;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.adminsGV);
+            this.tabPage2.Controls.Add(this.btnNewAdmin);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(842, 481);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Admins";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // adminsGV
+            // 
+            this.adminsGV.AllowUserToAddRows = false;
+            this.adminsGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.adminsGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.adminsGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.Address,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
+            this.adminsGV.Location = new System.Drawing.Point(3, 3);
+            this.adminsGV.MultiSelect = false;
+            this.adminsGV.Name = "adminsGV";
+            this.adminsGV.ReadOnly = true;
+            this.adminsGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.adminsGV.Size = new System.Drawing.Size(841, 407);
+            this.adminsGV.TabIndex = 5;
+            // 
+            // btnNewAdmin
+            // 
+            this.btnNewAdmin.Location = new System.Drawing.Point(729, 440);
+            this.btnNewAdmin.Name = "btnNewAdmin";
+            this.btnNewAdmin.Size = new System.Drawing.Size(96, 23);
+            this.btnNewAdmin.TabIndex = 4;
+            this.btnNewAdmin.Text = "New";
+            this.btnNewAdmin.UseVisualStyleBackColor = true;
+            this.btnNewAdmin.Click += new System.EventHandler(this.btnNewAdmin_Click);
+            // 
             // Id
             // 
             this.Id.DataPropertyName = "Id";
@@ -172,40 +215,9 @@ namespace GreenLifeOS.UI
             // CustomerPhoneNumber
             // 
             this.CustomerPhoneNumber.DataPropertyName = "PhoneNumber";
-            this.CustomerPhoneNumber.HeaderText = "PhoneNumber";
+            this.CustomerPhoneNumber.HeaderText = "Phone Number";
             this.CustomerPhoneNumber.Name = "CustomerPhoneNumber";
             this.CustomerPhoneNumber.ReadOnly = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.adminsGV);
-            this.tabPage2.Controls.Add(this.btnNewAdmin);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(842, 481);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Admins";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // adminsGV
-            // 
-            this.adminsGV.AllowUserToAddRows = false;
-            this.adminsGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.adminsGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.adminsGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
-            this.adminsGV.Location = new System.Drawing.Point(3, 3);
-            this.adminsGV.MultiSelect = false;
-            this.adminsGV.Name = "adminsGV";
-            this.adminsGV.ReadOnly = true;
-            this.adminsGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.adminsGV.Size = new System.Drawing.Size(841, 407);
-            this.adminsGV.TabIndex = 5;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -229,6 +241,13 @@ namespace GreenLifeOS.UI
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "Address";
+            this.Address.HeaderText = "Address";
+            this.Address.Name = "Address";
+            this.Address.ReadOnly = true;
+            // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.DataPropertyName = "Email";
@@ -242,16 +261,6 @@ namespace GreenLifeOS.UI
             this.dataGridViewTextBoxColumn5.HeaderText = "PhoneNumber";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // btnNewAdmin
-            // 
-            this.btnNewAdmin.Location = new System.Drawing.Point(729, 440);
-            this.btnNewAdmin.Name = "btnNewAdmin";
-            this.btnNewAdmin.Size = new System.Drawing.Size(96, 23);
-            this.btnNewAdmin.TabIndex = 4;
-            this.btnNewAdmin.Text = "New";
-            this.btnNewAdmin.UseVisualStyleBackColor = true;
-            this.btnNewAdmin.Click += new System.EventHandler(this.btnNewAdmin_Click);
             // 
             // AdminUserControl
             // 
@@ -280,11 +289,6 @@ namespace GreenLifeOS.UI
         private System.Windows.Forms.Button btnUpdateCustomer;
         private System.Windows.Forms.Button btnNewAdmin;
         private System.Windows.Forms.DataGridView adminsGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn User;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerFirstName;
@@ -292,5 +296,11 @@ namespace GreenLifeOS.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerAddress;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerEmail;
         private System.Windows.Forms.DataGridViewTextBoxColumn CustomerPhoneNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }

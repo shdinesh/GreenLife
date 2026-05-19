@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.IO;
+using System.Text.RegularExpressions;
 
 namespace GreenLifeOS.Validation
 {
@@ -20,6 +21,29 @@ namespace GreenLifeOS.Validation
             v = v.Trim();
             foreach (char c in v) if (!char.IsDigit(c)) return false;
             return true;
+        }
+
+        public static bool IsValidNumber(string input)
+        {
+            if (!string.IsNullOrWhiteSpace(input))
+            {
+                decimal value;
+                return decimal.TryParse(input.Trim(), out value);
+            }
+            return true;
+
+        }
+
+        public static bool IsValidImage(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+                return true;
+            if (!File.Exists(input))
+            {
+                return false;
+            }
+            return true;
+
         }
 
         public static bool Email(string v) =>

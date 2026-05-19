@@ -103,7 +103,8 @@ namespace GreenLifeOS.Service
                 CategoryId = product.Category?.Id ?? 0,
                 Description = product.Description,
                 Discount = product.Discount,
-                AvailableStock = product.AvailableStock?.Quantity ?? 0
+                AvailableStock = product.AvailableStock?.Quantity ?? 0,
+                Photo = product.Photo
             };
         }
 

@@ -45,7 +45,7 @@ namespace GreenLifeOS.Service
             {
                 var existingCustomer = GetCustomerById(id);
                 if (existingCustomer == null)
-                    throw new ArgumentException($"customer with ID {id} not found.", nameof(id));
+                    throw new ArgumentNullException($"customer with ID {id} not found.", nameof(id));
 
                 var result = customerRepository.DeleteCustomer(id);
                 return result;
@@ -125,6 +125,7 @@ namespace GreenLifeOS.Service
                 LastName = customer.LastName,
                 PhoneNumber = customer.PhoneNumber,
                 Email = customer.Email,
+                Address = customer.Address,
             };
         }
 

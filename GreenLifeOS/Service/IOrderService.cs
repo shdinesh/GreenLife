@@ -12,6 +12,8 @@ namespace GreenLifeOS.Service
         Order UpdateOrder(Order order);
         Order UpdateOrderStatus(OrderVo orderVo);
         Order GetOrderById(int id);
+        Order GetOrderByNumber(string number);
+
         bool DeleteOrder(int id);
 
     }

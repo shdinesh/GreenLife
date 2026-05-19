@@ -32,6 +32,7 @@ namespace GreenLifeOS.UI
         {
             this.inventoryTabs = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btnSaveStockReport = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.txtMaxPrice = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,6 +42,14 @@ namespace GreenLifeOS.UI
             this.btnUpdateProduct = new System.Windows.Forms.Button();
             this.btnDeleteProduct = new System.Windows.Forms.Button();
             this.productsGV = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CategoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SellingPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AvailableStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNewProduct = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnUpdateStock = new System.Windows.Forms.Button();
@@ -62,21 +71,12 @@ namespace GreenLifeOS.UI
             this.btnUpdateSupplier = new System.Windows.Forms.Button();
             this.btnDeleteSupplier = new System.Windows.Forms.Button();
             this.suppliersGV = new System.Windows.Forms.DataGridView();
+            this.btnNewSupplier = new System.Windows.Forms.Button();
             this.SupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SupplierName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SupplierAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SupplierEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PhoneNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnNewSupplier = new System.Windows.Forms.Button();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CategoryId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SellingPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AvailableStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSaveStockReport = new System.Windows.Forms.Button();
             this.inventoryTabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productsGV)).BeginInit();
@@ -122,6 +122,18 @@ namespace GreenLifeOS.UI
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Products";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnSaveStockReport
+            // 
+            this.btnSaveStockReport.ForeColor = System.Drawing.Color.LimeGreen;
+            this.btnSaveStockReport.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnSaveStockReport.Location = new System.Drawing.Point(744, 447);
+            this.btnSaveStockReport.Name = "btnSaveStockReport";
+            this.btnSaveStockReport.Size = new System.Drawing.Size(79, 23);
+            this.btnSaveStockReport.TabIndex = 31;
+            this.btnSaveStockReport.Text = "Save Report";
+            this.btnSaveStockReport.UseVisualStyleBackColor = true;
+            this.btnSaveStockReport.Click += new System.EventHandler(this.btnSaveStockReport_Click);
             // 
             // button1
             // 
@@ -223,6 +235,64 @@ namespace GreenLifeOS.UI
             this.productsGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productsGV.Size = new System.Drawing.Size(836, 385);
             this.productsGV.TabIndex = 22;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "Id";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // CategoryId
+            // 
+            this.CategoryId.DataPropertyName = "CategoryId";
+            this.CategoryId.HeaderText = "CategoryId";
+            this.CategoryId.Name = "CategoryId";
+            this.CategoryId.ReadOnly = true;
+            this.CategoryId.Visible = false;
+            // 
+            // PName
+            // 
+            this.PName.DataPropertyName = "Name";
+            this.PName.HeaderText = "Name";
+            this.PName.Name = "PName";
+            this.PName.ReadOnly = true;
+            // 
+            // Code
+            // 
+            this.Code.DataPropertyName = "Code";
+            this.Code.HeaderText = "Code";
+            this.Code.Name = "Code";
+            this.Code.ReadOnly = true;
+            // 
+            // SellingPrice
+            // 
+            this.SellingPrice.DataPropertyName = "SellingPrice";
+            this.SellingPrice.HeaderText = "Selling Price (Rs.)";
+            this.SellingPrice.Name = "SellingPrice";
+            this.SellingPrice.ReadOnly = true;
+            // 
+            // Category
+            // 
+            this.Category.DataPropertyName = "Category";
+            this.Category.HeaderText = "Category";
+            this.Category.Name = "Category";
+            this.Category.ReadOnly = true;
+            // 
+            // Description
+            // 
+            this.Description.DataPropertyName = "Description";
+            this.Description.HeaderText = "Description";
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            // 
+            // AvailableStock
+            // 
+            this.AvailableStock.DataPropertyName = "AvailableStock";
+            this.AvailableStock.HeaderText = "Available Stock";
+            this.AvailableStock.Name = "AvailableStock";
+            this.AvailableStock.ReadOnly = true;
             // 
             // btnNewProduct
             // 
@@ -460,12 +530,24 @@ namespace GreenLifeOS.UI
             this.suppliersGV.Size = new System.Drawing.Size(836, 419);
             this.suppliersGV.TabIndex = 14;
             // 
+            // btnNewSupplier
+            // 
+            this.btnNewSupplier.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnNewSupplier.Location = new System.Drawing.Point(614, 448);
+            this.btnNewSupplier.Name = "btnNewSupplier";
+            this.btnNewSupplier.Size = new System.Drawing.Size(68, 23);
+            this.btnNewSupplier.TabIndex = 13;
+            this.btnNewSupplier.Text = "New";
+            this.btnNewSupplier.UseVisualStyleBackColor = true;
+            this.btnNewSupplier.Click += new System.EventHandler(this.btnNewSupplier_Click);
+            // 
             // SupplierId
             // 
             this.SupplierId.DataPropertyName = "Id";
             this.SupplierId.HeaderText = "Supplier ID";
             this.SupplierId.Name = "SupplierId";
             this.SupplierId.ReadOnly = true;
+            this.SupplierId.Visible = false;
             // 
             // SupplierName
             // 
@@ -494,87 +576,6 @@ namespace GreenLifeOS.UI
             this.PhoneNo.HeaderText = "Phone Number";
             this.PhoneNo.Name = "PhoneNo";
             this.PhoneNo.ReadOnly = true;
-            // 
-            // btnNewSupplier
-            // 
-            this.btnNewSupplier.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnNewSupplier.Location = new System.Drawing.Point(614, 448);
-            this.btnNewSupplier.Name = "btnNewSupplier";
-            this.btnNewSupplier.Size = new System.Drawing.Size(68, 23);
-            this.btnNewSupplier.TabIndex = 13;
-            this.btnNewSupplier.Text = "New";
-            this.btnNewSupplier.UseVisualStyleBackColor = true;
-            this.btnNewSupplier.Click += new System.EventHandler(this.btnNewSupplier_Click);
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "Id";
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            // 
-            // CategoryId
-            // 
-            this.CategoryId.DataPropertyName = "CategoryId";
-            this.CategoryId.HeaderText = "CategoryId";
-            this.CategoryId.Name = "CategoryId";
-            this.CategoryId.ReadOnly = true;
-            this.CategoryId.Visible = false;
-            // 
-            // PName
-            // 
-            this.PName.DataPropertyName = "Name";
-            this.PName.HeaderText = "Name";
-            this.PName.Name = "PName";
-            this.PName.ReadOnly = true;
-            // 
-            // Code
-            // 
-            this.Code.DataPropertyName = "Code";
-            this.Code.HeaderText = "Code";
-            this.Code.Name = "Code";
-            this.Code.ReadOnly = true;
-            // 
-            // SellingPrice
-            // 
-            this.SellingPrice.DataPropertyName = "SellingPrice";
-            this.SellingPrice.HeaderText = "Selling Price (Rs.)";
-            this.SellingPrice.Name = "SellingPrice";
-            this.SellingPrice.ReadOnly = true;
-            // 
-            // Category
-            // 
-            this.Category.DataPropertyName = "Category";
-            this.Category.HeaderText = "Category";
-            this.Category.Name = "Category";
-            this.Category.ReadOnly = true;
-            // 
-            // Description
-            // 
-            this.Description.DataPropertyName = "Description";
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
-            this.Description.ReadOnly = true;
-            // 
-            // AvailableStock
-            // 
-            this.AvailableStock.DataPropertyName = "AvailableStock";
-            this.AvailableStock.HeaderText = "Available Stock";
-            this.AvailableStock.Name = "AvailableStock";
-            this.AvailableStock.ReadOnly = true;
-            // 
-            // btnSaveStockReport
-            // 
-            this.btnSaveStockReport.ForeColor = System.Drawing.Color.LimeGreen;
-            this.btnSaveStockReport.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSaveStockReport.Location = new System.Drawing.Point(744, 447);
-            this.btnSaveStockReport.Name = "btnSaveStockReport";
-            this.btnSaveStockReport.Size = new System.Drawing.Size(79, 23);
-            this.btnSaveStockReport.TabIndex = 31;
-            this.btnSaveStockReport.Text = "Save Report";
-            this.btnSaveStockReport.UseVisualStyleBackColor = true;
-            this.btnSaveStockReport.Click += new System.EventHandler(this.btnSaveStockReport_Click);
             // 
             // AdminInventoryControl
             // 
@@ -632,11 +633,6 @@ namespace GreenLifeOS.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn Supplier;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SupplierId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SupplierName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SupplierAddress;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SupplierEmail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNo;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CategoryId;
@@ -647,5 +643,10 @@ namespace GreenLifeOS.UI
         private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn AvailableStock;
         private System.Windows.Forms.Button btnSaveStockReport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SupplierId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SupplierName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SupplierAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SupplierEmail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNo;
     }
 }

@@ -37,13 +37,17 @@ namespace GreenLifeOS.Repository
                     .Select(x => x.ErrorMessage);
                 throw new InvalidOperationException($"Validation failed: {string.Join("; ", errorMessages)}", ex);
             }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException("An error occurred while saving the customer. Please try again.", ex);
+            }
         }
 
         public bool DeleteCustomer(int id)
         {
             var customer = GetCustomerById(id);
             if (customer == null)
-                throw new ArgumentException($"Customer with ID {id} not found.", nameof(id));
+                throw new KeyNotFoundException($"Customer with ID {id} was not found.");
 
             this.dbContext.Customers.Remove(customer);
             this.dbContext.SaveChanges();

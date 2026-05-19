@@ -61,7 +61,7 @@ namespace GreenLifeOS.UI
                 Admin admin = userService.GetUserById(AppSession.CurrentUser.UserId).Admins.FirstOrDefault<Admin>();
                 if (admin != null)
                 {
-                    UserProfileUpdateForm profileUpdateForm = new UserProfileUpdateForm(admin);
+                    UserProfileUpdateForm profileUpdateForm = new UserProfileUpdateForm(admin, 1);
                     profileUpdateForm.ShowDialog();
                     reloadProfileInfo();
                 }

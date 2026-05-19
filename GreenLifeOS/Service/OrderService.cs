@@ -1,9 +1,7 @@
 ﻿using GreenLifeOS.Repository;
-using Mysqlx.Crud;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Windows.Forms;
 
 namespace GreenLifeOS.Service
 {
@@ -121,22 +119,33 @@ namespace GreenLifeOS.Service
             }
         }
 
-
         public Order GetOrderById(int id)
         {
-            try
-            {
-                var category = orderRepository.GetOrderById(id);
+            if (id <= 0)
+                throw new ArgumentOutOfRangeException(nameof(id));
 
-                if (category == null)
-                    throw new ArgumentException($"order with ID {id} not found.", nameof(id));
+            var order = orderRepository.GetOrderById(id);
 
-                return category;
-            }
-            catch (Exception ex)
+            if (order == null)
+                throw new KeyNotFoundException($"Order with ID {id} was not found.");
+
+            return order;
+        }
+        public Order GetOrderByNumber(string number)
+        {
+            if (string.IsNullOrWhiteSpace(number))
             {
-                throw new InvalidOperationException("An error occurred while retrieving the order22. Please try again.", ex);
+                throw new ArgumentException("Order number cannot be null or empty");
             }
+
+            var order = orderRepository.GetOrderByNumber(number.Trim());
+
+            if (order == null)
+            {
+                throw new KeyNotFoundException($"Order with number '{number}' was not found.");
+            }
+
+            return order;
         }
 
         public Order UpdateOrder(Order order)

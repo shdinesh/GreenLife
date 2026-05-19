@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 namespace GreenLifeOS.UI
 {
-    public partial class AdminOrderControl : UserControl
+    public partial class CustomerOrderTrackingControl : UserControl
     {
         private readonly IOrderService orderService;
 
-        public AdminOrderControl()
+        public CustomerOrderTrackingControl()
         {
             orderService = new OrderService();
             InitializeComponent();
@@ -17,7 +17,6 @@ namespace GreenLifeOS.UI
             lblShippedStatus.BackColor = System.Drawing.Color.LightGray;
             lblDeliveredStatus.BackColor = System.Drawing.Color.LightGray;
         }
-
 
 
         private void ShowErrorMessage(string title, string message)
@@ -37,94 +36,9 @@ namespace GreenLifeOS.UI
             System.Diagnostics.Debug.WriteLine($"{message}: {ex.Message}");
         }
 
-
-
-
-        private void customerOrderTabs_TabIndexChanged(object sender, EventArgs e)
+        private void CustomerProfileControl_Load(object sender, EventArgs e)
         {
-            switch (customerOrderTabs.SelectedIndex)
-            {
-                case 0:
-                    break;
-                case 1:
-                    reloadOrders();
-                    break;
-            }
-        }
 
-        private void reloadOrders()
-        {
-            try
-            {
-                ordersListGV.AutoGenerateColumns = false;
-                ordersListGV.DataSource = null;
-
-                OrderStatus? selectedStatus = Enum.TryParse(cmbOrderStatus.SelectedItem?.ToString(), out OrderStatus status) ?
-                    status : (OrderStatus?)null;
-
-                var orders = selectedStatus.HasValue
-                    ? orderService.GetAllOrdersByStatus(selectedStatus.Value.ToString())
-                    : orderService.GetAllOrders();
-
-                ordersListGV.DataSource = orders;
-            }
-            catch (Exception ex)
-            {
-                LogError($"Error loading orders", ex);
-                ShowErrorMessage("Error", "An error occurred while loading orders. Please try again. " + ex.Message);
-            }
-
-        }
-        private void reloadOrderItems(int OrderId)
-        {
-            try
-            {
-                orderLineItemsGV.AutoGenerateColumns = false;
-                orderLineItemsGV.DataSource = null;
-                orderLineItemsGV.DataSource = orderService.GetAllLineItems(OrderId);
-            }
-            catch (Exception ex)
-            {
-                LogError($"Error loading orders", ex);
-                ShowErrorMessage("Error", "An error occurred while loading orders. Please try again. " + ex.Message);
-            }
-
-        }
-
-        private void ShowSuccessMessage(string title, string message)
-        {
-            MessageBox.Show(this, message, title,
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-
-        private void ordersListGV_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (ordersListGV.CurrentRow?.DataBoundItem is OrderVo orderVo)
-            {
-                reloadOrderItems(orderVo.OrderId);
-            }
-
-        }
-
-        private void AdminOrderControl_Load(object sender, EventArgs e)
-        {
-            reloadOrders();
-        }
-
-        private void cmbOrderStatus_SelectedValueChanged(object sender, EventArgs e)
-        {
-            reloadOrders();
-        }
-
-        private void btnChangeOrderStatus_Click(object sender, EventArgs e)
-        {
-            if (ordersListGV.CurrentRow?.DataBoundItem is OrderVo orderVo)
-            {
-                UpdateOrderStatusForm updateOrderStatus = new UpdateOrderStatusForm(orderVo);
-                updateOrderStatus.ShowDialog();
-                reloadOrders();
-            }
 
         }
 
@@ -151,7 +65,7 @@ namespace GreenLifeOS.UI
             }
             catch (KeyNotFoundException ex)
             {
-                ShowErrorMessage("Input Error", ex.Message);
+                ShowErrorMessage("Error", ex.Message);
             }
             catch (Exception ex)
             {
@@ -194,7 +108,6 @@ namespace GreenLifeOS.UI
             lblPendingStatus.BackColor = System.Drawing.Color.LightGray;
             lblShippedStatus.BackColor = System.Drawing.Color.LightGray;
             lblDeliveredStatus.BackColor = System.Drawing.Color.LightGray;
-
         }
     }
 }

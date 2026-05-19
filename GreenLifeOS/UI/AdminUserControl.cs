@@ -76,12 +76,14 @@ namespace GreenLifeOS.UI
 
         private void btnUpdateCustomer_Click(object sender, EventArgs e)
         {
-            //if (customersGV.CurrentRow?.DataBoundItem is Customer customer)
-            //{
-            //    CustomerRegistrationForm customerRegistration = new CustomerRegistrationForm(customer);
-            //    customerRegistration.ShowDialog();
-            //    reloadAllCustomers();
-            //}
+            if (customersGV.CurrentRow?.DataBoundItem is CustomerVo customerVo)
+            {
+                
+                Customer customer = customerService.GetCustomerById(customerVo.Id);
+                UserProfileUpdateForm userProfileUpdate = new UserProfileUpdateForm(customer, 2);
+                userProfileUpdate.ShowDialog();
+                reloadAllCustomers();
+            }
         }
 
         private void AdminUserControl_Load(object sender, EventArgs e)

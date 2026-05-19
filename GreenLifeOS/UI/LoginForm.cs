@@ -116,11 +116,6 @@ namespace GreenLifeOS.UI
             UserRegistrationForm customerRegistration = new UserRegistrationForm(UserRole.CUSTOMER);
             customerRegistration.ShowDialog();
         }
-
-        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Close();
-        }
     }
 
 

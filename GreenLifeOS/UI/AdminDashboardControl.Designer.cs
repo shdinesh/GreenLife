@@ -34,6 +34,7 @@ namespace GreenLifeOS.UI
         {
             this.pnlRoot = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.pnlSpacer = new System.Windows.Forms.Panel();
             this.roundedPanel6 = new GreenLifeOS.Utils.RoundedPanel();
             this.lblLowStockProducts = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@ namespace GreenLifeOS.UI
             this.roundedPanel1 = new GreenLifeOS.Utils.RoundedPanel();
             this.lblTotalSalesToday = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pnlSpacer = new System.Windows.Forms.Panel();
             this.pnlHeader = new GreenLifeOS.Utils.RoundedPanel();
             this.pnlLogo = new GreenLifeOS.Utils.RoundedPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -102,6 +102,14 @@ namespace GreenLifeOS.UI
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(810, 268);
             this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // pnlSpacer
+            // 
+            this.pnlSpacer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlSpacer.Location = new System.Drawing.Point(0, 100);
+            this.pnlSpacer.Name = "pnlSpacer";
+            this.pnlSpacer.Size = new System.Drawing.Size(810, 15);
+            this.pnlSpacer.TabIndex = 1;
             // 
             // roundedPanel6
             // 
@@ -349,14 +357,6 @@ namespace GreenLifeOS.UI
             this.label1.Text = "Total Sales Today (Rs.)";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pnlSpacer
-            // 
-            this.pnlSpacer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlSpacer.Location = new System.Drawing.Point(0, 100);
-            this.pnlSpacer.Name = "pnlSpacer";
-            this.pnlSpacer.Size = new System.Drawing.Size(810, 15);
-            this.pnlSpacer.TabIndex = 1;
-            // 
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.White;
@@ -408,6 +408,7 @@ namespace GreenLifeOS.UI
             // 
             // AdminDashboardControl
             // 
+            this.AutoSize = true;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.pnlRoot);
             this.Name = "AdminDashboardControl";

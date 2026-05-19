@@ -56,6 +56,7 @@
             this.btnClearFields.TabIndex = 20;
             this.btnClearFields.Text = "Clear";
             this.btnClearFields.UseVisualStyleBackColor = true;
+            this.btnClearFields.Click += new System.EventHandler(this.btnClearFields_Click);
             // 
             // btnSaveProductCategory
             // 
